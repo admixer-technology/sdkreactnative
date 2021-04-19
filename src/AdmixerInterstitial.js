@@ -1,0 +1,33 @@
+import { NativeModules, NativeEventEmitter } from 'react-native';
+const { AdmixerInterstitial } = NativeModules;
+const eventEmitter = new NativeEventEmitter(AdmixerInterstitial);
+
+// type AdmixerInterstitialType = {
+//     initInterstitial(zoneId: string): Promise<any>;
+//     loadAd(): void;
+//     showAd(): void;
+//   }
+  const AdmixerInterstitialModule = AdmixerInterstitial ;
+
+function initInterstitial(zoneId) {
+    return AdmixerInterstitialModule.initInterstitial(zoneId);
+} 
+
+function loadAd() {
+    AdmixerInterstitialModule.loadAd();
+}
+
+function showAd() {
+    AdmixerInterstitialModule.showAd();
+}
+
+function addEventListener(eventName, callback) {
+    eventEmitter.addListener(eventName, callback);
+}
+
+export default {
+    initInterstitial,
+    loadAd,
+    showAd,
+    addEventListener
+}

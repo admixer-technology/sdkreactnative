@@ -50,9 +50,13 @@ repositories {
     }
     google()
     jcenter()
+    flatDir {
+      dirs 'libs'
+    }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
+    api(name:'admixer-sdk', ext:'aar')
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* Admixer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* Admixer.m */; };
-
+		40AE5ECE2626375000B1BBBB /* AMRNViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5ECD2626374A00B1BBBB /* AMRNViewManager.m */; };
+		40AE5F1E26263AED00B1BBBB /* AMRNBannerAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F1D26263A4700B1BBBB /* AMRNBannerAdView.m */; };
+		40AE5F2026263AF000B1BBBB /* AMRNBannerAdView.h in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */; };
+		40AE5F512626423800B1BBBB /* AMRNInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F502626423800B1BBBB /* AMRNInterstitial.m */; };
+		40AE5F562626516C00B1BBBB /* AMRNEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F552626516C00B1BBBB /* AMRNEvents.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,10 +28,15 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libAdmixer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdmixer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		40AE5ECD2626374A00B1BBBB /* AMRNViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNViewManager.m; sourceTree = "<group>"; };
+		40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNBannerAdView.h; sourceTree = "<group>"; };
+		40AE5F1D26263A4700B1BBBB /* AMRNBannerAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNBannerAdView.m; sourceTree = "<group>"; };
+		40AE5F4F2626421A00B1BBBB /* AMRNInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNInterstitial.h; sourceTree = "<group>"; };
+		40AE5F502626423800B1BBBB /* AMRNInterstitial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNInterstitial.m; sourceTree = "<group>"; };
+		40AE5F542626515200B1BBBB /* AMRNEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNEvents.h; sourceTree = "<group>"; };
+		40AE5F552626516C00B1BBBB /* AMRNEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNEvents.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* Admixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admixer.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* Admixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admixer.m; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +61,15 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
+				40AE5F542626515200B1BBBB /* AMRNEvents.h */,
+				40AE5F552626516C00B1BBBB /* AMRNEvents.m */,
+				40AE5F4F2626421A00B1BBBB /* AMRNInterstitial.h */,
+				40AE5F502626423800B1BBBB /* AMRNInterstitial.m */,
+				40AE5ECD2626374A00B1BBBB /* AMRNViewManager.m */,
+				40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */,
+				40AE5F1D26263A4700B1BBBB /* AMRNBannerAdView.m */,
 				B3E7B5881CC2AC0600A0062D /* Admixer.h */,
 				B3E7B5891CC2AC0600A0062D /* Admixer.m */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,9 +131,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				B3E7B58A1CC2AC0600A0062D /* Admixer.m in Sources */,
-
+				40AE5F2026263AF000B1BBBB /* AMRNBannerAdView.h in Sources */,
+				40AE5F1E26263AED00B1BBBB /* AMRNBannerAdView.m in Sources */,
+				40AE5ECE2626375000B1BBBB /* AMRNViewManager.m in Sources */,
+				40AE5F562626516C00B1BBBB /* AMRNEvents.m in Sources */,
+				40AE5F512626423800B1BBBB /* AMRNInterstitial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +248,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Admixer;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Debug;
 		};
@@ -251,7 +264,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Admixer;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Release;
 		};

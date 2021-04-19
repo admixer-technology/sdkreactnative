@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://admixer.visualstudio.com/_git/AdmixerSDKExamples.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm}"
+  s.source_files = "ios/*.{h,m,mm}"
 
   s.dependency "React-Core"
+  s.vendored_frameworks = 'ios/AdmixerSDK.framework'
 end

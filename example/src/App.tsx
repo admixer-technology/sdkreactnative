@@ -14,6 +14,22 @@ class App extends React.Component {
     console.log("onAdLoaded");
   }  
 
+  onAdReqeustFailed(event: any) {
+    console.log("onAdFailed");
+  }
+
+  onAdExpanded(event: any){
+    console.log("onAdExpanded");
+  }
+
+  onAdCollapsed(event: any) {
+    console.log("onAdCollapsed");
+  }
+
+  onAdClicked(event: any) {
+    console.log("onAdClicked");
+  }
+
   render() {
 
   // Interstitial
@@ -31,10 +47,16 @@ class App extends React.Component {
             zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
             bannerWidth: 300,
             bannerHeight: 250,
-            sizes:[[300, 250]],
+            sizes:[[300, 250],[320, 50]],
             autoRefresh: 15000,
+            autoRefreshEnabled: true,
+            resizeAdToFitContainer: true,
           }}
-          onAdLoaded={this.onAdLoaded}/>
+          onAdLoaded={this.onAdLoaded}
+          onAdRequestFailed={this.onAdReqeustFailed}
+          onAdExpanded={this.onAdExpanded}
+          onAdCollapsed={this.onAdCollapsed}
+          onAdClicked={this.onAdClicked}/>
       </View>
     );
 

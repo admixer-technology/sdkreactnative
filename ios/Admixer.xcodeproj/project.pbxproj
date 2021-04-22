@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		404F3392262DDDF9000B5C6D /* AdmixerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */; };
 		40AE5ECE2626375000B1BBBB /* AMRNViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5ECD2626374A00B1BBBB /* AMRNViewManager.m */; };
 		40AE5F1E26263AED00B1BBBB /* AMRNBannerAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F1D26263A4700B1BBBB /* AMRNBannerAdView.m */; };
 		40AE5F2026263AF000B1BBBB /* AMRNBannerAdView.h in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libAdmixer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdmixer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdmixerSDK.framework; sourceTree = "<group>"; };
 		40AE5ECD2626374A00B1BBBB /* AMRNViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNViewManager.m; sourceTree = "<group>"; };
 		40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNBannerAdView.h; sourceTree = "<group>"; };
 		40AE5F1D26263A4700B1BBBB /* AMRNBannerAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNBannerAdView.m; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404F3392262DDDF9000B5C6D /* AdmixerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,14 @@
 				134814201AA4EA6300B7C361 /* libAdmixer.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		404F3390262DDDF9000B5C6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		58B511D21A9E6C8500147676 = {
@@ -71,6 +82,7 @@
 				B3E7B5881CC2AC0600A0062D /* Admixer.h */,
 				B3E7B5891CC2AC0600A0062D /* Admixer.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				404F3390262DDDF9000B5C6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +250,10 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -254,6 +270,10 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

@@ -16,11 +16,17 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMRNBannerAdView) {
     NSArray* sizes = [json objectForKey:@"sizes"];
     NSString* clickThrough = [json objectForKey:@"clickThrough"];
     NSInteger autoRefresh = [[json valueForKey:@"autoRefresh"] integerValue];
+    bool autoRefreshEnabled = [[json valueForKey:@"autoRefreshEnabled"] boolValue];
+    bool resizeAdToFitContainer = [[json valueForKey:@"resizeAdToFitContainer"] boolValue];
     
-    [view setConfiguration:zoneId withBannerWidth:bannerWidth withBannerHeight:bannerHeight withClickThrough:clickThrough withSizes:sizes withAutoRefresh:autoRefresh];
+    [view setConfiguration:zoneId withBannerWidth:bannerWidth withBannerHeight:bannerHeight withClickThrough:clickThrough withSizes:sizes withAutoRefresh:autoRefresh withAutoRefreshEnabled:autoRefreshEnabled withResizeAdToFitContainer:resizeAdToFitContainer];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onAdLoaded, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onAdRequestFailed, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onAdExpanded, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onAdCollapsed, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onAdClicked, RCTBubblingEventBlock)
 
 - (UIView *) view
 {

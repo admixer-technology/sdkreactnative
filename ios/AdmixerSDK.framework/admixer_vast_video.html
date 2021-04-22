@@ -42,6 +42,10 @@
             console.log("complete");
             sendEvent("video-complete");
         });
+        adPlayer.on("skip", function () {
+            console.log("skip");
+            sendEvent("video-skip");
+        });
         adPlayer.on("firstquartile", function () {
             console.log("firstquartile");
             sendEvent("video-first-quartile");

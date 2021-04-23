@@ -14,6 +14,8 @@
 
 AMBannerAdView* adView;
 
+#pragma mark Constructors
+
 - (id) initWithFrame:(CGRect)frame;
 {
     self = [super initWithFrame:frame];
@@ -24,6 +26,8 @@ AMBannerAdView* adView;
     self = [super initWithCoder:coder];
     return self;
 }
+
+#pragma mark Configuration
 
 - (void) setConfiguration:(NSString *)zoneId withBannerWidth:(NSInteger)bannerWidth withBannerHeight:(NSInteger)bannerHeight withClickThrough:(NSString *)clickThrough withSizes:(NSArray *)sizes withAutoRefresh:(NSInteger)autoRefresh withAutoRefreshEnabled:(bool)autoRefreshEnabled withResizeAdToFitContainer:(bool)resizeAdToFitContainer {
     
@@ -47,6 +51,18 @@ AMBannerAdView* adView;
         adView.adSizes = adSizes;
     }
     
+    if(clickThrough != nil) {
+        if([clickThrough isEqualToString:@"open_sdk_browser"]) {
+            adView.clickThroughAction = AMClickThroughActionOpenSDKBrowser;
+        } else
+            if([clickThrough isEqualToString:@"open_device_browser"]) {
+                adView.clickThroughAction = AMClickThroughActionOpenDeviceBrowser;
+            } else
+                if([clickThrough isEqualToString:@"return_url"]) {
+                    adView.clickThroughAction = AMClickThroughActionReturnURL;
+                }
+    }
+    
     if(autoRefresh > 1000) {
         autoRefresh = autoRefresh / 1000;
     }
@@ -66,6 +82,8 @@ AMBannerAdView* adView;
     [self addSubview:adView];
 }
 
+#pragma mark HandleClick
+
 - (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event{
     if([adView pointInside:[self convertPoint:point toView:adView] withEvent:event]) {
         return YES;
@@ -77,37 +95,37 @@ AMBannerAdView* adView;
 
 - (void) adDidReceiveAd:(id)ad {
     if(self.onAdLoaded != nil) {
-        self.onAdLoaded(@{@"event":@"onAdLoaded"});
+        self.onAdLoaded(@{@"event":ON_AD_LOADED_EVENT});
     }
 }
 
 - (void) ad:(id)ad requestFailedWithError:(NSError *)error {
-    if(self.onAdRequestFailed != nil) {
-        self.onAdRequestFailed(@{@"event":@"onAdRequestFailed",@"msg":error.localizedDescription});
+    if(self.onAdLoadFailed != nil) {
+        self.onAdLoadFailed(@{@"event":ON_AD_LOAD_FAILED_EVENT,@"msg":error.localizedDescription});
     }
 }
 
 - (void) adDidPresent:(id)ad {
     if(self.onAdExpanded != nil) {
-        self.onAdExpanded(@{@"event":@"onAdExpanded"});
+        self.onAdExpanded(@{@"event":ON_AD_EXPANDED_EVENT});
     }
 }
 
 - (void) adDidClose:(id)ad {
     if(self.onAdCollapsed != nil) {
-        self.onAdCollapsed(@{@"event":@"onAdCollapsed"});
+        self.onAdCollapsed(@{@"event":ON_AD_COLLAPSED_EVENT});
     }
 }
 
 - (void) adWasClicked:(id)ad {
     if(self.onAdClicked != nil) {
-        self.onAdClicked(@{@"event":@"onAdClicked"});
+        self.onAdClicked(@{@"event":ON_AD_CLICKED_EVENT});
     }
 }
 
 - (void) adWasClicked:(AMAdView *)ad withURL:(NSString *)urlString {
     if(self.onAdClicked != nil) {
-        self.onAdClicked(@{@"event":@"onAdClicked",@"url":urlString});
+        self.onAdClicked(@{@"event":ON_AD_CLICKED_EVENT,@"clickUrl":urlString});
     }
 }
 

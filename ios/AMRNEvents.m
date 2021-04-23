@@ -10,7 +10,7 @@
 #import "AMRNEvents.h"
 
 NSString *const ON_AD_LOADED_EVENT = @"onAdLoaded";
-NSString *const ON_AD_REQUEST_FAILED_EVENT = @"onAdReqeustFailed";
+NSString *const ON_AD_LOAD_FAILED_EVENT = @"onAdLoadFailed";
 NSString *const ON_AD_EXPANDED_EVENT = @"onAdExpanded";
 NSString *const ON_AD_COLLAPSED_EVENT = @"onAdCollapsed";
 NSString *const ON_AD_CLICKED_EVENT = @"onAdClicked";

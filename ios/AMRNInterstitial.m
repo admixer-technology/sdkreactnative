@@ -21,7 +21,7 @@ RCT_EXPORT_METHOD(initInterstitial:(NSString*) zoneId
     dispatch_async(dispatch_get_main_queue(), ^{
         interstitial = [[AMInterstitialAd alloc] initWithPlacementId:zoneId];
         interstitial.delegate = self;
-        resolve(@{@"a":@"b"});
+        resolve(@{@"done":@"true"});
     });
 }
 RCT_EXPORT_METHOD(loadAd)
@@ -48,7 +48,7 @@ RCT_EXPORT_METHOD(showAd)
 }
 
 - (void) ad:(id)ad requestFailedWithError:(NSError *)error {
-    [self sendEventWithName:ON_AD_REQUEST_FAILED_EVENT body:@{@"event":ON_AD_REQUEST_FAILED_EVENT,@"msg":error.localizedDescription}];
+    [self sendEventWithName:ON_AD_LOAD_FAILED_EVENT body:@{@"event":ON_AD_LOAD_FAILED_EVENT,@"msg":error.localizedDescription}];
 }
 
 - (void) adWillPresent:(id)ad {
@@ -70,7 +70,7 @@ RCT_EXPORT_METHOD(showAd)
 #pragma mark RCTEventEmitter
 
 - (NSArray<NSString*>*)supportedEvents {
-    return @[ON_AD_LOADED_EVENT,ON_AD_REQUEST_FAILED_EVENT,ON_AD_EXPANDED_EVENT,ON_AD_COLLAPSED_EVENT,ON_AD_CLICKED_EVENT];
+    return @[ON_AD_LOADED_EVENT,ON_AD_LOAD_FAILED_EVENT,ON_AD_EXPANDED_EVENT,ON_AD_COLLAPSED_EVENT,ON_AD_CLICKED_EVENT];
 }
 
 @end

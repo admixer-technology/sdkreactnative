@@ -23,7 +23,7 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMRNBannerAdView) {
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onAdLoaded, RCTBubblingEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(onAdRequestFailed, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onAdLoadFailed, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdExpanded, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdCollapsed, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdClicked, RCTBubblingEventBlock)

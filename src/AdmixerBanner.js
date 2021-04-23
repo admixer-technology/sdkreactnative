@@ -11,7 +11,7 @@ const BannerPropTypes = {
     autoRefreshEnabled: PropTypes.bool,
     resizeAdToFitContainer: PropTypes.bool,
   }).isRequired,
-  onAdRequestFailed: PropTypes.func,
+  onAdLoadFailed: PropTypes.func,
   onAdLoaded: PropTypes.func,
   onAdExpanded: PropTypes.func,
   onAdCollapsed: PropTypes.func,
@@ -34,7 +34,7 @@ export default class AdmixerBanner extends Component {
       style: {width: 0, height: 0},
     };
     this._onResize = this._onResize.bind(this);
-    this._onAdRequestFailed = this._onAdRequestFailed.bind(this);
+    this._onAdLoadFailed = this._onAdLoadFailed.bind(this);
     this._onAdLoaded = this._onAdLoaded.bind(this);
     this._onAdExpanded = this._onAdExpanded.bind(this);
     this._onAdCollapsed = this._onAdCollapsed.bind(this);
@@ -49,10 +49,10 @@ export default class AdmixerBanner extends Component {
       },
     });
   }
-  _onAdRequestFailed(event) {
+  _onAdLoadFailed(event) {
     const errorCode = event.nativeEvent.errorCode;
-    if (this.props.onAdRequestFailed) {
-      this.props.onAdRequestFailed(errorCode);
+    if (this.props.onAdLoadtFailed) {
+      this.props.onAdLoadFailed(errorCode);
     }
   }
   _onAdLoaded() {
@@ -83,7 +83,7 @@ export default class AdmixerBanner extends Component {
           style={StyleSheet.create(this.state.style)}
           config={this.props.config}
           onResize={this._onResize}
-          onAdRequestFailed={this._onAdRequestFailed}
+          onAdLoadFailed={this._onAdLoadFailed}
           onAdLoaded={this._onAdLoaded}
           onAdExpanded={this._onAdExpanded}
           onAdCollapsed={this._onAdCollapsed}

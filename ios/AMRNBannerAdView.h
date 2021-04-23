@@ -12,12 +12,13 @@
 #import <UIKit/UIKit.h>
 #import <React/RCTComponent.h>
 #import <AdmixerSDK/AdmixerSDK.h>
+#import "AMRNEvents.h"
 
 @interface AMRNBannerAdView : UIView <AMBannerAdViewDelegate>
 
 @property (nonatomic, assign) NSDictionary* config;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdLoaded;
-@property (nonatomic, copy) RCTBubblingEventBlock onAdRequestFailed;
+@property (nonatomic, copy) RCTBubblingEventBlock onAdLoadFailed;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdExpanded;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdCollapsed;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdClicked;

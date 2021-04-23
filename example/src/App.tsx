@@ -14,7 +14,7 @@ class App extends React.Component {
     console.log("onAdLoaded");
   }  
 
-  onAdReqeustFailed(event: any) {
+  onAdLoadFailed(event: any) {
     console.log("onAdFailed");
   }
 
@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   onAdClicked(event: any) {
-    console.log("onAdClicked");
+    console.log("onAdClicked "+event.event);
   }
 
   render() {
@@ -37,8 +37,12 @@ class App extends React.Component {
   //   (a:any) => { AdmixerInterstitial.loadAd(); }
   // );
   // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+  //   console.log("onAdLoaded");
   //   AdmixerInterstitial.showAd();
   // });
+  // AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+  //   console.log("onAdClicked");
+  // })
 
     return (
       <View style={styles.container}>
@@ -48,12 +52,13 @@ class App extends React.Component {
             bannerWidth: 300,
             bannerHeight: 250,
             sizes:[[300, 250],[320, 50]],
+            clickThrough: "return_url",
             autoRefresh: 15000,
             autoRefreshEnabled: true,
             resizeAdToFitContainer: true,
           }}
           onAdLoaded={this.onAdLoaded}
-          onAdRequestFailed={this.onAdReqeustFailed}
+          onAdLoadFailed={this.onAdLoadFailed}
           onAdExpanded={this.onAdExpanded}
           onAdCollapsed={this.onAdCollapsed}
           onAdClicked={this.onAdClicked}/>

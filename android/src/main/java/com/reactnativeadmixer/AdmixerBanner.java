@@ -38,11 +38,11 @@ public class AdmixerBanner extends BannerAdView implements AdListener {
     @Override
     public void onAdRequestFailed(AdView bav, ResultCode errorCode) {
         if (errorCode == null) {
-            sendEvent(AdmixerJSEvent.ON_AD_REQUEST_FAILED_EVENT, null);
+            sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, null);
         } else {
             WritableMap event = Arguments.createMap();
             event.putString("errorCode", errorCode.toString());
-            sendEvent(AdmixerJSEvent.ON_AD_REQUEST_FAILED_EVENT, event);
+            sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, event);
         }
     }
 

@@ -73,7 +73,7 @@ public class AdmixerInterstitial extends ReactContextBaseJavaModule implements A
 
     @Override
     public void onAdRequestFailed(AdView av, ResultCode rc) {
-        sendEvent(AdmixerJSEvent.ON_AD_REQUEST_FAILED_EVENT, rc.toString());
+        sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, rc.toString());
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import android.os.Handler;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.util.Log;
 
 import net.admixer.sdk.AdSize;
 import net.admixer.sdk.ClickThroughAction;
@@ -24,6 +25,8 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
     public static final String SIZES_KEY = "sizes";
     public static final String CLICK_THROUGH_KEY = "clickThrough";
     public static final String AUTO_REFRESH_KEY = "autoRefresh";
+    public static final String AUTO_REFRESH_ENABLED_KEY = "autoRefreshEnabled";
+    public static final String RESIZE_AD_TO_FIT_CONTAINER_KEY = "resizeAdToFitContainer";
     private ReactContext reactContext;
 
     public AdmixerBannerViewManager(ReactContext rc) {
@@ -70,10 +73,28 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
             }
         }
 
-        // TODO
-//        adView.setAutoRefreshInterval(
-//                config.hasKey(AUTO_REFRESH_KEY) ? config.getInt(AUTO_REFRESH_KEY) : 0
-//        );
+        if(config.hasKey(AUTO_REFRESH_KEY)) {
+            int autoRefresh = config.getInt(AUTO_REFRESH_KEY);
+            adView.setAutoRefreshInterval(autoRefresh);
+        }
+
+        if(config.hasKey(AUTO_REFRESH_ENABLED_KEY)) {
+            boolean autoRefreshEnabled = config.getBoolean(AUTO_REFRESH_ENABLED_KEY);
+            if(autoRefreshEnabled) {
+              adView.setAutoRefresh(true);
+            } else {
+              adView.setAutoRefresh(false);
+            }
+        }
+
+        if(config.hasKey(RESIZE_AD_TO_FIT_CONTAINER_KEY)) {
+          boolean resizeAdToFitContainer = config.getBoolean(RESIZE_AD_TO_FIT_CONTAINER_KEY);
+          if(resizeAdToFitContainer) {
+            adView.setResizeAdToFitContainer(true);
+          } else {
+            adView.setResizeAdToFitContainer(false);
+          }
+        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -92,10 +113,10 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
                                 "phasedRegistrationNames",
                                 MapBuilder.of("bubbled", AdmixerJSEvent.ON_RESIZE_EVENT)))
                 .put(
-                        AdmixerJSEvent.ON_AD_REQUEST_FAILED_EVENT,
+                        AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT,
                         MapBuilder.of(
                                 "phasedRegistrationNames",
-                                MapBuilder.of("bubbled", AdmixerJSEvent.ON_AD_REQUEST_FAILED_EVENT)))
+                                MapBuilder.of("bubbled", AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT)))
                 .put(
                         AdmixerJSEvent.ON_AD_LOADED_EVENT,
                         MapBuilder.of(

@@ -50,13 +50,11 @@ repositories {
     }
     google()
     jcenter()
-    flatDir {
-      dirs 'libs'
-    }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
-    api(name:'admixer-sdk', ext:'aar')
+    implementation 'net.admixer.sdk:sdk:1.1.11'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }

@@ -34,15 +34,16 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "admixer"
   ],
-  "repository": "https://admixer.visualstudio.com/_git/AdmixerSDKExamples",
-  "author": "mobileteam@admixer.net <mobileteam@admixer.net> (https://admixer.visualstudio.com/_git/AdmixerSDKExamples)",
+  "repository": "https://admixer.visualstudio.com/DefaultCollection/AdmixerSDKReactNative/_git/AdmixerSDKReactNative",
+  "author": "mobileteam@admixer.net <mobileteam@admixer.net> (https://admixer.visualstudio.com/DefaultCollection/AdmixerSDKReactNative/_git/AdmixerSDKReactNative)",
   "license": "MIT",
   "bugs": {
-    "url": "https://admixer.visualstudio.com/_git/AdmixerSDKExamples/issues"
+    "url": "https://admixer.visualstudio.com/DefaultCollection/AdmixerSDKReactNative/_git/AdmixerSDKReactNative/issues"
   },
-  "homepage": "https://admixer.visualstudio.com/_git/AdmixerSDKExamples#readme",
+  "homepage": "https://admixer.visualstudio.com/_git/AdmixerSDKReactNative",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

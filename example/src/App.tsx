@@ -33,19 +33,19 @@ class App extends React.Component {
   render() {
 
   // Interstitial
-  AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
-    (a:any) => { AdmixerInterstitial.loadAd(); }
-  );
-  AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
-    AdmixerInterstitial.showAd();
-  });
-  AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-    console.log("onAdClicked "+a);
-  })
+  // AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
+  //   (a:any) => { AdmixerInterstitial.loadAd(); }
+  // );
+  // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+  //   AdmixerInterstitial.showAd();
+  // });
+  // AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+  //   console.log("onAdClicked "+a);
+  // })
 
     return (
       <View style={styles.container}>
-        {/* <AdmixerBanner
+        <AdmixerBanner
           config={{
             zoneId: "c744a785-272b-4b85-8a93-5eb581d74565",
             bannerWidth: 300,
@@ -60,41 +60,9 @@ class App extends React.Component {
           onAdLoadFailed={this.onAdLoadFailed}
           onAdExpanded={this.onAdExpanded}
           onAdCollapsed={this.onAdCollapsed}
-          onAdClicked={this.onAdClicked}/> */}
+          onAdClicked={this.onAdClicked}/>
       </View>
     );
-
-    // return (
-    //   <>
-    //   <StatusBar barStyle="dark-content" />
-    //   <SafeAreaView>
-    //     <ScrollView
-    //         contentInsetAdjustmentBehavior="automatic"
-    //         style={styles.scrollView}>
-    //       <View style={styles.body}>
-    //         <View style={styles.sectionContainer}>
-    //           <Text style={styles.sectionTitle}>Step STEP</Text>
-    //           <AdmixerBanner
-    //               style={styles.banner}
-    //               config={{
-    //                 zoneId: 'e6822eec-8954-4ddc-a6b5-4f791b6603fd',
-    //                 bannerWidth: 300,
-    //                 bannerHeight: 250,
-    //                 sizes: [[300, 250], [300, 600]],
-    //                 clickThrough: 'open_device_browser',
-    //                 autoRefresh: 15000,
-    //               }}
-    //           />
-    //           <Text style={styles.sectionDescription}>
-    //             Edit <Text style={styles.highlight}>App.js</Text> to change this
-    //             screen and then come back to see your edits.
-    //           </Text>
-    //         </View>
-    //       </View>
-    //     </ScrollView>
-    //   </SafeAreaView>
-    // </>
-    // );
   }
 }
 
@@ -106,44 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 300, 
     height: 250
-  },
-  // banner: {
-  //   width: 300,
-  //   height: 250
-  // },
-  // scrollView: {
-  // },
-  // engine: {
-  //   position: 'absolute',
-  //   right: 0,
-  // },
-  // body: {
-  // },
-  // sectionContainer: {
-  //   marginTop: 32,
-  //   paddingHorizontal: 24,
-  // },
-  // sectionTitle: {
-  //   fontSize: 24,
-  //   fontWeight: '600',
-  //   width: 300,
-  //   height: 250,
-  // },
-  // sectionDescription: {
-  //   marginTop: 8,
-  //   fontSize: 18,
-  //   fontWeight: '400',
-  // },
-  // highlight: {
-  //   fontWeight: '700',
-  // },
-  // footer: {
-  //   fontSize: 12,
-  //   fontWeight: '600',
-  //   padding: 4,
-  //   paddingRight: 12,
-  //   textAlign: 'right',
-  // },
+  }
 });
 
 export default App;

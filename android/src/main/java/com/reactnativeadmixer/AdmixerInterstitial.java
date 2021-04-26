@@ -11,6 +11,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import net.admixer.sdk.InterstitialAdView;
@@ -83,7 +84,9 @@ public class AdmixerInterstitial extends ReactContextBaseJavaModule implements A
 
     @Override
     public void onAdClicked(AdView adView, String clickUrl) {
-        sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, clickUrl);
+      WritableMap map =Arguments.createMap();
+      map.putString("clickUrl", clickUrl);
+        sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, map);
     }
 
     @Override

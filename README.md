@@ -11,17 +11,19 @@ npm install react-native-admixer
 ## Usage
 
 ```js
-import Admixer from "react-native-admixer";
+import {AdmixerBanner, AdmixerInterstitial} from "react-native-admixer";
 
 // ...
 
-const result = await Admixer.multiply(3, 7);
-```
+## Show Interstitial ad
 
-## Contributing
+```js
+ AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
+    (a:any) => { AdmixerInterstitial.loadAd(); }
+  );
+  AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+    AdmixerInterstitial.showAd();
+  });
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+  // ...
 
-## License
-
-MIT

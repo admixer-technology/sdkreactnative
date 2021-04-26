@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   onAdClicked(event: any) {
-    console.log("onAdClicked "+event.event);
+    console.log("onAdClicked "+event);
   }
 
   render() {
@@ -37,11 +37,10 @@ class App extends React.Component {
     (a:any) => { AdmixerInterstitial.loadAd(); }
   );
   AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
-    console.log("onAdLoaded");
     AdmixerInterstitial.showAd();
   });
   AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-    console.log("onAdClicked");
+    console.log("onAdClicked "+a);
   })
 
     return (

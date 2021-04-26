@@ -12,8 +12,7 @@ npm install react-native-admixer
 
 ```js
 import {AdmixerBanner, AdmixerInterstitial} from "react-native-admixer";
-
-// ...
+```
 
 ## Show Interstitial ad
 
@@ -24,6 +23,5 @@ import {AdmixerBanner, AdmixerInterstitial} from "react-native-admixer";
   AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
     AdmixerInterstitial.showAd();
   });
-
-  // ...
+```
 

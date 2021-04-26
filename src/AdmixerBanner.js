@@ -5,6 +5,8 @@ import {requireNativeComponent, View, StyleSheet} from 'react-native';
 const BannerPropTypes = {
   config: PropTypes.shape({
     zoneId: PropTypes.string.isRequired,
+    bannerWidth: PropTypes.number.isRequired,
+    bannerHeight: PropTypes.number.isRequired,
     sizes: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
     clickThrough: PropTypes.oneOf(["open_sdk_browser", "open_device_browser", "return_url"]),
     autoRefresh: PropTypes.number,

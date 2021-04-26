@@ -33,22 +33,22 @@ class App extends React.Component {
   render() {
 
   // Interstitial
-  // AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
-  //   (a:any) => { AdmixerInterstitial.loadAd(); }
-  // );
-  // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
-  //   console.log("onAdLoaded");
-  //   AdmixerInterstitial.showAd();
-  // });
-  // AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-  //   console.log("onAdClicked");
-  // })
+  AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
+    (a:any) => { AdmixerInterstitial.loadAd(); }
+  );
+  AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+    console.log("onAdLoaded");
+    AdmixerInterstitial.showAd();
+  });
+  AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+    console.log("onAdClicked");
+  })
 
     return (
       <View style={styles.container}>
-        <AdmixerBanner
+        {/* <AdmixerBanner
           config={{
-            zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
+            zoneId: "c744a785-272b-4b85-8a93-5eb581d74565",
             bannerWidth: 300,
             bannerHeight: 250,
             sizes:[[300, 250],[320, 50]],
@@ -61,7 +61,7 @@ class App extends React.Component {
           onAdLoadFailed={this.onAdLoadFailed}
           onAdExpanded={this.onAdExpanded}
           onAdCollapsed={this.onAdCollapsed}
-          onAdClicked={this.onAdClicked}/>
+          onAdClicked={this.onAdClicked}/> */}
       </View>
     );
 

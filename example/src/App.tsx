@@ -6,6 +6,11 @@ import {   SafeAreaView,
   View,
   Text,
   StatusBar, } from 'react-native';
+
+import {
+  Header
+} from 'react-native/Libraries/NewAppScreen';
+
 import {AdmixerBanner, AdmixerInterstitial} from 'react-native-admixer';
 
 class App extends React.Component {
@@ -47,24 +52,21 @@ class App extends React.Component {
   // })
 
     return (
-      <View style={styles.container}>
-        <AdmixerBanner
-          config={{
-            zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
-            bannerWidth: 300,
-            bannerHeight: 250,
-            sizes:[[300, 250],[320, 50]],
-            clickThrough: "return_url",
-            autoRefreshEnabled: true,
-            autoRefreshInterval: 20000,
-            resizeAdToFitContainer: true,
-          }}
-          onAdLoaded={this.onAdLoaded}
-          onAdLoadFailed={this.onAdLoadFailed}
-          onAdExpanded={this.onAdExpanded}
-          onAdCollapsed={this.onAdCollapsed}
-          onAdClicked={this.onAdClicked}/>
-      </View>
+      <SafeAreaView >
+      <StatusBar  />
+      <ScrollView>
+        <Header />
+        <View>
+          <AdmixerBanner
+            config={{
+              zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
+              bannerWidth: 300,
+              bannerHeight: 250,
+              sizes:[[300, 250],[320, 50]],
+            }}/>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
     );
   }
 }

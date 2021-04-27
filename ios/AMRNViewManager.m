@@ -27,10 +27,11 @@ RCT_EXPORT_VIEW_PROPERTY(onAdLoadFailed, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdExpanded, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdCollapsed, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAdClicked, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onResize, RCTBubblingEventBlock)
 
 - (UIView *) view
 {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(0, 0, 300, 250);
     AMRNBannerAdView* banner = [[AMRNBannerAdView alloc] initWithFrame:frame];
     return banner;
 }

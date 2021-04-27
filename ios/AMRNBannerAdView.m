@@ -97,6 +97,11 @@ AMBannerAdView* adView;
     if(self.onAdLoaded != nil) {
         self.onAdLoaded(@{@"event":ON_AD_LOADED_EVENT});
     }
+    if(self.onResize != nil) {
+        CGFloat width = adView.loadedAdSize.width;
+        CGFloat height = adView.loadedAdSize.height;
+        self.onResize(@{@"width":@(width),@"height":@(height)});
+    }
 }
 
 - (void) ad:(id)ad requestFailedWithError:(NSError *)error {

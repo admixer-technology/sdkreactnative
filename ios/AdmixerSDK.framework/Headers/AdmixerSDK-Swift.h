@@ -298,6 +298,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
+@property (nonatomic) CGSize loadedAdSize;
 @property (nonatomic) BOOL shouldResizeAdToFitContainer;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame placementId:(NSString * _Nonnull)placementId;
@@ -824,6 +825,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
+@property (nonatomic) CGSize loadedAdSize;
 @property (nonatomic) BOOL shouldResizeAdToFitContainer;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame placementId:(NSString * _Nonnull)placementId;
@@ -1350,6 +1352,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
+@property (nonatomic) CGSize loadedAdSize;
 @property (nonatomic) BOOL shouldResizeAdToFitContainer;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame placementId:(NSString * _Nonnull)placementId;

@@ -6,31 +6,31 @@
 	<dict>
 		<key>AMBrowserViewController.nib/objects-11.0+.nib</key>
 		<data>
-		7oa+PjKv2LdcjHGoIN5I1SXyGDE=
+		qKDF8qgzvLmjZsXgCiOJwMKLMFw=
 		</data>
 		<key>AMBrowserViewController.nib/runtime.nib</key>
 		<data>
-		4OjFc7ABRIReqjC9x9XtR/Ff60g=
+		auV0OmotWTJNL8XMgn5Pv69NVBs=
 		</data>
 		<key>AMInterstitialAdViewController.nib/objects-11.0+.nib</key>
 		<data>
-		3C5HGs/fCKi2a2wZngVI8iZE8ak=
+		+D65WsH+gMqxCNwDXN5818sHEMA=
 		</data>
 		<key>AMInterstitialAdViewController.nib/runtime.nib</key>
 		<data>
-		G9sr/cxsLt6o1gwbjI/+hYENjk4=
+		Swx44mDNt4tRf9klVENaiTxGois=
 		</data>
 		<key>AMRewardedAdViewController.nib/objects-11.0+.nib</key>
 		<data>
-		Um6k5aQZyv0C350pu36HWhJIovQ=
+		WjbO709GYRJDbHXeXytyOKYhns8=
 		</data>
 		<key>AMRewardedAdViewController.nib/runtime.nib</key>
 		<data>
-		we9UIh5gDPgVjF5ZBn+ecrwggIk=
+		gAY5JYJqVQnZnE2BshDaGcNExyM=
 		</data>
 		<key>Headers/AdmixerSDK-Swift.h</key>
 		<data>
-		b53hz/WctKu+itD+RR1Cl0DUkVc=
+		HLMomiBmpZe/pwUCCTMz9+Ecdrk=
 		</data>
 		<key>Headers/AdmixerSDK.h</key>
 		<data>
@@ -42,27 +42,27 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		5O1jEm3rzVPt8Nd/UbLQ4GIZRxA=
+		Xoy96JRD70MyXqOJRDi2Ozw6YUQ=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		5O1jEm3rzVPt8Nd/UbLQ4GIZRxA=
+		Xoy96JRD70MyXqOJRDi2Ozw6YUQ=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		uoHeHXe5zR08CFyFBH3M3tG0u+Q=
+		c8S2HMoq3qr2Lirz9NMatLYAhQE=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<data>
-		uoHeHXe5zR08CFyFBH3M3tG0u+Q=
+		c8S2HMoq3qr2Lirz9NMatLYAhQE=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		2YL3dGIVpVBY81wEBaqQRqJXJlo=
+		fsz8gwQBJspHUQBXLG7MHxbjdx0=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		2YL3dGIVpVBY81wEBaqQRqJXJlo=
+		fsz8gwQBJspHUQBXLG7MHxbjdx0=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		7tbsblPnNOW3Wk53gjX4iEKnq20=
+		rPCvr7c7tFN2lwHLEL+UNUDyyqM=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		7tbsblPnNOW3Wk53gjX4iEKnq20=
+		rPCvr7c7tFN2lwHLEL+UNUDyyqM=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		LgfBbs+szN7JHDWTqKdNd0Ej68w=
+		QnDsjdW81aq0LJ/SR8FWzkMPN9w=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftmodule</key>
 		<data>
-		LgfBbs+szN7JHDWTqKdNd0Ej68w=
+		QnDsjdW81aq0LJ/SR8FWzkMPN9w=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		CbwbCmuKPhd4APreETArVfmJ/7E=
+		7Amd10h14P+k6vHEcMB/YIQjMNI=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		CbwbCmuKPhd4APreETArVfmJ/7E=
+		7Amd10h14P+k6vHEcMB/YIQjMNI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -215,77 +215,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7oa+PjKv2LdcjHGoIN5I1SXyGDE=
+			qKDF8qgzvLmjZsXgCiOJwMKLMFw=
 			</data>
 			<key>hash2</key>
 			<data>
-			v4LcKCaPEMSLNZzRhQUwpJ0cbngv1Z+S/sI42B6vTNs=
+			QdUHwS/qAaOQCLhhSb2tQ8ftDhh104D5Iuoj0ErFJ/4=
 			</data>
 		</dict>
 		<key>AMBrowserViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4OjFc7ABRIReqjC9x9XtR/Ff60g=
+			auV0OmotWTJNL8XMgn5Pv69NVBs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Bjn7MLHiARKPJIWOBTxdinlH5A3vyXc1bbSnemcpf9E=
+			A/UuPIcGMtZs4zbHKwr1oL6Vjq3TUdbn9O5bNIUDMSg=
 			</data>
 		</dict>
 		<key>AMInterstitialAdViewController.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3C5HGs/fCKi2a2wZngVI8iZE8ak=
+			+D65WsH+gMqxCNwDXN5818sHEMA=
 			</data>
 			<key>hash2</key>
 			<data>
-			908zxZE/qKJxazgvne+9LBX8tQjYUweGVEQSMRTrvmg=
+			xesqit/VX/TAIC1ic9ZGmCkV7m4XrPyV/OUktC98WK8=
 			</data>
 		</dict>
 		<key>AMInterstitialAdViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G9sr/cxsLt6o1gwbjI/+hYENjk4=
+			Swx44mDNt4tRf9klVENaiTxGois=
 			</data>
 			<key>hash2</key>
 			<data>
-			YhV1QHoVvOSY9WwvzzzqhkHBC1O2DgXdE6qWaO3I/Po=
+			aPJ9ia31itSORjyXYqWNXLTznOLetwFrz7MD2eL7u2o=
 			</data>
 		</dict>
 		<key>AMRewardedAdViewController.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Um6k5aQZyv0C350pu36HWhJIovQ=
+			WjbO709GYRJDbHXeXytyOKYhns8=
 			</data>
 			<key>hash2</key>
 			<data>
-			3/PWO4TiVQjBI1ZpGwbRynTcNdbel+K4ai51nlPlc5U=
+			KOiTSWsNUo5r44FolMpqK176ImrsI152g/AXkxoQjYQ=
 			</data>
 		</dict>
 		<key>AMRewardedAdViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			we9UIh5gDPgVjF5ZBn+ecrwggIk=
+			gAY5JYJqVQnZnE2BshDaGcNExyM=
 			</data>
 			<key>hash2</key>
 			<data>
-			nnik9iKAlmBcgrxUs1OrLUoPnylAIIiBypyolULpyo4=
+			QvflnIz8ainkcWkzRdE1y76tq5TEYCBWh9SD73dts08=
 			</data>
 		</dict>
 		<key>Headers/AdmixerSDK-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			b53hz/WctKu+itD+RR1Cl0DUkVc=
+			HLMomiBmpZe/pwUCCTMz9+Ecdrk=
 			</data>
 			<key>hash2</key>
 			<data>
-			2XB92oFSdCds6dBqJNJNU8WjBjyOPZD8KmBygGyJPjQ=
+			deAc2lL+DRbEuSQ06yVg8Gz8A04/DQtUKrI6D1T8R2U=
 			</data>
 		</dict>
 		<key>Headers/AdmixerSDK.h</key>
@@ -303,66 +303,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5O1jEm3rzVPt8Nd/UbLQ4GIZRxA=
+			Xoy96JRD70MyXqOJRDi2Ozw6YUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MceyydRQLEKHzjJnu84jveLGIwkeClXnuboNVqVl0fU=
+			HuLLjxGfhjfGkLNi2Ei3f7jZalMNdIt13SiDlE7XbmM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5O1jEm3rzVPt8Nd/UbLQ4GIZRxA=
+			Xoy96JRD70MyXqOJRDi2Ozw6YUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MceyydRQLEKHzjJnu84jveLGIwkeClXnuboNVqVl0fU=
+			HuLLjxGfhjfGkLNi2Ei3f7jZalMNdIt13SiDlE7XbmM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uoHeHXe5zR08CFyFBH3M3tG0u+Q=
+			c8S2HMoq3qr2Lirz9NMatLYAhQE=
 			</data>
 			<key>hash2</key>
 			<data>
-			S+D9PoXeCw5IcLIPCDIaAGCil/Ia9VJnUO8W2jHAUgk=
+			Tru/xgAMrcGi84VmnJX0yCRPu/3zHhXNsIm47XPBm8k=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uoHeHXe5zR08CFyFBH3M3tG0u+Q=
+			c8S2HMoq3qr2Lirz9NMatLYAhQE=
 			</data>
 			<key>hash2</key>
 			<data>
-			S+D9PoXeCw5IcLIPCDIaAGCil/Ia9VJnUO8W2jHAUgk=
+			Tru/xgAMrcGi84VmnJX0yCRPu/3zHhXNsIm47XPBm8k=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2YL3dGIVpVBY81wEBaqQRqJXJlo=
+			fsz8gwQBJspHUQBXLG7MHxbjdx0=
 			</data>
 			<key>hash2</key>
 			<data>
-			iKUorY1jHHce4u+eX51s6FSA2aM6BbZCtYHeCsMSEJU=
+			+r3I9aZthrZk7UEB+iJRNQ9QfWWQgj/w5yeRzgKH1tI=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2YL3dGIVpVBY81wEBaqQRqJXJlo=
+			fsz8gwQBJspHUQBXLG7MHxbjdx0=
 			</data>
 			<key>hash2</key>
 			<data>
-			iKUorY1jHHce4u+eX51s6FSA2aM6BbZCtYHeCsMSEJU=
+			+r3I9aZthrZk7UEB+iJRNQ9QfWWQgj/w5yeRzgKH1tI=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -380,11 +380,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7tbsblPnNOW3Wk53gjX4iEKnq20=
+			rPCvr7c7tFN2lwHLEL+UNUDyyqM=
 			</data>
 			<key>hash2</key>
 			<data>
-			fuoegJRPzP2cu9GZLkTu7xtSmQN1oXZa1+qyFs6YabE=
+			o/dKjfKXAMjaEkUvpyhgYkO1CrBySzmcHm6/liR4XqM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/arm64.swiftdoc</key>
@@ -402,11 +402,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7tbsblPnNOW3Wk53gjX4iEKnq20=
+			rPCvr7c7tFN2lwHLEL+UNUDyyqM=
 			</data>
 			<key>hash2</key>
 			<data>
-			fuoegJRPzP2cu9GZLkTu7xtSmQN1oXZa1+qyFs6YabE=
+			o/dKjfKXAMjaEkUvpyhgYkO1CrBySzmcHm6/liR4XqM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -424,11 +424,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LgfBbs+szN7JHDWTqKdNd0Ej68w=
+			QnDsjdW81aq0LJ/SR8FWzkMPN9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			C2uumqyLMMZZESXPGcW/HozTUKlKFWJnSGqqJFepbf4=
+			79G3J//plzCTWOR/rcMmYDpEMGaDASEwK9LN+vspQ0M=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftdoc</key>
@@ -446,11 +446,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LgfBbs+szN7JHDWTqKdNd0Ej68w=
+			QnDsjdW81aq0LJ/SR8FWzkMPN9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			C2uumqyLMMZZESXPGcW/HozTUKlKFWJnSGqqJFepbf4=
+			79G3J//plzCTWOR/rcMmYDpEMGaDASEwK9LN+vspQ0M=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -468,11 +468,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CbwbCmuKPhd4APreETArVfmJ/7E=
+			7Amd10h14P+k6vHEcMB/YIQjMNI=
 			</data>
 			<key>hash2</key>
 			<data>
-			K+ZemheuXf9I9Eeyqi8vHLoFAlAaeR9rbgjB5jPpNOI=
+			xzk/VsnR7L1JY71pnxi783g2x/oTZoSx/2OTSSv1NbY=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -490,11 +490,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CbwbCmuKPhd4APreETArVfmJ/7E=
+			7Amd10h14P+k6vHEcMB/YIQjMNI=
 			</data>
 			<key>hash2</key>
 			<data>
-			K+ZemheuXf9I9Eeyqi8vHLoFAlAaeR9rbgjB5jPpNOI=
+			xzk/VsnR7L1JY71pnxi783g2x/oTZoSx/2OTSSv1NbY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

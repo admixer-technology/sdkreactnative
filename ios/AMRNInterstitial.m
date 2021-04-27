@@ -40,6 +40,21 @@ RCT_EXPORT_METHOD(showAd)
         }
     });
 }
+RCT_EXPORT_METHOD(setClickThroughAction:(NSString*) clickThroughAction) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(interstitial) {
+            if([clickThroughAction isEqualToString:@"open_sdk_browser"]) {
+                interstitial.clickThroughAction = AMClickThroughActionOpenSDKBrowser;
+            } else
+                if([clickThroughAction isEqualToString:@"open_device_browser"]) {
+                    interstitial.clickThroughAction = AMClickThroughActionOpenDeviceBrowser;
+                } else
+                    if([clickThroughAction isEqualToString:@"return_url"]) {
+                        interstitial.clickThroughAction = AMClickThroughActionReturnURL;
+                    }
+        }
+    });
+}
 
 #pragma mark AMInterstitialAdDelegate
 
@@ -64,7 +79,7 @@ RCT_EXPORT_METHOD(showAd)
 }
 
 - (void) adWasClicked:(AMAdView *)ad withURL:(NSString *)urlString {
-    [self sendEventWithName:ON_AD_CLICKED_EVENT body:@{@"event": ON_AD_CLICKED_EVENT, @"url": urlString}];
+    [self sendEventWithName:ON_AD_CLICKED_EVENT body:@{@"event": ON_AD_CLICKED_EVENT, @"clickUrl": urlString}];
 }
 
 #pragma mark RCTEventEmitter

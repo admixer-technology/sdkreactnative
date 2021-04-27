@@ -14,6 +14,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
+import net.admixer.sdk.ClickThroughAction;
 import net.admixer.sdk.InterstitialAdView;
 import net.admixer.sdk.AdListener;
 import net.admixer.sdk.AdView;
@@ -62,6 +63,20 @@ public class AdmixerInterstitial extends ReactContextBaseJavaModule implements A
     @ReactMethod
     public void showAd() {
         iav.show();
+    }
+    @ReactMethod
+    public void setClickThroughAction(String action) {
+        if(iav != null) {
+            if(action.equals("open_sdk_browser")) {
+                iav.setClickThroughAction(ClickThroughAction.OPEN_SDK_BROWSER);
+            } else
+            if(action.equals("open_device_browser")) {
+                iav.setClickThroughAction(ClickThroughAction.OPEN_DEVICE_BROWSER);
+            } else
+            if(action.equals("return_url")) {
+                iav.setClickThroughAction(ClickThroughAction.RETURN_URL);
+            }
+        }
     }
     @ReactMethod
     public void setCloseButtonDelay(int delay) {

@@ -27,33 +27,36 @@ class App extends React.Component {
   }
 
   onAdClicked(event: any) {
-    console.log("onAdClicked "+event);
+    console.log("onAdClicked "+event.nativeEvent.clickUrl);
   }
 
   render() {
 
   // Interstitial
   // AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
-  //   (a:any) => { AdmixerInterstitial.loadAd(); }
+  //   (a:any) => { 
+  //     AdmixerInterstitial.loadAd();
+  //     AdmixerInterstitial.setClickThroughAction("open_device_browser");
+  //   }
   // );
   // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
   //   AdmixerInterstitial.showAd();
   // });
   // AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-  //   console.log("onAdClicked "+a);
+  //   console.log("onAdClicked "+a.clickUrl);
   // })
 
     return (
       <View style={styles.container}>
         <AdmixerBanner
           config={{
-            zoneId: "c744a785-272b-4b85-8a93-5eb581d74565",
+            zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
             bannerWidth: 300,
             bannerHeight: 250,
             sizes:[[300, 250],[320, 50]],
             clickThrough: "return_url",
-            autoRefresh: 15000,
             autoRefreshEnabled: true,
+            autoRefresh: 15000,
             resizeAdToFitContainer: true,
           }}
           onAdLoaded={this.onAdLoaded}

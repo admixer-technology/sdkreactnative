@@ -16,6 +16,10 @@ function showAd() {
     AdmixerInterstitialModule.showAd();
 }
 
+function setClickThroughAction(action) {
+    AdmixerInterstitialModule.setClickThroughAction(action);
+}
+
 function addEventListener(eventName, callback) {
     eventEmitter.addListener(eventName, callback);
 }
@@ -24,5 +28,6 @@ export default {
     initInterstitial,
     loadAd,
     showAd,
+    setClickThroughAction,
     addEventListener
 }

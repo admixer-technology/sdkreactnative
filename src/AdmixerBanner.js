@@ -73,9 +73,8 @@ export default class AdmixerBanner extends Component {
     }
   }
   _onAdClicked(event) {
-    const clickUrl = event.nativeEvent.clickUrl;
     if (this.props.onAdClicked) {
-      this.props.onAdClicked(clickUrl);
+      this.props.onAdClicked(event);
     }
   }
   render() {

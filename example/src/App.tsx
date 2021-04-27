@@ -36,7 +36,7 @@ class App extends React.Component {
   // AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
   //   (a:any) => { 
   //     AdmixerInterstitial.loadAd();
-  //     AdmixerInterstitial.setClickThroughAction("open_device_browser");
+  //     AdmixerInterstitial.setClickThroughAction("return_url");
   //   }
   // );
   // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
@@ -56,7 +56,7 @@ class App extends React.Component {
             sizes:[[300, 250],[320, 50]],
             clickThrough: "return_url",
             autoRefreshEnabled: true,
-            autoRefresh: 15000,
+            autoRefreshInterval: 20000,
             resizeAdToFitContainer: true,
           }}
           onAdLoaded={this.onAdLoaded}

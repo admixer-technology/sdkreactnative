@@ -24,7 +24,7 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
     public static final String ZONE_ID_KEY = "zoneId";
     public static final String SIZES_KEY = "sizes";
     public static final String CLICK_THROUGH_KEY = "clickThrough";
-    public static final String AUTO_REFRESH_KEY = "autoRefresh";
+    public static final String AUTO_REFRESH_INTERVAL_KEY = "autoRefreshInterval";
     public static final String AUTO_REFRESH_ENABLED_KEY = "autoRefreshEnabled";
     public static final String RESIZE_AD_TO_FIT_CONTAINER_KEY = "resizeAdToFitContainer";
     private ReactContext reactContext;
@@ -73,8 +73,8 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
             }
         }
 
-        if(config.hasKey(AUTO_REFRESH_KEY)) {
-            int autoRefresh = config.getInt(AUTO_REFRESH_KEY);
+        if(config.hasKey(AUTO_REFRESH_INTERVAL_KEY)) {
+            int autoRefresh = config.getInt(AUTO_REFRESH_INTERVAL_KEY);
             adView.setAutoRefreshInterval(autoRefresh);
         }
 

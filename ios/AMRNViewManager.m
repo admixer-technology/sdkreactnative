@@ -15,7 +15,7 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMRNBannerAdView) {
     NSInteger bannerHeight = [[json valueForKey:@"bannerHeight"] integerValue];
     NSArray* sizes = [json objectForKey:@"sizes"];
     NSString* clickThrough = [json objectForKey:@"clickThrough"];
-    NSInteger autoRefresh = [[json valueForKey:@"autoRefresh"] integerValue];
+    NSInteger autoRefresh = [[json valueForKey:@"autoRefreshInterval"] integerValue];
     bool autoRefreshEnabled = [[json valueForKey:@"autoRefreshEnabled"] boolValue];
     bool resizeAdToFitContainer = [[json valueForKey:@"resizeAdToFitContainer"] boolValue];
     

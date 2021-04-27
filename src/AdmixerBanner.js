@@ -9,7 +9,7 @@ const BannerPropTypes = {
     bannerHeight: PropTypes.number.isRequired,
     sizes: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
     clickThrough: PropTypes.oneOf(["open_sdk_browser", "open_device_browser", "return_url"]),
-    autoRefresh: PropTypes.number,
+    autoRefreshInterval: PropTypes.number,
     autoRefreshEnabled: PropTypes.bool,
     resizeAdToFitContainer: PropTypes.bool,
   }).isRequired,

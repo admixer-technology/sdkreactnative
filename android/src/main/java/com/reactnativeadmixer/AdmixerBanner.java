@@ -32,7 +32,6 @@ public class AdmixerBanner extends BannerAdView implements AdListener {
         reactContext = rc;
         activity = rc.getCurrentActivity();
         setAdListener(this);
-        setAutoRefreshInterval(0);
     }
 
     @Override

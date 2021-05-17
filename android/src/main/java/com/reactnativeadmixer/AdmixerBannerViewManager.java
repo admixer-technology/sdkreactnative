@@ -1,5 +1,8 @@
 package com.reactnativeadmixer;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -7,6 +10,7 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 
 import java.util.Map;
 import java.util.ArrayList;
@@ -16,10 +20,16 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import android.util.Log;
 
-import net.admixer.sdk.AdSize;
-import net.admixer.sdk.ClickThroughAction;
+import androidx.annotation.Nullable;
 
-public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
+import net.admixer.sdk.AdListener;
+import net.admixer.sdk.AdSize;
+import net.admixer.sdk.AdView;
+import net.admixer.sdk.BannerAdView;
+import net.admixer.sdk.ClickThroughAction;
+import net.admixer.sdk.ResultCode;
+
+public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> implements AdListener {
     public static final String REACT_CLASS = "AdmixerBanner";
     public static final String ZONE_ID_KEY = "zoneId";
     public static final String SIZES_KEY = "sizes";
@@ -27,9 +37,10 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
     public static final String AUTO_REFRESH_INTERVAL_KEY = "autoRefreshInterval";
     public static final String AUTO_REFRESH_ENABLED_KEY = "autoRefreshEnabled";
     public static final String RESIZE_AD_TO_FIT_CONTAINER_KEY = "resizeAdToFitContainer";
-    private ReactContext reactContext;
+    private ReactApplicationContext reactContext;
+    private BannerAdView bannerAdView;
 
-    public AdmixerBannerViewManager(ReactContext rc) {
+    public AdmixerBannerViewManager(ReactApplicationContext rc) {
         super();
         reactContext = rc;
 
@@ -41,12 +52,14 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
     }
 
     @Override
-    public AdmixerBanner createViewInstance(ThemedReactContext context) {
-        return new AdmixerBanner(context);
+    public BannerAdView createViewInstance(ThemedReactContext context) {
+      bannerAdView = new BannerAdView(context.getCurrentActivity());
+      bannerAdView.setAdListener(this);
+      return bannerAdView;
     }
 
     @ReactProp(name = "config")
-    public void setConfig(final AdmixerBanner adView, ReadableMap config) {
+    public void setConfig(final BannerAdView adView, ReadableMap config) {
         String zoneId = config.getString(ZONE_ID_KEY);
         adView.setPlacementID(zoneId);
 
@@ -139,4 +152,57 @@ public class AdmixerBannerViewManager extends SimpleViewManager<AdmixerBanner> {
                                 MapBuilder.of("bubbled", AdmixerJSEvent.ON_AD_CLICKED_EVENT)))
                 .build();
     }
+
+  @Override
+  public void onAdRequestFailed(AdView bav, ResultCode errorCode) {
+    if (errorCode == null) {
+      sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, null);
+    } else {
+      WritableMap event = Arguments.createMap();
+      event.putString("errorCode", errorCode.toString());
+      sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, event);
+    }
+  }
+
+  @Override
+  public void onAdLoaded(AdView bav) {
+    int width = bav.getCreativeWidth();
+    int height = bav.getCreativeHeight();
+
+    WritableMap event = Arguments.createMap();
+    event.putInt("width", width);
+    event.putInt("height", height);
+
+    sendEvent(AdmixerJSEvent.ON_RESIZE_EVENT, event);
+    sendEvent(AdmixerJSEvent.ON_AD_LOADED_EVENT, null);
+  }
+
+  @Override
+  public void onAdExpanded(AdView bav) {
+    sendEvent(AdmixerJSEvent.ON_AD_EXPANDED_EVENT, null);
+  }
+
+  @Override
+  public void onAdCollapsed(AdView bav) {
+    sendEvent(AdmixerJSEvent.ON_AD_COLLAPSED_EVENT, null);
+  }
+
+  @Override
+  public void onAdClicked(AdView bav) {
+    sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, null);
+  }
+
+  @Override
+  public void onAdClicked(AdView adView, String clickUrl) {
+    WritableMap event = Arguments.createMap();
+    event.putString("clickUrl", clickUrl);
+    sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, event);
+  }
+
+  private void sendEvent(String eventName, @Nullable WritableMap event) {
+    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+      bannerAdView.getId(),
+      eventName,
+      event);
+  }
 }

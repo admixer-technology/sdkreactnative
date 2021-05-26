@@ -412,12 +412,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AdmixerExample/Pods-AdmixerExample-frameworks.sh",
 				"${PODS_ROOT}/../../../ios/AdmixerSDK.framework",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdmixerSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

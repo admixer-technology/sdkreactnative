@@ -5,7 +5,8 @@ import {   SafeAreaView,
   ScrollView,
   View,
   Text,
-  StatusBar, } from 'react-native';
+  StatusBar,
+  Button, } from 'react-native';
 
 import {
   Header
@@ -35,21 +36,24 @@ class App extends React.Component {
     console.log("onAdClicked "+event.nativeEvent.clickUrl);
   }
 
-  render() {
 
-  // Interstitial
-  // AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
-  //   (a:any) => { 
-  //     AdmixerInterstitial.loadAd();
-  //     AdmixerInterstitial.setClickThroughAction("return_url");
-  //   }
-  // );
-  // AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
-  //   AdmixerInterstitial.showAd();
-  // });
-  // AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-  //   console.log("onAdClicked "+a.clickUrl);
-  // })
+  showInterstitial(){
+    // Interstitial
+    AdmixerInterstitial.initInterstitial("c744a785-272b-4b85-8a93-5eb581d74565").then(
+      (a:any) => { 
+        AdmixerInterstitial.loadAd();
+        AdmixerInterstitial.setClickThroughAction("return_url");
+      }
+    );
+    AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+      AdmixerInterstitial.showAd();
+    });
+    AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+      console.log("onAdClicked "+a.clickUrl);
+    })
+  }
+
+  render() {
 
     return (
       <SafeAreaView >
@@ -57,6 +61,10 @@ class App extends React.Component {
       <ScrollView>
         <Header />
         <View>
+          <Button
+            onPress={this.showInterstitial}
+            title="Show interstitial"
+          />
           <AdmixerBanner
             config={{
               zoneId: "c744a785-272b-4b85-8a93-5eb581d74565",
@@ -74,11 +82,6 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  banner: {
-    flex: 1,
-    width: 300, 
-    height: 250
   }
 });
 

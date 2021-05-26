@@ -13,6 +13,8 @@
 @implementation AMRNBannerAdView
 
 AMBannerAdView* adView;
+NSInteger containerWidth;
+NSInteger containerHeight;
 
 #pragma mark Constructors
 
@@ -31,6 +33,8 @@ AMBannerAdView* adView;
 
 - (void) setConfiguration:(NSString *)zoneId withBannerWidth:(NSInteger)bannerWidth withBannerHeight:(NSInteger)bannerHeight withClickThrough:(NSString *)clickThrough withSizes:(NSArray *)sizes withAutoRefresh:(NSInteger)autoRefresh withAutoRefreshEnabled:(bool)autoRefreshEnabled withResizeAdToFitContainer:(bool)resizeAdToFitContainer {
     
+    containerWidth = bannerWidth;
+    containerHeight = bannerHeight;
     CGSize adSize = CGSizeMake(bannerWidth, bannerHeight);
     CGRect bannerFrame = CGRectMake(0, 0, bannerWidth, bannerHeight);
     adView = [[AMBannerAdView alloc] initWithFrame:bannerFrame placementId:zoneId adSize:adSize];
@@ -98,9 +102,7 @@ AMBannerAdView* adView;
         self.onAdLoaded(@{@"event":ON_AD_LOADED_EVENT});
     }
     if(self.onResize != nil) {
-        CGFloat width = adView.loadedAdSize.width;
-        CGFloat height = adView.loadedAdSize.height;
-        self.onResize(@{@"width":@(width),@"height":@(height)});
+        self.onResize(@{@"width":@(containerWidth),@"height":@(containerHeight)});
     }
 }
 

@@ -59,7 +59,7 @@ class App extends React.Component {
         <View>
           <AdmixerBanner
             config={{
-              zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
+              zoneId: "c744a785-272b-4b85-8a93-5eb581d74565",
               bannerWidth: 300,
               bannerHeight: 250,
               sizes:[[300, 250],[320, 50]],

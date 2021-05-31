@@ -70,6 +70,9 @@
             console.log("error");
             sendEvent("video-error");
         });
+        adPlayer.on("readystatechange", function(state) {
+            sendEvent(state);
+        });
     }
 
     function viewabilityUpdate(isViewable) {

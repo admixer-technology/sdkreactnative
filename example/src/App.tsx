@@ -70,8 +70,10 @@ class App extends React.Component {
               zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
               bannerWidth: 300,
               bannerHeight: 250,
-              sizes:[[300, 250],[320, 50]],
-            }}/>
+              sizes:[[300, 250],[320, 50]]
+            }}
+            onAdLoaded={this.onAdLoaded}
+            onAdLoadFailed={this.onAdLoadFailed}/>
         </View>
       </ScrollView>
     </SafeAreaView>

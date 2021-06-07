@@ -467,6 +467,17 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
+  AMLogLevelAll = 0,
+  AMLogLevelMark = 9,
+  AMLogLevelTrace = 10,
+  AMLogLevelDebug = 20,
+  AMLogLevelInfo = 30,
+  AMLogLevelWarn = 40,
+  AMLogLevelError = 50,
+  AMLogLevelOff = 60,
+};
+
 
 /// This is the interface through which interstitial ads are (1)
 /// fetched and then (2) shown.  These are distinct steps.  Here’s an
@@ -1007,6 +1018,17 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
+  AMLogLevelAll = 0,
+  AMLogLevelMark = 9,
+  AMLogLevelTrace = 10,
+  AMLogLevelDebug = 20,
+  AMLogLevelInfo = 30,
+  AMLogLevelWarn = 40,
+  AMLogLevelError = 50,
+  AMLogLevelOff = 60,
+};
+
 
 /// This is the interface through which interstitial ads are (1)
 /// fetched and then (2) shown.  These are distinct steps.  Here’s an
@@ -1546,6 +1568,17 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 @interface AMLocation : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
+  AMLogLevelAll = 0,
+  AMLogLevelMark = 9,
+  AMLogLevelTrace = 10,
+  AMLogLevelDebug = 20,
+  AMLogLevelInfo = 30,
+  AMLogLevelWarn = 40,
+  AMLogLevelError = 50,
+  AMLogLevelOff = 60,
+};
 
 
 /// This is the interface through which interstitial ads are (1)

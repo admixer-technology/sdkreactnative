@@ -94,7 +94,8 @@ public class AdmixerInterstitial extends ReactContextBaseJavaModule implements A
 
     @Override
     public void onAdClicked(AdView av) {
-        sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT);
+        WritableMap map = Arguments.createMap();
+        sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, map);
     }
 
     @Override

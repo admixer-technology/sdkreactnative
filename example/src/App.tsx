@@ -39,10 +39,10 @@ class App extends React.Component {
 
   showInterstitial(){
     // Interstitial
-    AdmixerInterstitial.initInterstitial("c744a785-272b-4b85-8a93-5eb581d74565").then(
+    AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
       (a:any) => { 
         AdmixerInterstitial.loadAd();
-        AdmixerInterstitial.setClickThroughAction("return_url");
+        // AdmixerInterstitial.setClickThroughAction("return_url");
       }
     );
     AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {

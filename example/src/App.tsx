@@ -45,16 +45,18 @@ class App extends React.Component {
         AdmixerInterstitial.setClickThroughAction("return_url");
       }
     );
+  }
+
+  render() {
+
+    console.log("render()");
     AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
       console.log("Interstitial onAdLoaded");
       AdmixerInterstitial.showAd();
     });
     AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
       console.log("Interstitial onAdClicked "+a.clickUrl);
-    })
-  }
-
-  render() {
+    });
 
     return (
       <SafeAreaView >

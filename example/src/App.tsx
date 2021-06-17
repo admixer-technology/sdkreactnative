@@ -49,7 +49,6 @@ class App extends React.Component {
 
   render() {
 
-    console.log("render()");
     AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
       console.log("Interstitial onAdLoaded");
       AdmixerInterstitial.showAd();

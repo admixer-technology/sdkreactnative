@@ -42,14 +42,15 @@ class App extends React.Component {
     AdmixerInterstitial.initInterstitial("e94817ae-5d00-4d2a-98d7-5e9600f55ad6").then(
       (a:any) => { 
         AdmixerInterstitial.loadAd();
-        // AdmixerInterstitial.setClickThroughAction("return_url");
+        AdmixerInterstitial.setClickThroughAction("return_url");
       }
     );
     AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+      console.log("Interstitial onAdLoaded");
       AdmixerInterstitial.showAd();
     });
     AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-      console.log("onAdClicked "+a.clickUrl);
+      console.log("Interstitial onAdClicked "+a.clickUrl);
     })
   }
 
@@ -67,7 +68,7 @@ class App extends React.Component {
           />
           <AdmixerBanner
             config={{
-              zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
+              zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
               bannerWidth: 300,
               bannerHeight: 250,
               sizes:[[300, 250],[320, 50]]

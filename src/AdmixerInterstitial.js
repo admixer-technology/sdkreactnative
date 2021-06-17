@@ -2,7 +2,7 @@ import { NativeModules, NativeEventEmitter } from 'react-native';
 const { AdmixerInterstitial } = NativeModules;
 const eventEmitter = new NativeEventEmitter(AdmixerInterstitial);
 
-  const AdmixerInterstitialModule = AdmixerInterstitial ;
+  const AdmixerInterstitialModule = AdmixerInterstitial;
 
 function initInterstitial(zoneId) {
     return AdmixerInterstitialModule.initInterstitial(zoneId);

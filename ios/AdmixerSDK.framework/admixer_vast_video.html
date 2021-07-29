@@ -42,7 +42,7 @@
             console.log("complete");
             sendEvent("video-complete");
         });
-        adPlayer.on("skip", function () {
+        adPlayer.on("skip", function() {
             console.log("skip");
             sendEvent("video-skip");
         });
@@ -70,9 +70,6 @@
             console.log("error");
             sendEvent("video-error");
         });
-        adPlayer.on("readystatechange", function(state) {
-            sendEvent(state);
-        });
     }
 
     function viewabilityUpdate(isViewable) {
@@ -95,6 +92,30 @@
             paused = true;
             adPlayer.pause();
         }
+    }
+
+    function hideSkip(){
+        adPlayer.hideSkip();
+    }
+
+    function showSkip(){
+        adPlayer.showSkip();
+    }
+
+    function hideLearnMore(){
+        adPlayer.hideLearnMore();
+    }
+
+    function showLearnMore(){
+        adPlayer.showLearnMore();
+    }
+
+    function hideMute(){
+        adPlayer.hideMute();
+    }
+
+    function showMute(){
+        adPlayer.showMute();
     }
 
     var _vast;

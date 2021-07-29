@@ -243,6 +243,7 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK26AMAdProtocolFoundationCore_")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy precision:(NSInteger)precision;
@@ -276,6 +277,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
@@ -466,17 +468,6 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 @interface AMLocation : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
-  AMLogLevelAll = 0,
-  AMLogLevelMark = 9,
-  AMLogLevelTrace = 10,
-  AMLogLevelDebug = 20,
-  AMLogLevelInfo = 30,
-  AMLogLevelWarn = 40,
-  AMLogLevelError = 50,
-  AMLogLevelOff = 60,
-};
 
 
 /// This is the interface through which interstitial ads are (1)
@@ -794,6 +785,7 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK26AMAdProtocolFoundationCore_")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy precision:(NSInteger)precision;
@@ -827,6 +819,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
@@ -1017,17 +1010,6 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 @interface AMLocation : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
-  AMLogLevelAll = 0,
-  AMLogLevelMark = 9,
-  AMLogLevelTrace = 10,
-  AMLogLevelDebug = 20,
-  AMLogLevelInfo = 30,
-  AMLogLevelWarn = 40,
-  AMLogLevelError = 50,
-  AMLogLevelOff = 60,
-};
 
 
 /// This is the interface through which interstitial ads are (1)
@@ -1345,6 +1327,7 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK26AMAdProtocolFoundationCore_")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy;
 - (void)setLocationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude timestamp:(NSDate * _Nullable)timestamp horizontalAccuracy:(CGFloat)horizontalAccuracy precision:(NSInteger)precision;
@@ -1378,6 +1361,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable age;
 @property (nonatomic) enum AMGender gender;
 @property (nonatomic, copy) NSString * _Nullable externalUid;
+@property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
@@ -1568,17 +1552,6 @@ SWIFT_CLASS("_TtC10AdmixerSDK10AMLocation")
 @interface AMLocation : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-typedef SWIFT_ENUM(NSInteger, AMLogLevel, closed) {
-  AMLogLevelAll = 0,
-  AMLogLevelMark = 9,
-  AMLogLevelTrace = 10,
-  AMLogLevelDebug = 20,
-  AMLogLevelInfo = 30,
-  AMLogLevelWarn = 40,
-  AMLogLevelError = 50,
-  AMLogLevelOff = 60,
-};
 
 
 /// This is the interface through which interstitial ads are (1)

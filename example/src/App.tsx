@@ -6,7 +6,8 @@ import {   SafeAreaView,
   View,
   Text,
   StatusBar,
-  Button, } from 'react-native';
+  Button,
+  FlatList, } from 'react-native';
 
 import {
   Header
@@ -57,17 +58,18 @@ class App extends React.Component {
       console.log("Interstitial onAdClicked "+a.clickUrl);
     });
 
-    return (
-      <SafeAreaView >
-      <StatusBar  />
-      <ScrollView>
-        <Header />
-        <View>
-          <Button
-            onPress={this.showInterstitial}
-            title="Show interstitial"
-          />
-          <AdmixerBanner
+    const data = [{id: 1, title: "One"},{id: 2, title: "Two"},{id: 3, title: "Three"},{id: 4, title: "Four"}];
+    const Item = ({title}) => (
+      <View>
+        <Text>{title}</Text>
+      </View>
+    );
+    const renderItem = ({ item }) => (
+      <View>
+
+
+    <Item title={item.title}/>
+    <AdmixerBanner
             config={{
               zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
               bannerWidth: 300,
@@ -76,6 +78,23 @@ class App extends React.Component {
             }}
             onAdLoaded={this.onAdLoaded}
             onAdLoadFailed={this.onAdLoadFailed}/>
+      </View>
+    );
+
+    return (
+      <SafeAreaView >
+      <StatusBar  />
+      <ScrollView>
+        <View>
+          <Button
+            onPress={this.showInterstitial}
+            title="Show interstitial"
+          />
+          <FlatList
+            data={data}
+            renderItem={ renderItem }
+          />
+          
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -29,7 +29,7 @@ import net.admixer.sdk.BannerAdView;
 import net.admixer.sdk.ClickThroughAction;
 import net.admixer.sdk.ResultCode;
 
-public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> implements AdListener {
+public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
     public static final String REACT_CLASS = "AdmixerBanner";
     public static final String ZONE_ID_KEY = "zoneId";
     public static final String SIZES_KEY = "sizes";
@@ -38,7 +38,6 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> im
     public static final String AUTO_REFRESH_ENABLED_KEY = "autoRefreshEnabled";
     public static final String RESIZE_AD_TO_FIT_CONTAINER_KEY = "resizeAdToFitContainer";
     private ReactApplicationContext reactContext;
-    private BannerAdView bannerAdView;
 
     public AdmixerBannerViewManager(ReactApplicationContext rc) {
         super();
@@ -53,8 +52,9 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> im
 
     @Override
     public BannerAdView createViewInstance(ThemedReactContext context) {
-      bannerAdView = new BannerAdView(context.getCurrentActivity());
-      bannerAdView.setAdListener(this);
+      BannerAdViewRN bannerAdView = new BannerAdViewRN(context.getCurrentActivity());
+      bannerAdView.setReactContext(reactContext);
+      bannerAdView.setAdListener(bannerAdView);
       return bannerAdView;
     }
 
@@ -152,57 +152,4 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> im
                                 MapBuilder.of("bubbled", AdmixerJSEvent.ON_AD_CLICKED_EVENT)))
                 .build();
     }
-
-  @Override
-  public void onAdRequestFailed(AdView bav, ResultCode errorCode) {
-    if (errorCode == null) {
-      sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, null);
-    } else {
-      WritableMap event = Arguments.createMap();
-      event.putString("errorCode", errorCode.toString());
-      sendEvent(AdmixerJSEvent.ON_AD_LOAD_FAILED_EVENT, event);
-    }
-  }
-
-  @Override
-  public void onAdLoaded(AdView bav) {
-    int width = bav.getCreativeWidth();
-    int height = bav.getCreativeHeight();
-
-    WritableMap event = Arguments.createMap();
-    event.putInt("width", width);
-    event.putInt("height", height);
-
-    sendEvent(AdmixerJSEvent.ON_RESIZE_EVENT, event);
-    sendEvent(AdmixerJSEvent.ON_AD_LOADED_EVENT, null);
-  }
-
-  @Override
-  public void onAdExpanded(AdView bav) {
-    sendEvent(AdmixerJSEvent.ON_AD_EXPANDED_EVENT, null);
-  }
-
-  @Override
-  public void onAdCollapsed(AdView bav) {
-    sendEvent(AdmixerJSEvent.ON_AD_COLLAPSED_EVENT, null);
-  }
-
-  @Override
-  public void onAdClicked(AdView bav) {
-    sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, null);
-  }
-
-  @Override
-  public void onAdClicked(AdView adView, String clickUrl) {
-    WritableMap event = Arguments.createMap();
-    event.putString("clickUrl", clickUrl);
-    sendEvent(AdmixerJSEvent.ON_AD_CLICKED_EVENT, event);
-  }
-
-  private void sendEvent(String eventName, @Nullable WritableMap event) {
-    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-      bannerAdView.getId(),
-      eventName,
-      event);
-  }
 }

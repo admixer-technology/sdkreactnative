@@ -74,7 +74,8 @@ class App extends React.Component {
               zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
               bannerWidth: 300,
               bannerHeight: 250,
-              sizes:[[300, 250],[320, 50]]
+              sizes:[[300, 250],[320, 50]],
+              autoRefreshInterval: item.id
             }}
             onAdLoaded={this.onAdLoaded}
             onAdLoadFailed={this.onAdLoadFailed}/>

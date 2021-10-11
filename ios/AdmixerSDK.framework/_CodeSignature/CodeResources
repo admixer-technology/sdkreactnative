@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/AdmixerSDK-Swift.h</key>
 		<data>
-		zUECfjQKSBc9FczLzNbLwKsPRno=
+		E/vVibQ/sv41jfVkLbnF8+vF9wQ=
 		</data>
 		<key>Headers/AdmixerSDK.h</key>
 		<data>
@@ -42,19 +42,19 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		6q6URlT9hlYf1ELhjzB+zvwR4UA=
+		rHgdyi5os1MOlr44LlSWpX26/s8=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<data>
-		6q6URlT9hlYf1ELhjzB+zvwR4UA=
+		rHgdyi5os1MOlr44LlSWpX26/s8=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		3HIx7Ia62Ioe7ZPfClMYedNpoMo=
+		iHDkcMVXrcA0S7cM8F0z3g6gYWA=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		3HIx7Ia62Ioe7ZPfClMYedNpoMo=
+		iHDkcMVXrcA0S7cM8F0z3g6gYWA=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BiharP2EIzWWGGG6L2LmRQn1Bnc=
+		eLrYVt8ORlEieSAiwknmXTTRGEw=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftmodule</key>
 		<data>
-		BiharP2EIzWWGGG6L2LmRQn1Bnc=
+		eLrYVt8ORlEieSAiwknmXTTRGEw=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/FPSpPbi30wuLC+aO4gOr61lVYU=
+		v3/6Dcts6skCjn41SwqdGOcLuYs=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		/FPSpPbi30wuLC+aO4gOr61lVYU=
+		v3/6Dcts6skCjn41SwqdGOcLuYs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -257,11 +257,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zUECfjQKSBc9FczLzNbLwKsPRno=
+			E/vVibQ/sv41jfVkLbnF8+vF9wQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			1zm/xKtP42dn1+vDTKFQhnrwgKgjLJV+LkeKiDPnTXE=
+			Y9z1enT6XiF3Nld2yxR4438R8Z3zC+r9c7VuS3xH7GI=
 			</data>
 		</dict>
 		<key>Headers/AdmixerSDK.h</key>
@@ -279,44 +279,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6q6URlT9hlYf1ELhjzB+zvwR4UA=
+			rHgdyi5os1MOlr44LlSWpX26/s8=
 			</data>
 			<key>hash2</key>
 			<data>
-			07cLBp8ynMtjIPylfAq0BXWVKB0ntq/w12Ojo+UHxy0=
+			Fy8PiBrMs14otMuxUHPnFcswpVYKQYnnW1iSnfgPmoM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6q6URlT9hlYf1ELhjzB+zvwR4UA=
+			rHgdyi5os1MOlr44LlSWpX26/s8=
 			</data>
 			<key>hash2</key>
 			<data>
-			07cLBp8ynMtjIPylfAq0BXWVKB0ntq/w12Ojo+UHxy0=
+			Fy8PiBrMs14otMuxUHPnFcswpVYKQYnnW1iSnfgPmoM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3HIx7Ia62Ioe7ZPfClMYedNpoMo=
+			iHDkcMVXrcA0S7cM8F0z3g6gYWA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ng9shyxiyMDikua+bEcwuovG9y0X0mlOZTb1EwbzxsI=
+			yhjWU4VF75AJPevtzahT1C1Xt6nHGY1Ilt7Fv60C/78=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3HIx7Ia62Ioe7ZPfClMYedNpoMo=
+			iHDkcMVXrcA0S7cM8F0z3g6gYWA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ng9shyxiyMDikua+bEcwuovG9y0X0mlOZTb1EwbzxsI=
+			yhjWU4VF75AJPevtzahT1C1Xt6nHGY1Ilt7Fv60C/78=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -334,11 +334,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BiharP2EIzWWGGG6L2LmRQn1Bnc=
+			eLrYVt8ORlEieSAiwknmXTTRGEw=
 			</data>
 			<key>hash2</key>
 			<data>
-			8AqF4bhalG4rKVInpxLtZLtjmePUrugLq5nrLoweSRw=
+			fO0cTXZRHP4b1MUS6kqk9aMzReporm+IIPW6C+5Hb+4=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/i386.swiftdoc</key>
@@ -356,11 +356,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BiharP2EIzWWGGG6L2LmRQn1Bnc=
+			eLrYVt8ORlEieSAiwknmXTTRGEw=
 			</data>
 			<key>hash2</key>
 			<data>
-			8AqF4bhalG4rKVInpxLtZLtjmePUrugLq5nrLoweSRw=
+			fO0cTXZRHP4b1MUS6kqk9aMzReporm+IIPW6C+5Hb+4=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -378,11 +378,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/FPSpPbi30wuLC+aO4gOr61lVYU=
+			v3/6Dcts6skCjn41SwqdGOcLuYs=
 			</data>
 			<key>hash2</key>
 			<data>
-			wJIKjwC+LZ3kCaUforqhTqpbzHOzEs6ztEthr4Jt1gI=
+			N685ItHgr//HMKiPBLleU475xi4/+bDBcpRle5HVl/o=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -400,11 +400,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/FPSpPbi30wuLC+aO4gOr61lVYU=
+			v3/6Dcts6skCjn41SwqdGOcLuYs=
 			</data>
 			<key>hash2</key>
 			<data>
-			wJIKjwC+LZ3kCaUforqhTqpbzHOzEs6ztEthr4Jt1gI=
+			N685ItHgr//HMKiPBLleU475xi4/+bDBcpRle5HVl/o=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

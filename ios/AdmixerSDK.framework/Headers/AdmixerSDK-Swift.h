@@ -279,6 +279,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable externalUid;
 @property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
+@property (nonatomic, copy) NSString * _Nullable placementId;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
 @property (nonatomic) BOOL shouldServePublicServiceAnnouncements;
@@ -304,6 +305,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 
 SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
+@property (nonatomic) CGSize adSize;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
 @property (nonatomic) CGSize loadedAdSize;
@@ -829,6 +831,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable externalUid;
 @property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
+@property (nonatomic, copy) NSString * _Nullable placementId;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
 @property (nonatomic) BOOL shouldServePublicServiceAnnouncements;
@@ -854,6 +857,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 
 SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
+@property (nonatomic) CGSize adSize;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
 @property (nonatomic) CGSize loadedAdSize;
@@ -1379,6 +1383,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable externalUid;
 @property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
+@property (nonatomic, copy) NSString * _Nullable placementId;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
 @property (nonatomic) BOOL shouldServePublicServiceAnnouncements;
@@ -1404,6 +1409,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 
 SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
+@property (nonatomic) CGSize adSize;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
 @property (nonatomic) CGSize loadedAdSize;
@@ -1929,6 +1935,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 @property (nonatomic, copy) NSString * _Nullable externalUid;
 @property (nonatomic, copy) NSString * _Nullable contentId;
 @property (nonatomic, copy) NSData * _Nullable ortbObject;
+@property (nonatomic, copy) NSString * _Nullable placementId;
 @property (nonatomic) enum AMClickThroughAction clickThroughAction;
 @property (nonatomic, copy) NSString * _Nullable creativeId;
 @property (nonatomic) BOOL shouldServePublicServiceAnnouncements;
@@ -1954,6 +1961,7 @@ SWIFT_CLASS("_TtC10AdmixerSDK8AMAdView")
 
 SWIFT_CLASS("_TtC10AdmixerSDK14AMBannerAdView")
 @interface AMBannerAdView : AMAdView
+@property (nonatomic) CGSize adSize;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull adSizes;
 @property (nonatomic) NSTimeInterval autoRefreshInterval;
 @property (nonatomic) CGSize loadedAdSize;
@@ -2200,4 +2208,3 @@ SWIFT_CLASS("_TtC10AdmixerSDK21AMVideoPlayerSettings")
 #endif
 
 #endif
-

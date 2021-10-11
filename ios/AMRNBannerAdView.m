@@ -15,6 +15,7 @@
 AMBannerAdView* adView;
 NSInteger containerWidth;
 NSInteger containerHeight;
+NSInteger autoRefreshLocal;
 
 #pragma mark Constructors
 
@@ -67,6 +68,7 @@ NSInteger containerHeight;
                 }
     }
     
+    autoRefreshLocal = autoRefresh;
     if(autoRefresh > 1000) {
         autoRefresh = autoRefresh / 1000;
     }
@@ -89,10 +91,16 @@ NSInteger containerHeight;
 #pragma mark HandleClick
 
 - (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event{
+    NSLog(@"MyCustomLog pointInside %i", autoRefreshLocal);
     if([adView pointInside:[self convertPoint:point toView:adView] withEvent:event]) {
         return YES;
     }
     return NO;
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    NSLog(@"MyCustomLog hitTest %i", autoRefreshLocal);
+    return [super hitTest:point withEvent:event];
 }
 
 #pragma mark AMBannerAdViewDelegate

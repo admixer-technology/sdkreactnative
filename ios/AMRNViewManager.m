@@ -1,9 +1,10 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTViewManager.h>
 #import "AMRNBannerAdView.h"
+#import "AMRNBannerAdViewDelegate.h"
 #import "RCTBridge.h"
 
-@interface AMRNViewManager : RCTViewManager<AMBannerAdViewDelegate>
+@interface AMRNViewManager : RCTViewManager
 
 @property (nonatomic, copy) RCTBubblingEventBlock onAdLoadFailed;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdExpanded;
@@ -14,10 +15,13 @@
 
 @implementation AMRNViewManager
 
+NSInteger containerWidth;
+NSInteger containerHeight;
+NSMutableArray* bannerDelegates;
+
 RCT_EXPORT_MODULE(AdmixerBannerManager)
 
 RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
-    NSLog(@"MyCustomLog set config");
     
     NSString* zoneId = [json objectForKey:@"zoneId"];
     NSInteger bannerWidth = [[json valueForKey:@"bannerWidth"] integerValue];
@@ -27,6 +31,7 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
     NSInteger autoRefresh = [[json valueForKey:@"autoRefreshInterval"] integerValue];
     bool autoRefreshEnabled = [[json valueForKey:@"autoRefreshEnabled"] boolValue];
     bool resizeAdToFitContainer = [[json valueForKey:@"resizeAdToFitContainer"] boolValue];
+    NSInteger bannerId = [[json objectForKey:@"bannerId"] integerValue];
     
     containerWidth = bannerWidth;
     containerHeight = bannerHeight;
@@ -34,7 +39,12 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
     CGRect bannerFrame = CGRectMake(0, 0, bannerWidth, bannerHeight);
     view.placementId = zoneId;
     view.adSize = adSize;
-    view.delegate = self;
+    AMRNBannerAdViewDelegate * adViewDelegate = [[AMRNBannerAdViewDelegate alloc] initWithBridge:self.bridge width:containerWidth height:containerHeight id:bannerId];
+    if(!bannerDelegates) {
+        bannerDelegates = [[NSMutableArray alloc] init];
+    }
+    [bannerDelegates addObject:adViewDelegate];
+    view.delegate = adViewDelegate;
     
     if(sizes.count > 0) {
         NSMutableArray* adSizes = [NSMutableArray arrayWithCapacity:sizes.count];
@@ -81,44 +91,11 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
     [view loadAd];
 }
 
-NSInteger containerWidth;
-NSInteger containerHeight;
-
 - (UIView *) view
 {
     CGRect frame = CGRectMake(0, 0, 300, 250);
     AMBannerAdView* banner = [[AMBannerAdView alloc] initWithFrame:frame placementId:@""];
-    NSLog(@"MyCustomLog create banner");
     return banner;
-}
-
-#pragma mark AMBannerAdViewDelegate
-
-- (void) adDidReceiveAd:(id)ad {
-    NSLog(@"MyCustomLog adDidReceiveAd");
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdLoadedAMBannerView" body:@{@"event":ON_AD_LOADED_EVENT}];
-    
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onResizeAMBannerView" body:@{@"width":@(containerWidth),@"height":@(containerHeight)}];
-}
-
-- (void) ad:(id)ad requestFailedWithError:(NSError *)error {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdLoadFailedAMBannerView" body:@{@"event":ON_AD_LOAD_FAILED_EVENT,@"msg":error.localizedDescription}];
-}
-
-- (void) adDidPresent:(id)ad {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdExpandedAMBannerView" body:@{@"event":ON_AD_EXPANDED_EVENT}];
-}
-
-- (void) adDidClose:(id)ad {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdCollapsedAMBannerView" body:@{@"event":ON_AD_COLLAPSED_EVENT}];
-}
-
-- (void) adWasClicked:(id)ad {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdClickedAMBannerView" body:@{@"event":ON_AD_CLICKED_EVENT}];
-}
-
-- (void) adWasClicked:(AMAdView *)ad withURL:(NSString *)urlString {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"onAdClickedAMBannerView" body:@{@"event":ON_AD_CLICKED_EVENT,@"clickUrl":urlString}];
 }
 
 

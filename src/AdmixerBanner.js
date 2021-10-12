@@ -42,15 +42,27 @@ export default class AdmixerBanner extends Component {
     this.state = {
       style: {width: 0, height: 0},
     };
+    // For Android Start
+    this._onResize = this._onResize.bind(this);
+    this._onAdLoadFailed = this._onAdLoadFailed.bind(this);
+    this._onAdLoaded = this._onAdLoaded.bind(this);
+    this._onAdExpanded = this._onAdExpanded.bind(this);
+    this._onAdCollapsed = this._onAdCollapsed.bind(this);
+    this._onAdClicked = this._onAdClicked.bind(this);
+    // For Android End
 
-    onAdLoadedSubscription = NativeAppEventEmitter.addListener('onAdLoadedAMBannerView',
+    // For iOS workaround Start
+    let bannerId = Math.floor(Math.random() * 100000);
+    this.props.config.bannerId = bannerId;
+
+    onAdLoadedSubscription = NativeAppEventEmitter.addListener('onAdLoadedAMBannerView'+bannerId,
       (body) => {
         if(this.props.onAdLoaded) {
           this.props.onAdLoaded();
         }
       });
 
-    onResizeSubscription = NativeAppEventEmitter.addListener('onResizeAMBannerView',
+    onResizeSubscription = NativeAppEventEmitter.addListener('onResizeAMBannerView'+bannerId,
       (body) => {
         this.setState({
           ...this.state,
@@ -62,48 +74,95 @@ export default class AdmixerBanner extends Component {
       }
     );
 
-    onAdLoadFailedSubscription = NativeAppEventEmitter.addListener('onAdLoadFailedAMBannerView',
+    onAdLoadFailedSubscription = NativeAppEventEmitter.addListener('onAdLoadFailedAMBannerView'+bannerId,
     (body) => {
       if(this.props.onAdLoadFailed) {
         this.props.onAdLoadFailed(body.errorCode);
       }
     });
 
-    onAdExpandedSubscription = NativeAppEventEmitter.addListener('onAdExpandedAMBannerView',
+    onAdExpandedSubscription = NativeAppEventEmitter.addListener('onAdExpandedAMBannerView'+bannerId,
       (body) => {
         if(this.props.onAdExpanded) {
           this.props.onAdExpanded();
         }
     });
 
-    onAdCollapsedSubscription = NativeAppEventEmitter.addListener('onAdCollapsedAMBannerView',
+    onAdCollapsedSubscription = NativeAppEventEmitter.addListener('onAdCollapsedAMBannerView'+bannerId,
       (body) => {
         if(this.props.onAdCollapsed) {
           this.props.onAdCollapsed();
         }
       });
 
-    onAdClickedSubscription = NativeAppEventEmitter.addListener('onAdClickedAMBannerView',
+    onAdClickedSubscription = NativeAppEventEmitter.addListener('onAdClickedAMBannerView'+bannerId,
       (body) => {
         if(this.props.onAdClicked) {
           this.props.onAdClicked(body);
         }
       });
+      // For iOS workaround end
 
   }
 
+  // For Android start
+  _onResize(event) {
+    this.setState({
+      ...this.state,
+      style: {
+        width: event.nativeEvent.width,
+        height: event.nativeEvent.height,
+      },
+    });
+  }
+  _onAdLoadFailed(event) {
+    const errorCode = event.nativeEvent.errorCode;
+    if (this.props.onAdLoadtFailed) {
+      this.props.onAdLoadFailed(errorCode);
+    }
+  }
+  _onAdLoaded() {
+    if (this.props.onAdLoaded) {
+      this.props.onAdLoaded();
+    }
+  }
+  _onAdExpanded() {
+    if (this.props.onAdExpanded) {
+      this.props.onAdExpanded();
+    }
+  }
+  _onAdCollapsed() {
+    if (this.props.onAdCollapsed) {
+      this.props.onAdCollapsed();
+    }
+  }
+  _onAdClicked(event) {
+    if (this.props.onAdClicked) {
+      this.props.onAdClicked(event);
+    }
+  }
+  // For Android end
+
   render() {
+
     return (
       <View>
         <Banner
           style={StyleSheet.create(this.state.style)}
           config={this.props.config}
+          onResize={this._onResize}
+          onAdLoadFailed={this._onAdLoadFailed}
+          onAdLoaded={this._onAdLoaded}
+          onAdExpanded={this._onAdExpanded}
+          onAdCollapsed={this._onAdCollapsed}
+          onAdClicked={this._onAdClicked}
         />
       </View>
     );
   }
+
+  // For iOS workaround start
   componentWillUnmount(){
-    console.log('componentWillUnmount');
     onAdLoadedSubscription.remove();
     onResizeSubscription.remove();
     onAdLoadFailedSubscription.remove();
@@ -111,4 +170,5 @@ export default class AdmixerBanner extends Component {
     onAdCollapsedSubscription.remove();
     onAdClickedSubscription.remove();
   }
+  // For iOS workaround end
 }

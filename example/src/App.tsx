@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   onAdClicked(event: any) {
-    console.log("onAdClicked "+event.nativeEvent.clickUrl);
+    console.log("onAdClicked "+event.clickUrl);
   }
 
 
@@ -78,7 +78,8 @@ class App extends React.Component {
               autoRefreshInterval: item.id
             }}
             onAdLoaded={this.onAdLoaded}
-            onAdLoadFailed={this.onAdLoadFailed}/>
+            onAdLoadFailed={this.onAdLoadFailed}
+            onAdClicked={this.onAdClicked}/>
       </View>
     );
 
@@ -129,7 +130,8 @@ class App extends React.Component {
               sizes:[[300, 250],[320, 50]]
             }}
             onAdLoaded={this.onAdLoaded}
-            onAdLoadFailed={this.onAdLoadFailed}/>
+            onAdLoadFailed={this.onAdLoadFailed}
+            onAdClicked={this.onAdClicked}/>
           
         </View>
       </ScrollView>

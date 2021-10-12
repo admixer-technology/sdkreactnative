@@ -13,6 +13,8 @@
 		40AE5F2026263AF000B1BBBB /* AMRNBannerAdView.h in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F1C26263A2700B1BBBB /* AMRNBannerAdView.h */; };
 		40AE5F512626423800B1BBBB /* AMRNInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F502626423800B1BBBB /* AMRNInterstitial.m */; };
 		40AE5F562626516C00B1BBBB /* AMRNEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE5F552626516C00B1BBBB /* AMRNEvents.m */; };
+		40E3402A27158AB7007B8F7F /* AMRNBannerAdViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3402927158AB7007B8F7F /* AMRNBannerAdViewDelegate.m */; };
+		40E3402B27158C70007B8F7F /* AMRNBannerAdViewDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 40E3402827158A51007B8F7F /* AMRNBannerAdViewDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,8 @@
 		40AE5F502626423800B1BBBB /* AMRNInterstitial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNInterstitial.m; sourceTree = "<group>"; };
 		40AE5F542626515200B1BBBB /* AMRNEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNEvents.h; sourceTree = "<group>"; };
 		40AE5F552626516C00B1BBBB /* AMRNEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNEvents.m; sourceTree = "<group>"; };
+		40E3402827158A51007B8F7F /* AMRNBannerAdViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRNBannerAdViewDelegate.h; sourceTree = "<group>"; };
+		40E3402927158AB7007B8F7F /* AMRNBannerAdViewDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNBannerAdViewDelegate.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* Admixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admixer.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* Admixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admixer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				40E3402827158A51007B8F7F /* AMRNBannerAdViewDelegate.h */,
+				40E3402927158AB7007B8F7F /* AMRNBannerAdViewDelegate.m */,
 				40AE5F542626515200B1BBBB /* AMRNEvents.h */,
 				40AE5F552626516C00B1BBBB /* AMRNEvents.m */,
 				40AE5F4F2626421A00B1BBBB /* AMRNInterstitial.h */,
@@ -143,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E3402B27158C70007B8F7F /* AMRNBannerAdViewDelegate.h in Sources */,
+				40E3402A27158AB7007B8F7F /* AMRNBannerAdViewDelegate.m in Sources */,
 				40AE5F2026263AF000B1BBBB /* AMRNBannerAdView.h in Sources */,
 				40AE5F1E26263AED00B1BBBB /* AMRNBannerAdView.m in Sources */,
 				40AE5ECE2626375000B1BBBB /* AMRNViewManager.m in Sources */,

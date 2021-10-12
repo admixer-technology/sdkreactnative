@@ -101,6 +101,42 @@ class App extends React.Component {
     </SafeAreaView>
     );
   }
+
+  render1() {
+
+    AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+      console.log("Interstitial onAdLoaded");
+      AdmixerInterstitial.showAd();
+    });
+    AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+      console.log("Interstitial onAdClicked "+a.clickUrl);
+    });
+
+    return (
+      <SafeAreaView >
+      <StatusBar  />
+      <ScrollView>
+        <View>
+          <Button
+            onPress={this.showInterstitial}
+            title="Show interstitial"
+          />
+    <AdmixerBanner
+            config={{
+              zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
+              bannerWidth: 300,
+              bannerHeight: 250,
+              sizes:[[300, 250],[320, 50]]
+            }}
+            onAdLoaded={this.onAdLoaded}
+            onAdLoadFailed={this.onAdLoadFailed}/>
+          
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({

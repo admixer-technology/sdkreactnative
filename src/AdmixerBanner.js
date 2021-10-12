@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {requireNativeComponent, View, StyleSheet} from 'react-native';
+import {requireNativeComponent, View, StyleSheet, NativeAppEventEmitter} from 'react-native';
 
 const BannerPropTypes = {
   config: PropTypes.shape({
@@ -21,6 +21,13 @@ const BannerPropTypes = {
   ...View.propTypes,
 };
 
+var onAdLoadedSubscription;
+var onResizeSubscription;
+var onAdLoadFailedSubscription;
+var onAdExpandedSubscription;
+var onAdCollapsedSubscription;
+var onAdClickedSubscription;
+
 const Banner = requireNativeComponent('AdmixerBanner', {
   name: 'Banner',
   propTypes: {...BannerPropTypes},
@@ -35,62 +42,73 @@ export default class AdmixerBanner extends Component {
     this.state = {
       style: {width: 0, height: 0},
     };
-    this._onResize = this._onResize.bind(this);
-    this._onAdLoadFailed = this._onAdLoadFailed.bind(this);
-    this._onAdLoaded = this._onAdLoaded.bind(this);
-    this._onAdExpanded = this._onAdExpanded.bind(this);
-    this._onAdCollapsed = this._onAdCollapsed.bind(this);
-    this._onAdClicked = this._onAdClicked.bind(this);
-  }
-  _onResize(event) {
-    this.setState({
-      ...this.state,
-      style: {
-        width: event.nativeEvent.width,
-        height: event.nativeEvent.height,
-      },
+
+    onAdLoadedSubscription = NativeAppEventEmitter.addListener('onAdLoadedAMBannerView',
+      (body) => {
+        if(this.props.onAdLoaded) {
+          this.props.onAdLoaded();
+        }
+      });
+
+    onResizeSubscription = NativeAppEventEmitter.addListener('onResizeAMBannerView',
+      (body) => {
+        this.setState({
+          ...this.state,
+          style: {
+            width: body.width,
+            height: body.height,
+          }
+        });
+      }
+    );
+
+    onAdLoadFailedSubscription = NativeAppEventEmitter.addListener('onAdLoadFailedAMBannerView',
+    (body) => {
+      if(this.props.onAdLoadFailed) {
+        this.props.onAdLoadFailed(body.errorCode);
+      }
     });
+
+    onAdExpandedSubscription = NativeAppEventEmitter.addListener('onAdExpandedAMBannerView',
+      (body) => {
+        if(this.props.onAdExpanded) {
+          this.props.onAdExpanded();
+        }
+    });
+
+    onAdCollapsedSubscription = NativeAppEventEmitter.addListener('onAdCollapsedAMBannerView',
+      (body) => {
+        if(this.props.onAdCollapsed) {
+          this.props.onAdCollapsed();
+        }
+      });
+
+    onAdClickedSubscription = NativeAppEventEmitter.addListener('onAdClickedAMBannerView',
+      (body) => {
+        if(this.props.onAdClicked) {
+          this.props.onAdClicked(body);
+        }
+      });
+
   }
-  _onAdLoadFailed(event) {
-    const errorCode = event.nativeEvent.errorCode;
-    if (this.props.onAdLoadtFailed) {
-      this.props.onAdLoadFailed(errorCode);
-    }
-  }
-  _onAdLoaded() {
-    if (this.props.onAdLoaded) {
-      this.props.onAdLoaded();
-    }
-  }
-  _onAdExpanded() {
-    if (this.props.onAdExpanded) {
-      this.props.onAdExpanded();
-    }
-  }
-  _onAdCollapsed() {
-    if (this.props.onAdCollapsed) {
-      this.props.onAdCollapsed();
-    }
-  }
-  _onAdClicked(event) {
-    if (this.props.onAdClicked) {
-      this.props.onAdClicked(event);
-    }
-  }
+
   render() {
     return (
       <View>
         <Banner
           style={StyleSheet.create(this.state.style)}
           config={this.props.config}
-          onResize={this._onResize}
-          onAdLoadFailed={this._onAdLoadFailed}
-          onAdLoaded={this._onAdLoaded}
-          onAdExpanded={this._onAdExpanded}
-          onAdCollapsed={this._onAdCollapsed}
-          onAdClicked={this._onAdClicked}
         />
       </View>
     );
+  }
+  componentWillUnmount(){
+    console.log('componentWillUnmount');
+    onAdLoadedSubscription.remove();
+    onResizeSubscription.remove();
+    onAdLoadFailedSubscription.remove();
+    onAdExpandedSubscription.remove();
+    onAdCollapsedSubscription.remove();
+    onAdClickedSubscription.remove();
   }
 }

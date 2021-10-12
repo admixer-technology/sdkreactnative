@@ -93,7 +93,7 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
 
 - (UIView *) view
 {
-    CGRect frame = CGRectMake(0, 0, 300, 250);
+    CGRect frame = CGRectMake(0, 0, 0, 0);
     AMBannerAdView* banner = [[AMBannerAdView alloc] initWithFrame:frame placementId:@""];
     return banner;
 }

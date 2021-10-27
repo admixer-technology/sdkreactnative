@@ -14,23 +14,23 @@ import net.admixer.sdk.AdView;
 import net.admixer.sdk.BannerAdView;
 import net.admixer.sdk.ResultCode;
 
-public class BannerAdViewRN extends BannerAdView implements AdListener {
+public class RNBannerAdView extends BannerAdView implements AdListener {
 
   private ReactApplicationContext reactContext;
 
-  public BannerAdViewRN(Context context) {
+  public RNBannerAdView(Context context) {
     super(context);
   }
 
-  public BannerAdViewRN(Context context, AttributeSet attrs) {
+  public RNBannerAdView(Context context, AttributeSet attrs) {
     super(context, attrs);
   }
 
-  public BannerAdViewRN(Context context, AttributeSet attrs, int defStyle) {
+  public RNBannerAdView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
   }
 
-  public BannerAdViewRN(Context context, int refresh_interval) {
+  public RNBannerAdView(Context context, int refresh_interval) {
     super(context, refresh_interval);
   }
 

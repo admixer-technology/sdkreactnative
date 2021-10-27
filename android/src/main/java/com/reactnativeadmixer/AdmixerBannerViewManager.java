@@ -1,33 +1,21 @@
 package com.reactnativeadmixer;
 
-import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.common.MapBuilder;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.uimanager.events.RCTEventEmitter;
 
 import java.util.Map;
 import java.util.ArrayList;
 
 import android.os.Handler;
-import android.view.ViewGroup;
-import android.widget.Toast;
-import android.util.Log;
 
-import androidx.annotation.Nullable;
-
-import net.admixer.sdk.AdListener;
 import net.admixer.sdk.AdSize;
-import net.admixer.sdk.AdView;
 import net.admixer.sdk.BannerAdView;
 import net.admixer.sdk.ClickThroughAction;
-import net.admixer.sdk.ResultCode;
 
 public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
     public static final String REACT_CLASS = "AdmixerBanner";
@@ -52,7 +40,7 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
 
     @Override
     public BannerAdView createViewInstance(ThemedReactContext context) {
-      BannerAdViewRN bannerAdView = new BannerAdViewRN(context.getCurrentActivity());
+      RNBannerAdView bannerAdView = new RNBannerAdView(context.getCurrentActivity());
       bannerAdView.setReactContext(reactContext);
       bannerAdView.setAdListener(bannerAdView);
       return bannerAdView;

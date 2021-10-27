@@ -13,7 +13,7 @@ import {
   Header
 } from 'react-native/Libraries/NewAppScreen';
 
-import {AdmixerBanner, AdmixerInterstitial} from 'react-native-admixer';
+import {AdmixerBanner, AdmixerInterstitial, AdmixerNativeAdRequest} from 'react-native-admixer';
 
 class App extends React.Component {
 
@@ -50,6 +50,9 @@ class App extends React.Component {
 
   // Banner in list
   render() {
+
+    let nativeAdRequest = AdmixerNativeAdRequest("123");
+    nativeAdRequest.loadAd();
 
     AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
       console.log("Interstitial onAdLoaded");

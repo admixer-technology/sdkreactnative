@@ -39,8 +39,7 @@ public class AdmixerInterstitial extends ReactContextBaseJavaModule implements A
 
     @ReactMethod
     public void initInterstitial(final String zoneId, final Promise promise) {
-        final AdmixerInterstitial
-     self = this;
+        final AdmixerInterstitial self = this;
         getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

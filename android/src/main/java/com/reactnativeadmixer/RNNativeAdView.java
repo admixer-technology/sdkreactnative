@@ -21,6 +21,7 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   NativeAdRequest adRequest;
   NativeAdResponse adResponse;
   CatalystInstance catalystInstance;
+  String messagingModuleName;
   private String zoneId = "";
 
   public RNNativeAdView(ReactContext context) {
@@ -48,7 +49,7 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   public void onAdLoaded(NativeAdResponse nativeAdResponse) {
       if(nativeAdResponse != null) {
         this.adResponse = nativeAdResponse;
-
+        setNativeAdResponseToJS(nativeAdResponse);
       }
   }
 
@@ -65,9 +66,14 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
       args.putString("advertiser", adResponse.getSponsoredBy());
       args.putString("callToAction", adResponse.getCallToAction());
 
+      sendDirectMessage(args);
     } catch (Exception e) {
 
     }
+  }
+
+  public void setMessagingModuleName(String messagingModuleName) {
+    this.messagingModuleName = messagingModuleName;
   }
 
   protected void sendDirectMessage(WritableMap data) {
@@ -77,7 +83,7 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
     params.pushMap(event);
 
     if(catalystInstance != null) {
-      catalystInstance.callFunction()
+      catalystInstance.callFunction(messagingModuleName, "onNativeAdLoaded", params);
     }
   }
 

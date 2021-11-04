@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import android.os.Handler;
+import android.util.Log;
 
 import net.admixer.sdk.AdSize;
 import net.admixer.sdk.BannerAdView;

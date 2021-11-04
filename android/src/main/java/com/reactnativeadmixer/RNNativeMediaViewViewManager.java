@@ -1,7 +1,10 @@
 package com.reactnativeadmixer;
 
+import android.util.Log;
+
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
 
 import net.admixer.sdk.NativeMediaView;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-const Wrapper = (props) => {
+export default Wrapper = (props) => {
     return (
         <View
             {...props}
@@ -9,8 +9,6 @@ const Wrapper = (props) => {
         />
     )
 }
-
-export default Wrapper;
 
 const styles = StyleSheet.create({
     container: {

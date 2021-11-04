@@ -1,3 +1,12 @@
-export { default as AdmixerBanner} from './AdmixerBanner';
+export { default as AdmixerBanner } from './AdmixerBanner';
 export { default as AdmixerInterstitial } from './AdmixerInterstitial';
-export { default as AdmixerNativeAdReqeust } from './AdmixerNativeAdRequest';
+export { default as NativeAdView } from './NativeAdView';
+export { default as HeadlineView } from './HeadlineView';
+export { default as BodyView } from './BodyView';
+export { default as ImageView } from './ImageView';
+export { default as IconView } from './IconView';
+export { default as CallToActionView } from './CallToActionView';
+export { default as PriceView } from './PriceView';
+export { default as SponsoredView } from './SponsoredView';
+export { default as NativeMediaView } from './NativeMediaView';
+export { default as NativeAssets} from './NativeAssets';

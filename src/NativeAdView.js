@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { findNodeHandle, requireNativeComponent, UIManager } from "react-native";
 import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
-import { defaultAd, NativeAdContext } from "./context";
+import { defaultAd, NativeAdContext } from "./NativeContext";
+import Wrapper from "./Wrapper";
 
-const AdmixerNativeAdView = requireNativeComponent(
-    "AdmixerNativeAdView"
-);
+const Banner = requireNativeComponent('AdmixerNativeAdView');
 
-export class NativeAdView extends Component {
+export default class NativeAdView extends Component {
 
     constructor(props) {
         super(props);
@@ -31,6 +30,17 @@ export class NativeAdView extends Component {
         if(this.props.onAdLoaded) this.props.onAdLoaded(event.nativeEvent)
     }
 
+    onNativeAdLoaded = (event) => {
+        this.ad = event.nativeEvent;
+        console.log("### imageUrl ", this.ad.imageUrl);
+        if(this.componentMounted) {
+            this.updateAd();
+            if(this.props.onNativeAdLoaded) {
+                this.props.onNativeAdLoaded(this.ad);
+            }
+        }
+    }
+
     updateAd() {
         if (this.componentMounted) {
             this.setState({
@@ -43,6 +53,7 @@ export class NativeAdView extends Component {
         try {
             this.componentMounted = true;
             this.updateAd(this.ad);
+            console.log("###registerCallableModule ", this.messagingModuleName);
             BatchedBridge.registerCallableModule(this.messagingModuleName, this);
         } catch (e) {}
     }
@@ -57,6 +68,7 @@ export class NativeAdView extends Component {
     }
 
     loadAd = () => {
+        console.log("loadAd");
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(this.nativeAdRef),
             UIManager.getViewManagerConfig("AdmixerNativeAdView").Commands.loadAd,
@@ -67,24 +79,46 @@ export class NativeAdView extends Component {
     render() {
         const { nativeAd, nativeAdView } = this.state;
 
+        // return (
+        //     <NativeAdContext.Provider value={{ nativeAd, nativeAdView }}>
+        //         <Banner
+        //             ref={this._getRef}
+        //             adUnitID={this.props.adUnitID}
+        //             onAdLoaded={this.props._onAdLoaded}
+        //             onAdFailedToLoad={this.props._onAdfailedToLoad}
+        //             messagingModuleName={this.props.messagingModuleName}
+        //         >
+        //             <Wrapper
+        //                 onLayout={(event) => {
+        //                     this.setState({
+        //                         nativeAdView: this.nativeAdRef,
+        //                     });
+        //                 }}
+        //             >
+        //                 {this.props.children}
+        //             </Wrapper>
+        //         </Banner>
+        //     </NativeAdContext.Provider>
+        // );
+
         return (
             <NativeAdContext.Provider value={{ nativeAd, nativeAdView }}>
-                <AdmixerNativeAdView
-                    ref={this._getRef}
-                    adUnitID={this.props.adUnitID}
-                    onAdLoaded={this.props._onAdLoaded}
-                    onAdFailedToLoad={this.props._onAdfailedToLoad}
+                <Banner
+                ref={this._getRef}
+                messagingModuleName={this.messagingModuleName}
+                zoneId={this.props.zoneId}
+                assets={this.props.assets}
+                onNativeAdLoaded={this.onNativeAdLoaded}
                 >
                     <Wrapper
                         onLayout={(event) => {
                             this.setState({
                                 nativeAdView: this.nativeAdRef,
                             });
-                        }}
-                    >
+                        }}>
                         {this.props.children}
                     </Wrapper>
-                </AdmixerNativeAdView>
+                </Banner>
             </NativeAdContext.Provider>
         );
     }

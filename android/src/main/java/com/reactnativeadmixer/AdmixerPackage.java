@@ -19,7 +19,10 @@ public class AdmixerPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new AdmixerBannerViewManager(reactContext)
+                new AdmixerBannerViewManager(reactContext),
+                new RNNativeAdViewViewManager(reactContext),
+                new RNButtonViewManager(),
+                new RNNativeMediaViewViewManager()
         );
     }
 }

@@ -7,7 +7,7 @@ import net.admixer.sdk.NativeIconView;
 
 public class RNNativeIconViewViewManager extends SimpleViewManager<NativeIconView> {
 
-  public static final String REACT_CLASS = "IconView";
+  public static final String REACT_CLASS = "AdmixerIconView";
 
   @Override
   public String getName() {

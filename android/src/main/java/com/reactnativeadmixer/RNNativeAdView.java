@@ -1,19 +1,24 @@
 package com.reactnativeadmixer;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.CatalystInstance;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
 
+import net.admixer.sdk.NativeAdAsset;
 import net.admixer.sdk.NativeAdRequest;
 import net.admixer.sdk.NativeAdRequestListener;
 import net.admixer.sdk.NativeAdResponse;
 import net.admixer.sdk.NativeAdView;
 import net.admixer.sdk.ResultCode;
+
+import java.util.EnumSet;
 
 public class RNNativeAdView extends NativeAdView implements NativeAdRequestListener {
 
@@ -37,11 +42,22 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   }
 
   public void setupAdRequest() {
+    Log.d("MyCustomLog", "RNNativeAdView setupAdRequest");
     adRequest = new NativeAdRequest(context, zoneId);
     adRequest.setListener(this);
+
+    EnumSet<NativeAdAsset> assets = EnumSet.of(
+      NativeAdAsset.IMAGE_ICON,
+      NativeAdAsset.TITLE,
+      NativeAdAsset.DESCRIPTION,
+      NativeAdAsset.IMAGE_MAIN,
+      NativeAdAsset.CTA,
+      NativeAdAsset.SPONSORED);
+    adRequest.setRequiredAssets(assets);
   }
 
   public void loadAd() {
+    Log.d("MyCustomLog", "RNNativeAdView loadAd");
     adRequest.loadAd();
   }
 
@@ -49,6 +65,8 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   public void onAdLoaded(NativeAdResponse nativeAdResponse) {
       if(nativeAdResponse != null) {
         this.adResponse = nativeAdResponse;
+        Log.d("MyCustomLog", "registerViews");
+        this.adResponse.registerViews(this, null);
         setNativeAdResponseToJS(nativeAdResponse);
       }
   }
@@ -65,6 +83,8 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
       args.putString("body", adResponse.getDescription());
       args.putString("advertiser", adResponse.getSponsoredBy());
       args.putString("callToAction", adResponse.getCallToAction());
+      args.putString("imageUrl", adResponse.getImageUrl());
+      args.putString("iconUrl", adResponse.getIconUrl());
 
       sendDirectMessage(args);
     } catch (Exception e) {
@@ -83,7 +103,7 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
     params.pushMap(event);
 
     if(catalystInstance != null) {
-      catalystInstance.callFunction(messagingModuleName, "onNativeAdLoaded", params);
+      catalystInstance.callFunction(messagingModuleName, RNNativeAdViewViewManager.EVENT_NATIVE_AD_LOADED, params);
     }
   }
 

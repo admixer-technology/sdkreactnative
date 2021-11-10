@@ -26,6 +26,8 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
   public static final String REACT_CLASS = "AdmixerNativeAdView";
 
   public static final String EVENT_NATIVE_AD_LOADED = "onNativeAdLoaded";
+  public static final String EVENT_NATIVE_AD_ERROR = "onNativeAdFailed";
+  public static final String EVENT_NATIVE_AD_CLICKED = "onNativeAdClicked";
   public static final String PROP_HEADLINE_VIEW = "headline";
   public static final String PROP_MEDIA_VIEW = "mediaView";
   public static final String PROP_BODY_VIEW = "body";
@@ -61,7 +63,9 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
     Log.d("MyCustomLog", "getExportedCustomDirectEventTypeConstants");
     MapBuilder.Builder<String, Object> builder = MapBuilder.builder();
     String[] events = new String[]{
-      EVENT_NATIVE_AD_LOADED
+      EVENT_NATIVE_AD_LOADED,
+      EVENT_NATIVE_AD_ERROR,
+      EVENT_NATIVE_AD_CLICKED
     };
     for(String event : events) {
       builder.put(event, MapBuilder.of("registrationName", event));
@@ -104,15 +108,55 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
     EnumSet<NativeAdAsset> assets = EnumSet.noneOf(NativeAdAsset.class);
     for(int i = 0; i < array.size();i++) {
       String asset = array.getString(i);
-      switch (asset) {
-        case "image_icon":
-          assets.add(NativeAdAsset.IMAGE_ICON);
-          break;
-        case "image_main":
-          assets.add(NativeAdAsset.IMAGE_MAIN);
-          break;
-      }
+      assets.add(getAssetByName(asset));
     }
+    nativeAdView.setAssets(assets);
+  }
+
+  @ReactProp(name= "optAssets")
+  public void setOptAssets(RNNativeAdView nativeAdView, ReadableArray array) {
+    EnumSet<NativeAdAsset> optAssets = EnumSet.noneOf(NativeAdAsset.class);
+    for(int i = 0;i < array.size();i++) {
+      String asset = array.getString(i);
+      optAssets.add(getAssetByName(asset));
+    }
+    nativeAdView.setOptAssets(optAssets);
+  }
+
+  private NativeAdAsset getAssetByName(String name) {
+    switch (name) {
+      case "image_icon":
+        return NativeAdAsset.IMAGE_ICON;
+      case "image_main":
+        return NativeAdAsset.IMAGE_MAIN;
+      case "title":
+        return NativeAdAsset.TITLE;
+      case "sponsored":
+        return NativeAdAsset.SPONSORED;
+      case "description":
+        return NativeAdAsset.DESCRIPTION;
+      case "rating":
+        return NativeAdAsset.RATING;
+      case "likes":
+        return NativeAdAsset.LIKES;
+      case "downloads":
+        return NativeAdAsset.DOWNLOADS;
+      case "price":
+        return NativeAdAsset.PRICE;
+      case "saleprice":
+        return NativeAdAsset.SALEPRICE;
+      case "phone":
+        return NativeAdAsset.PHONE;
+      case "address":
+        return NativeAdAsset.ADDRESS;
+      case "description2":
+        return NativeAdAsset.DESC2;
+      case "display_url":
+        return NativeAdAsset.DISPLAYURL;
+      case "cta":
+        return NativeAdAsset.CTA;
+    }
+    return null;
   }
 
   @ReactProp(name = PROP_HEADLINE_VIEW)
@@ -124,20 +168,19 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
   @ReactProp(name = PROP_MEDIA_VIEW)
   public void setMediaView(RNNativeAdView adView, int id) {
     RNNativeMediaView mediaView = adView.findViewById(id);
-    Log.d("MyCustomLog", String.format("set media view %s %s", id, mediaView != null));
     adView.setMediaView(mediaView);
   }
 
   @ReactProp(name = PROP_ICON_VIEW)
   public void setIconView(RNNativeAdView adView, int id) {
     View view = adView.findViewById(id);
+    adView.setIconImageView(view);
   }
 
   @ReactProp(name = PROP_IMAGE_VIEW)
   public void setImageView(RNNativeAdView adView, int id) {
     View view = adView.findViewById(id);
-    Log.d("MyCustomLog", String.format("set image view %s %s", id, view != null));
-    adView.setLogoView(view);
+    adView.setMainImageView(view);
   }
 
   @ReactProp(name = PROP_BODY_VIEW)

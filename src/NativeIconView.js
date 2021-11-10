@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { findNodeHandle, Image } from "react-native";
 import { NativeAdContext } from "./NativeContext";
 
-const IconView = (props) => {
+const NativeIconView = (props) => {
     const { nativeAd, nativeAdView } = useContext(NativeAdContext);
     const iconViewRef = useRef();
     const _onLayout = useCallback(() => {
@@ -26,4 +26,4 @@ const IconView = (props) => {
             />
 }
 
-export default IconView;
+export default NativeIconView;

@@ -13,7 +13,9 @@ import {
   Header
 } from 'react-native/Libraries/NewAppScreen';
 
-import {AdmixerInterstitial, BodyView, CallToActionView, HeadlineView, IconView, ImageView, NativeAdView, NativeAssets, NativeMediaView} from 'react-native-admixer';
+import {AdmixerInterstitial, AdmixerBanner, NativeAdView, NativeAssets, 
+    NativeMediaView, NativeHeadlineView, NativeBodyView, NativeCallToActionView, 
+    NativeImageView, NativeIconView} from 'react-native-admixer';
 
 const App = () => {
 
@@ -21,9 +23,17 @@ const App = () => {
     console.log("###onNativeAdLoaded");
   }  
 
-  // onAdLoadFailed(event: any) {
-  //   console.log("onAdFailed");
-  // }
+  const onNativeAdFailed = (event: any) => {
+    console.log('###onNativeAdFailed');
+  }
+
+  const onNativeAdClicked = (event: any) => {
+    console.log('###onNativeAdClicked');
+  }
+
+  const onAdLoadFailed = (event: any) => {
+    console.log("onAdFailed");
+  }
 
   // onAdExpanded(event: any){
   //   console.log("onAdExpanded");
@@ -37,9 +47,9 @@ const App = () => {
   //   console.log("onAdClicked "+event.clickUrl);
   // }
 
-  // onNativeAdLoaded(event: any) {
-  //   console.log("onNativeAdLoaded");
-  // }
+  const onAdLoaded = (event: any) => {
+    console.log("onAdLoaded");
+  }
 
   // onNativeAdFailed(event: any) {
   //   console.log("onNativeAdFailed");
@@ -136,14 +146,13 @@ const App = () => {
   //         />
   //   <AdmixerBanner
   //           config={{
-  //             zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
+  //             zoneId: "ae667396-5982-4551-8085-11b2c9f51afb",
   //             bannerWidth: 300,
   //             bannerHeight: 250,
   //             sizes:[[300, 250],[320, 50]]
   //           }}
-  //           onAdLoaded={this.onAdLoaded}
-  //           onAdLoadFailed={this.onAdLoadFailed}
-  //           onAdClicked={this.onAdClicked}/>
+  //           onAdLoaded={onAdLoaded}
+  //           onAdLoadFailed={onAdLoadFailed}/>
           
   //       </View>
   //     </ScrollView>
@@ -155,9 +164,7 @@ const App = () => {
 
 const nativeAdRef = React.useRef();
 
-  console.log("###render");
   React.useEffect(() => {
-    console.log("### React.useEffect");
     nativeAdRef.current?.loadAd();
   }, []);
 
@@ -166,28 +173,51 @@ const nativeAdRef = React.useRef();
       <StatusBar />
       <ScrollView>
         <View>
-          <Text>Hello</Text>
+          <Text>Test native</Text>
           <NativeAdView
             ref={nativeAdRef}
             zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
-            assets={["img"]}
+            assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
+            optAssets={["price"]}
             onNativeAdLoaded={onNativeAdLoaded}
+            onNativeAdFailed={onNativeAdFailed}
+            onNativeAdClicked={onNativeAdClicked}
           >
             <View>
-              <HeadlineView></HeadlineView>
-              <BodyView></BodyView>
-              <CallToActionView></CallToActionView>
-              <ImageView
-                style={{
-                  width: 300,
-                  height: 250,
-                }}
-              ></ImageView>
-              <IconView
+              <View style={{flexDirection:"row",
+                            flexWrap:"wrap",
+                            margin:10}}>
+              <NativeIconView
                 style={{
                   width: 100,
                   height: 100
-                }}></IconView>
+                }}/>
+                  <View style={{margin:10}}>
+                    <NativeHeadlineView 
+                    style={{fontSize:18,
+                        fontWeight:'bold'
+                        }}/>
+                    <NativeBodyView style={{fontSize:14, color:'gray'}}/>
+                  </View>
+              </View>
+              <NativeImageView
+                style={{
+                  width: 300,
+                  height: 250,
+                  marginLeft:10,
+                  marginRight:10,
+                  marginBottom:10
+                }}/>
+              <NativeCallToActionView 
+              style={{marginLeft: 10, 
+                      marginRight:10,
+                      width: 350, 
+                      height: 50}}
+                  buttonAndroidStyle={{
+                    backgroundColor: '#24a0ed',
+                    color:'#ffffff',
+                    fontSize: 20
+                  }}/>
             </View>
           </NativeAdView>
         </View>

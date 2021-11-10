@@ -2,28 +2,28 @@ import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { findNodeHandle, Text } from "react-native";
 import { NativeAdContext } from "./NativeContext";
 
-const PriceView = (props) => {
+const NativeBodyView = (props) => {
     const { nativeAd, nativeAdView } = useContext(NativeAdContext);
-    const priceViewRef = useRef();
+    const bodyRef = useRef();
     const _onLayout = useCallback(() => {
         if(!nativeAdView) return;
 
-        let handle = findNodeHandle(priceViewRef.current);
+        let handle = findNodeHandle(bodyRef.current);
         nativeAdView.setNativeProps({
-            price: handle
+            body: handle
         });
-    }, [nativeAd, nativeAdView]);
+    }, [nativeAdView, bodyRef]);
 
     useEffect(() => {
-        _onLayout()
+        _onLayout();
     }, [nativeAd, nativeAdView]);
 
     return (
-        <Text {...props} ref={priceViewRef} onLayout={_onLayout}>
-            {nativeAd ? nativeAd.price : null}
+        <Text {...props} ref={bodyRef} onLayout={_onLayout}>
+            {nativeAd ? nativeAd.body : null}
         </Text>
     );
 
 };
 
-export default PriceView;
+export default NativeBodyView;

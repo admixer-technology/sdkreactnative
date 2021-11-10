@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { findNodeHandle, Text } from "react-native";
 import { NativeAdContext } from "./NativeContext";
 
-const SponsoredView = (props) => {
+const NativeSponsoredView = (props) => {
     const { nativeAd, nativeAdView } = useContext(NativeAdContext);
     const sponsoredRef = useRef();
     const _onLayout = useCallback(() => {
@@ -29,4 +29,4 @@ const SponsoredView = (props) => {
     );
 };
 
-export default SponsoredView;
+export default NativeSponsoredView;

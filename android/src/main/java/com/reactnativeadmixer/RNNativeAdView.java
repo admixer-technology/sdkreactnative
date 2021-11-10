@@ -12,6 +12,7 @@ import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
 
 import net.admixer.sdk.NativeAdAsset;
+import net.admixer.sdk.NativeAdEventListener;
 import net.admixer.sdk.NativeAdRequest;
 import net.admixer.sdk.NativeAdRequestListener;
 import net.admixer.sdk.NativeAdResponse;
@@ -28,6 +29,8 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   CatalystInstance catalystInstance;
   String messagingModuleName;
   private String zoneId = "";
+  private EnumSet<NativeAdAsset> assets;
+  private EnumSet<NativeAdAsset> optAssets;
 
   public RNNativeAdView(ReactContext context) {
     super(context);
@@ -41,19 +44,38 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
     setupAdRequest();
   }
 
+  public void setAssets(EnumSet<NativeAdAsset> assets) {
+    this.assets = assets;
+    if(assets == null) return;
+    if(adRequest != null) {
+      adRequest.setRequiredAssets(assets);
+    } else {
+      setupAdRequest();
+    }
+  }
+
+  public void setOptAssets(EnumSet<NativeAdAsset> optAssets) {
+    this.optAssets = optAssets;
+    if(optAssets == null) return;
+    if(adRequest != null) {
+      adRequest.setOptionalAssets(optAssets);
+    } else {
+      setupAdRequest();
+    }
+  }
+
   public void setupAdRequest() {
     Log.d("MyCustomLog", "RNNativeAdView setupAdRequest");
     adRequest = new NativeAdRequest(context, zoneId);
     adRequest.setListener(this);
 
-    EnumSet<NativeAdAsset> assets = EnumSet.of(
-      NativeAdAsset.IMAGE_ICON,
-      NativeAdAsset.TITLE,
-      NativeAdAsset.DESCRIPTION,
-      NativeAdAsset.IMAGE_MAIN,
-      NativeAdAsset.CTA,
-      NativeAdAsset.SPONSORED);
-    adRequest.setRequiredAssets(assets);
+    if(assets != null) {
+      adRequest.setRequiredAssets(assets);
+    }
+
+    if(optAssets != null) {
+      adRequest.setOptionalAssets(optAssets);
+    }
   }
 
   public void loadAd() {
@@ -65,15 +87,47 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   public void onAdLoaded(NativeAdResponse nativeAdResponse) {
       if(nativeAdResponse != null) {
         this.adResponse = nativeAdResponse;
-        Log.d("MyCustomLog", "registerViews");
-        this.adResponse.registerViews(this, null);
+        this.adResponse.registerViews(this, new NativeAdEventListener() {
+          @Override
+          public void onAdWasClicked() {
+            sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_CLICKED, null);
+          }
+
+          @Override
+          public void onAdWillLeaveApplication() {
+
+          }
+
+          @Override
+          public void onAdWasClicked(String s, String s1) {
+            try {
+              WritableMap args = Arguments.createMap();
+              args.putString("clickUrl", s);
+              sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_CLICKED, args);
+            } catch (Exception e) {
+              e.printStackTrace();
+              sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_CLICKED, null);
+            }
+          }
+        });
         setNativeAdResponseToJS(nativeAdResponse);
       }
   }
 
   @Override
   public void onAdFailed(ResultCode resultCode) {
-
+    if(resultCode != null) {
+      try {
+        WritableMap args = Arguments.createMap();
+        args.putString("errorCode", resultCode.toString());
+        sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_ERROR, args);
+      } catch (Exception e) {
+        e.printStackTrace();
+        sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_ERROR, null);
+      }
+    } else {
+      sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_ERROR, null);
+    }
   }
 
   private void setNativeAdResponseToJS(NativeAdResponse adResponse) {
@@ -86,9 +140,10 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
       args.putString("imageUrl", adResponse.getImageUrl());
       args.putString("iconUrl", adResponse.getIconUrl());
 
-      sendDirectMessage(args);
+      sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_LOADED, args);
     } catch (Exception e) {
-
+      e.printStackTrace();
+      sendDirectMessage(RNNativeAdViewViewManager.EVENT_NATIVE_AD_ERROR, null);
     }
   }
 
@@ -96,15 +151,14 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
     this.messagingModuleName = messagingModuleName;
   }
 
-  protected void sendDirectMessage(WritableMap data) {
+  protected void sendDirectMessage(String eventName, WritableMap data) {
     WritableNativeMap event = new WritableNativeMap();
     event.putMap("nativeEvent", data);
     WritableNativeArray params = new WritableNativeArray();
     params.pushMap(event);
 
     if(catalystInstance != null) {
-      catalystInstance.callFunction(messagingModuleName, RNNativeAdViewViewManager.EVENT_NATIVE_AD_LOADED, params);
+      catalystInstance.callFunction(messagingModuleName, eventName, params);
     }
   }
-
 }

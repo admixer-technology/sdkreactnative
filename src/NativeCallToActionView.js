@@ -2,7 +2,10 @@ import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { Button, findNodeHandle, Platform, requireNativeComponent, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NativeAdContext } from "./NativeContext";
 
-const CallToActionView = (props) => {
+const NativeCallToActionView = ({
+    style,
+    buttonAndroidStyle
+}) => {
     const { nativeAd, nativeAdView } = useContext(NativeAdContext);
     const callToActionRef = useRef();
     const _onLayout = useCallback(() => {
@@ -28,7 +31,10 @@ const CallToActionView = (props) => {
         <View style={styles.container}>
 
             <ButtonView
-                style={{width: 300, height: 50}}
+                style={style}
+                buttonAndroidStyle={
+                    Platform.OS === "android" ? buttonAndroidStyle : null
+                }
                 ref={callToActionRef}
                 onLayout={_onLayout}
                 title={nativeAd.callToAction}>
@@ -55,4 +61,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CallToActionView;
+export default NativeCallToActionView;

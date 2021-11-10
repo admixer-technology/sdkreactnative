@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { findNodeHandle, requireNativeComponent, UIManager } from "react-native";
 import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
+import { NativeAssets } from "./NativeAssets";
 import { defaultAd, NativeAdContext } from "./NativeContext";
 import Wrapper from "./Wrapper";
 
@@ -22,22 +23,27 @@ export default class NativeAdView extends Component {
 
     messagingModuleName = `NativeAdMessageHandler${Date.now() + Math.random()}`;
 
-    _onAdFailedToLoad = (event) => {
-        if(this.props.onAdFailedToLoad) this.props.onAdFailedToLoad(event.nativeEvent);
-    }
-
-    _onAdLoaded = (event) => {
-        if(this.props.onAdLoaded) this.props.onAdLoaded(event.nativeEvent)
-    }
-
     onNativeAdLoaded = (event) => {
         this.ad = event.nativeEvent;
-        console.log("### imageUrl ", this.ad.imageUrl);
         if(this.componentMounted) {
             this.updateAd();
             if(this.props.onNativeAdLoaded) {
                 this.props.onNativeAdLoaded(this.ad);
             }
+        }
+    }
+
+    onNativeAdFailed = (event) => {
+        let error = event.nativeEvent;
+        if(this.props.onNativeAdFailed) {
+            this.props.onNativeAdFailed(error);
+        }
+    }
+
+    onNativeAdClicked = (event) => {
+        let click = event.nativeEvent;
+        if(this.props.onNativeAdClicked) {
+            this.props.onNativeAdClicked(click);
         }
     }
 
@@ -108,8 +114,10 @@ export default class NativeAdView extends Component {
                 messagingModuleName={this.messagingModuleName}
                 zoneId={this.props.zoneId}
                 assets={this.props.assets}
+                optAssets={this.props.optAssets}
                 onNativeAdLoaded={this.onNativeAdLoaded}
-                >
+                onNativeAdFailed={this.onNativeAdFailed}
+                onNativeAdClicked={this.onNativeAdClicked}>
                     <Wrapper
                         onLayout={(event) => {
                             this.setState({

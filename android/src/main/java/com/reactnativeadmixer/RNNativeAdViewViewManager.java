@@ -2,21 +2,18 @@ package com.reactnativeadmixer;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.common.MapBuilder;
-import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
+import net.admixer.sdk.ClickThroughAction;
 import net.admixer.sdk.NativeAdAsset;
-import net.admixer.sdk.NativeAdView;
-import net.admixer.sdk.NativeMediaView;
 
 import java.util.EnumSet;
 import java.util.Map;
@@ -36,6 +33,10 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
   public static final String PROP_ICON_VIEW = "icon";
   public static final String PROP_IMAGE_VIEW = "image";
   public static final String PROP_PRICE_VIEW = "price";
+  public static final String PROP_ZONE_ID = "zoneId";
+  public static final String PROP_ASSETS = "assets";
+  public static final String PROP_MESSAGING_MODULE_NAME = "messagingModuleName";
+  public static final String PROP_CLICK_THROUGH = "clickThrough";
 
   private ReactApplicationContext reactContext;
 
@@ -93,17 +94,34 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
     }
   }
 
-  @ReactProp(name = "messagingModuleName")
+  @ReactProp(name = PROP_MESSAGING_MODULE_NAME)
   public void setMessagingModuleName(RNNativeAdView nativeAdView, String moduleName) {
     nativeAdView.setMessagingModuleName(moduleName);
   }
 
-  @ReactProp(name = "zoneId")
+  @ReactProp(name = PROP_ZONE_ID)
   public void setZoneId(RNNativeAdView nativeAdView, String zoneId) {
     nativeAdView.setZoneId(zoneId);
   }
 
-  @ReactProp(name = "assets")
+  @ReactProp(name = PROP_CLICK_THROUGH)
+  public void setClickThroughAction(RNNativeAdView nativeAdView, String action) {
+    ClickThroughAction clickThroughAction = ClickThroughAction.OPEN_SDK_BROWSER;
+    switch (action) {
+      case "open_sdk_browser":
+        clickThroughAction = ClickThroughAction.OPEN_SDK_BROWSER;
+        break;
+      case "open_device_browser":
+        clickThroughAction = ClickThroughAction.OPEN_DEVICE_BROWSER;
+        break;
+      case "return_url":
+        clickThroughAction = ClickThroughAction.RETURN_URL;
+        break;
+    }
+    nativeAdView.setClickThroughAction(clickThroughAction);
+  }
+
+  @ReactProp(name = PROP_ASSETS)
   public void setAssets(RNNativeAdView nativeAdView, ReadableArray array) {
     EnumSet<NativeAdAsset> assets = EnumSet.noneOf(NativeAdAsset.class);
     for(int i = 0; i < array.size();i++) {

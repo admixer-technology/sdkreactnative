@@ -115,6 +115,7 @@ export default class NativeAdView extends Component {
                 zoneId={this.props.zoneId}
                 assets={this.props.assets}
                 optAssets={this.props.optAssets}
+                clickThrough={this.props.clickThrough}
                 onNativeAdLoaded={this.onNativeAdLoaded}
                 onNativeAdFailed={this.onNativeAdFailed}
                 onNativeAdClicked={this.onNativeAdClicked}>

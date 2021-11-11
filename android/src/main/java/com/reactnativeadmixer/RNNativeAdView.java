@@ -11,6 +11,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
 
+import net.admixer.sdk.ClickThroughAction;
 import net.admixer.sdk.NativeAdAsset;
 import net.admixer.sdk.NativeAdEventListener;
 import net.admixer.sdk.NativeAdRequest;
@@ -23,12 +24,13 @@ import java.util.EnumSet;
 
 public class RNNativeAdView extends NativeAdView implements NativeAdRequestListener {
 
-  Context context;
-  NativeAdRequest adRequest;
-  NativeAdResponse adResponse;
-  CatalystInstance catalystInstance;
-  String messagingModuleName;
+  private Context context;
+  private NativeAdRequest adRequest;
+  private NativeAdResponse adResponse;
+  private CatalystInstance catalystInstance;
+  private String messagingModuleName;
   private String zoneId = "";
+  private ClickThroughAction clickThroughAction = ClickThroughAction.OPEN_SDK_BROWSER;
   private EnumSet<NativeAdAsset> assets;
   private EnumSet<NativeAdAsset> optAssets;
 
@@ -41,6 +43,11 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   public void setZoneId(String id) {
     this.zoneId = id;
     if(id == null) return;
+    setupAdRequest();
+  }
+
+  public void setClickThroughAction(ClickThroughAction action) {
+    this.clickThroughAction = action;
     setupAdRequest();
   }
 
@@ -68,6 +75,7 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
     Log.d("MyCustomLog", "RNNativeAdView setupAdRequest");
     adRequest = new NativeAdRequest(context, zoneId);
     adRequest.setListener(this);
+    adRequest.setClickThroughAction(clickThroughAction);
 
     if(assets != null) {
       adRequest.setRequiredAssets(assets);

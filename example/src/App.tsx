@@ -28,7 +28,7 @@ const App = () => {
   }
 
   const onNativeAdClicked = (event: any) => {
-    console.log('###onNativeAdClicked');
+    console.log('###onNativeAdClicked ', event ? event.clickUrl : "");
   }
 
   const onAdLoadFailed = (event: any) => {
@@ -179,6 +179,7 @@ const nativeAdRef = React.useRef();
             zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
             assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
             optAssets={["price"]}
+            clickThrough="open_device_browser"
             onNativeAdLoaded={onNativeAdLoaded}
             onNativeAdFailed={onNativeAdFailed}
             onNativeAdClicked={onNativeAdClicked}

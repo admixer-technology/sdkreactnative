@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTViewManager.h>
-#import "AMRNBannerAdView.h"
 #import "AMRNBannerAdViewDelegate.h"
 #import "RCTBridge.h"
 

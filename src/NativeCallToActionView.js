@@ -4,6 +4,7 @@ import { NativeAdContext } from "./NativeContext";
 
 const NativeCallToActionView = ({
     style,
+    buttonIOSStyle,
     buttonAndroidStyle
 }) => {
     const { nativeAd, nativeAdView } = useContext(NativeAdContext);
@@ -32,13 +33,17 @@ const NativeCallToActionView = ({
 
             <ButtonView
                 style={style}
+                activeOpacity={0.85}
                 buttonAndroidStyle={
                     Platform.OS === "android" ? buttonAndroidStyle : null
                 }
                 ref={callToActionRef}
                 onLayout={_onLayout}
                 title={nativeAd.callToAction}>
-                    {Platform.OS !== "android" && renderText}
+                    {Platform.OS !== "android" && 
+                    <Text 
+                    style={Platform.OS === "ios" ? buttonIOSStyle : null}>{renderText}
+                    </Text>}
             </ButtonView>
         </View>
     );

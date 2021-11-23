@@ -55,15 +55,15 @@ const App = () => {
   //   console.log("onNativeAdFailed");
   // }
 
-  // showInterstitial(){
-  //   // Interstitial
-  //   AdmixerInterstitial.initInterstitial("c744a785-272b-4b85-8a93-5eb581d74565").then(
-  //     (a:any) => { 
-  //       AdmixerInterstitial.loadAd();
-  //       AdmixerInterstitial.setClickThroughAction("return_url");
-  //     }
-  //   );
-  // }
+  const showInterstitial = () => {
+    // Interstitial
+    AdmixerInterstitial.initInterstitial("c744a785-272b-4b85-8a93-5eb581d74565").then(
+      (a:any) => { 
+        AdmixerInterstitial.loadAd();
+        AdmixerInterstitial.setClickThroughAction("return_url");
+      }
+    );
+  }
 
   // Banner in list
   // render2() {
@@ -144,9 +144,9 @@ const App = () => {
   //           onPress={this.showInterstitial}
   //           title="Show interstitial"
   //         />
-  //   <AdmixerBanner
+  //         <AdmixerBanner
   //           config={{
-  //             zoneId: "ae667396-5982-4551-8085-11b2c9f51afb",
+  //             zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
   //             bannerWidth: 300,
   //             bannerHeight: 250,
   //             sizes:[[300, 250],[320, 50]]
@@ -179,7 +179,7 @@ const nativeAdRef = React.useRef();
             zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
             assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
             optAssets={["price"]}
-            clickThrough="open_device_browser"
+            clickThrough="open_sdk_browser"
             onNativeAdLoaded={onNativeAdLoaded}
             onNativeAdFailed={onNativeAdFailed}
             onNativeAdClicked={onNativeAdClicked}
@@ -213,7 +213,16 @@ const nativeAdRef = React.useRef();
               style={{marginLeft: 10, 
                       marginRight:10,
                       width: 350, 
-                      height: 50}}
+                      height: 50,
+                      backgroundColor: '#24a0ed',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      elevation: 10,
+                      borderRadius: 5}}
+                  buttonIOSStyle={{
+                    color:"#ffffff",
+                    fontSize:20
+                  }}
                   buttonAndroidStyle={{
                     backgroundColor: '#24a0ed',
                     color:'#ffffff',

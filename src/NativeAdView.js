@@ -25,6 +25,7 @@ export default class NativeAdView extends Component {
 
     onNativeAdLoaded = (event) => {
         this.ad = event.nativeEvent;
+        console.log("### onNativeAdLoaded title ", this.ad.headline);
         if(this.componentMounted) {
             this.updateAd();
             if(this.props.onNativeAdLoaded) {
@@ -84,28 +85,6 @@ export default class NativeAdView extends Component {
 
     render() {
         const { nativeAd, nativeAdView } = this.state;
-
-        // return (
-        //     <NativeAdContext.Provider value={{ nativeAd, nativeAdView }}>
-        //         <Banner
-        //             ref={this._getRef}
-        //             adUnitID={this.props.adUnitID}
-        //             onAdLoaded={this.props._onAdLoaded}
-        //             onAdFailedToLoad={this.props._onAdfailedToLoad}
-        //             messagingModuleName={this.props.messagingModuleName}
-        //         >
-        //             <Wrapper
-        //                 onLayout={(event) => {
-        //                     this.setState({
-        //                         nativeAdView: this.nativeAdRef,
-        //                     });
-        //                 }}
-        //             >
-        //                 {this.props.children}
-        //             </Wrapper>
-        //         </Banner>
-        //     </NativeAdContext.Provider>
-        // );
 
         return (
             <NativeAdContext.Provider value={{ nativeAd, nativeAdView }}>

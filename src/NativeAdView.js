@@ -25,7 +25,6 @@ export default class NativeAdView extends Component {
 
     onNativeAdLoaded = (event) => {
         this.ad = event.nativeEvent;
-        console.log("### onNativeAdLoaded title ", this.ad.headline);
         if(this.componentMounted) {
             this.updateAd();
             if(this.props.onNativeAdLoaded) {
@@ -60,7 +59,6 @@ export default class NativeAdView extends Component {
         try {
             this.componentMounted = true;
             this.updateAd(this.ad);
-            console.log("###registerCallableModule ", this.messagingModuleName);
             BatchedBridge.registerCallableModule(this.messagingModuleName, this);
         } catch (e) {}
     }
@@ -75,7 +73,6 @@ export default class NativeAdView extends Component {
     }
 
     loadAd = () => {
-        console.log("loadAd");
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(this.nativeAdRef),
             UIManager.getViewManagerConfig("AdmixerNativeAdView").Commands.loadAd,

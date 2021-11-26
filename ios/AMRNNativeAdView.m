@@ -30,14 +30,12 @@ NSInteger clickThroughAction;
 
 - (void) setZoneId:(NSString*) zoneIdParam
 {
-    NSLog(@"MyCustomLog setZoneId");
     zoneId = zoneIdParam;
     [self setupAdRequest];
 }
 
 - (void) setAssets:(NSArray<NSString*>*) assets
 {
-    NSLog(@"MyCustomLog setAssets");
     NSMutableArray<NSNumber *> * assetsNumber = [[NSMutableArray alloc] init];
     for(id asset in assets) {
         [assetsNumber addObject:[self getAssetByName:asset]];
@@ -48,7 +46,6 @@ NSInteger clickThroughAction;
 
 - (void) setOptAssets:(NSArray<NSString*>*) assets
 {
-    NSLog(@"MyCustomLog setOptAssets");
     NSMutableArray<NSNumber*>* assetsNumber = [[NSMutableArray alloc] init];
     for(id asset in assets) {
         [assetsNumber addObject:[self getAssetByName:asset]];
@@ -123,7 +120,6 @@ NSInteger clickThroughAction;
 // MARK: Operation methods
 
 - (void) setupAdRequest {
-    NSLog(@"MyCustomLog setupAdRequest");
     request = [AMNativeAdRequest alloc];
     request.placementId = zoneId;
     request.delegate = self;
@@ -133,7 +129,6 @@ NSInteger clickThroughAction;
 }
 
 - (void) loadAd {
-    NSLog(@"MyCustomLog loadAd");
     [request loadAd];
 }
 
@@ -141,7 +136,6 @@ NSInteger clickThroughAction;
 
 - (void)adRequest:(AMNativeAdRequest *)request didReceive:(AMNativeAdResponse *)response
 {
-    NSLog(@"MyCustomLog ad loaded");
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setValue:response.title forKey:@"headline"];
     [dic setValue:response.body forKey:@"body"];
@@ -149,6 +143,7 @@ NSInteger clickThroughAction;
     [dic setValue:response.sponsoredBy forKey:@"sponsored"];
     [dic setValue:response.mainImageURL.absoluteString forKey:@"imageUrl"];
     [dic setValue:response.iconImageURL.absoluteString forKey:@"iconUrl"];
+    
     
     self.onNativeAdLoaded(dic);
     
@@ -185,7 +180,6 @@ NSInteger clickThroughAction;
 
 - (void)adRequest:(AMNativeAdRequest *)request didFailToLoadWithError:(NSError *)error with:(AMAdResponseInfo *)adResponseInfo
 {
-    NSLog(@"MyCustomLog ad failed to load");
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setValue:error.description forKey:@"errorCode"];
     self.onNativeAdFailed(dic);
@@ -210,7 +204,6 @@ NSInteger clickThroughAction;
 
 - (void) setHeadline:(NSNumber *) headline
 {
-    NSLog(@"MyCustomLog setHeadline");
     dispatch_async(RCTGetUIManagerQueue(), ^{
         [bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
             UIView *headlineView = viewRegistry[headline];

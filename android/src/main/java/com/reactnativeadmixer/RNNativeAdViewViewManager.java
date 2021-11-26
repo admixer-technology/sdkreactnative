@@ -47,13 +47,11 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
 
   @Override
   public String getName() {
-    Log.d("MyCustomLog", "getName");
     return REACT_CLASS;
   }
 
   @Override
   protected RNNativeAdView createViewInstance(ThemedReactContext reactContext) {
-    Log.d("MyCustomLog", "createViewInstance");
     RNNativeAdView adView = new RNNativeAdView(reactContext);
     return adView;
   }
@@ -61,7 +59,6 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
   @Nullable
   @Override
   public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
-    Log.d("MyCustomLog", "getExportedCustomDirectEventTypeConstants");
     MapBuilder.Builder<String, Object> builder = MapBuilder.builder();
     String[] events = new String[]{
       EVENT_NATIVE_AD_LOADED,
@@ -88,7 +85,6 @@ public class RNNativeAdViewViewManager extends ViewGroupManager<RNNativeAdView> 
   public void receiveCommand(RNNativeAdView root, int commandId, @Nullable ReadableArray args) {
     switch (commandId) {
       case COMMAND_LOAD_AD:
-        Log.d("MyCustomLog", "receive command loadAd");
         root.loadAd();
         break;
     }

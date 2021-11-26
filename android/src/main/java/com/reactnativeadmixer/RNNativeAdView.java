@@ -72,7 +72,6 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   }
 
   public void setupAdRequest() {
-    Log.d("MyCustomLog", "RNNativeAdView setupAdRequest");
     adRequest = new NativeAdRequest(context, zoneId);
     adRequest.setListener(this);
     adRequest.setClickThroughAction(clickThroughAction);
@@ -87,7 +86,6 @@ public class RNNativeAdView extends NativeAdView implements NativeAdRequestListe
   }
 
   public void loadAd() {
-    Log.d("MyCustomLog", "RNNativeAdView loadAd");
     adRequest.loadAd();
   }
 

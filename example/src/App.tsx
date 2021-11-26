@@ -162,7 +162,7 @@ const App = () => {
   
   //Native
 
-const nativeAdRef = React.useRef();
+  const nativeAdRef = React.useRef();
 
   React.useEffect(() => {
     nativeAdRef.current?.loadAd();
@@ -182,8 +182,7 @@ const nativeAdRef = React.useRef();
             clickThrough="open_sdk_browser"
             onNativeAdLoaded={onNativeAdLoaded}
             onNativeAdFailed={onNativeAdFailed}
-            onNativeAdClicked={onNativeAdClicked}
-          >
+            onNativeAdClicked={onNativeAdClicked}>
             <View>
               <View style={{flexDirection:"row",
                             flexWrap:"wrap",
@@ -195,7 +194,7 @@ const nativeAdRef = React.useRef();
                 }}/>
                   <View style={{margin:10}}>
                     <NativeHeadlineView 
-                    style={{fontSize:18,
+                      style={{fontSize:18,
                         fontWeight:'bold'
                         }}/>
                     <NativeBodyView style={{fontSize:14, color:'gray'}}/>

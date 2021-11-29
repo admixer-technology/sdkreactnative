@@ -179,7 +179,6 @@ const App = () => {
             zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
             assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
             optAssets={["price"]}
-            clickThrough="open_sdk_browser"
             onNativeAdLoaded={onNativeAdLoaded}
             onNativeAdFailed={onNativeAdFailed}
             onNativeAdClicked={onNativeAdClicked}>

@@ -17,7 +17,7 @@ AMNativeAdRequest * request;
 NSString * zoneId;
 NSArray<NSNumber *> * reqAssets;
 NSArray<NSNumber *> * optAssets;
-NSInteger clickThroughAction;
+NSInteger clickThroughAction = AMClickThroughActionOpenSDKBrowser;
 
 - (instancetype) initWithBridge:(RCTBridge *)_bridge {
     if(self = [super init]) {

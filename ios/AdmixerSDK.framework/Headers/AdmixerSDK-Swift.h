@@ -529,28 +529,28 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK18AMNativeAdDelegate_")
 @protocol AMNativeAdDelegate <NSObject>
 @optional
 /// Sent when the native view is clicked by the user.
-- (void)adWasClicked:(id _Nonnull)response;
+- (void)nativeAdWasClicked:(id _Nonnull)response;
 /// Sent when the native view returns the click-through URL and click-through fallback URL
 /// to the user instead of opening it in a browser.
-- (void)adWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
+- (void)nativeAdWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
 /// Sent when the native view was clicked, and the click through
 /// destination is about to open in the in-app browser.
 /// @note If it is preferred that the destination open in the
 /// native browser instead, then set clickThroughAction to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillPresent:(id _Nonnull)response;
+- (void)nativeAdWillPresent:(id _Nonnull)response;
 /// Sent when the in-app browser has finished presenting and taken
 /// control from your application.
-- (void)adDidPresent:(id _Nonnull)response;
+- (void)nativeAdDidPresent:(id _Nonnull)response;
 /// Sent when the in-app browser will close and before
 /// control has been returned to your application.
-- (void)adWillClose:(id _Nonnull)response;
+- (void)nativeAdWillClose:(id _Nonnull)response;
 /// Sent when the in-app browser has closed and control
 /// has been returned to your application.
-- (void)adDidClose:(id _Nonnull)response;
+- (void)nativeAdDidClose:(id _Nonnull)response;
 /// Sent when the ad is about to leave the app.
 /// This will happen in a number of cases, including when
 /// clickThroughAction is set to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillLeaveApplication:(id _Nonnull)response;
+- (void)nativeAdWillLeaveApplication:(id _Nonnull)response;
 @end
 
 
@@ -1237,28 +1237,28 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK18AMNativeAdDelegate_")
 @protocol AMNativeAdDelegate <NSObject>
 @optional
 /// Sent when the native view is clicked by the user.
-- (void)adWasClicked:(id _Nonnull)response;
+- (void)nativeAdWasClicked:(id _Nonnull)response;
 /// Sent when the native view returns the click-through URL and click-through fallback URL
 /// to the user instead of opening it in a browser.
-- (void)adWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
+- (void)nativeAdWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
 /// Sent when the native view was clicked, and the click through
 /// destination is about to open in the in-app browser.
 /// @note If it is preferred that the destination open in the
 /// native browser instead, then set clickThroughAction to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillPresent:(id _Nonnull)response;
+- (void)nativeAdWillPresent:(id _Nonnull)response;
 /// Sent when the in-app browser has finished presenting and taken
 /// control from your application.
-- (void)adDidPresent:(id _Nonnull)response;
+- (void)nativeAdDidPresent:(id _Nonnull)response;
 /// Sent when the in-app browser will close and before
 /// control has been returned to your application.
-- (void)adWillClose:(id _Nonnull)response;
+- (void)nativeAdWillClose:(id _Nonnull)response;
 /// Sent when the in-app browser has closed and control
 /// has been returned to your application.
-- (void)adDidClose:(id _Nonnull)response;
+- (void)nativeAdDidClose:(id _Nonnull)response;
 /// Sent when the ad is about to leave the app.
 /// This will happen in a number of cases, including when
 /// clickThroughAction is set to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillLeaveApplication:(id _Nonnull)response;
+- (void)nativeAdWillLeaveApplication:(id _Nonnull)response;
 @end
 
 
@@ -1945,28 +1945,28 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK18AMNativeAdDelegate_")
 @protocol AMNativeAdDelegate <NSObject>
 @optional
 /// Sent when the native view is clicked by the user.
-- (void)adWasClicked:(id _Nonnull)response;
+- (void)nativeAdWasClicked:(id _Nonnull)response;
 /// Sent when the native view returns the click-through URL and click-through fallback URL
 /// to the user instead of opening it in a browser.
-- (void)adWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
+- (void)nativeAdWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
 /// Sent when the native view was clicked, and the click through
 /// destination is about to open in the in-app browser.
 /// @note If it is preferred that the destination open in the
 /// native browser instead, then set clickThroughAction to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillPresent:(id _Nonnull)response;
+- (void)nativeAdWillPresent:(id _Nonnull)response;
 /// Sent when the in-app browser has finished presenting and taken
 /// control from your application.
-- (void)adDidPresent:(id _Nonnull)response;
+- (void)nativeAdDidPresent:(id _Nonnull)response;
 /// Sent when the in-app browser will close and before
 /// control has been returned to your application.
-- (void)adWillClose:(id _Nonnull)response;
+- (void)nativeAdWillClose:(id _Nonnull)response;
 /// Sent when the in-app browser has closed and control
 /// has been returned to your application.
-- (void)adDidClose:(id _Nonnull)response;
+- (void)nativeAdDidClose:(id _Nonnull)response;
 /// Sent when the ad is about to leave the app.
 /// This will happen in a number of cases, including when
 /// clickThroughAction is set to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillLeaveApplication:(id _Nonnull)response;
+- (void)nativeAdWillLeaveApplication:(id _Nonnull)response;
 @end
 
 
@@ -2653,28 +2653,28 @@ SWIFT_PROTOCOL("_TtP10AdmixerSDK18AMNativeAdDelegate_")
 @protocol AMNativeAdDelegate <NSObject>
 @optional
 /// Sent when the native view is clicked by the user.
-- (void)adWasClicked:(id _Nonnull)response;
+- (void)nativeAdWasClicked:(id _Nonnull)response;
 /// Sent when the native view returns the click-through URL and click-through fallback URL
 /// to the user instead of opening it in a browser.
-- (void)adWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
+- (void)nativeAdWasClicked:(id _Nonnull)response withURL:(NSString * _Nonnull)clickURLString fallbackURL:(NSString * _Nonnull)clickFallbackURLString;
 /// Sent when the native view was clicked, and the click through
 /// destination is about to open in the in-app browser.
 /// @note If it is preferred that the destination open in the
 /// native browser instead, then set clickThroughAction to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillPresent:(id _Nonnull)response;
+- (void)nativeAdWillPresent:(id _Nonnull)response;
 /// Sent when the in-app browser has finished presenting and taken
 /// control from your application.
-- (void)adDidPresent:(id _Nonnull)response;
+- (void)nativeAdDidPresent:(id _Nonnull)response;
 /// Sent when the in-app browser will close and before
 /// control has been returned to your application.
-- (void)adWillClose:(id _Nonnull)response;
+- (void)nativeAdWillClose:(id _Nonnull)response;
 /// Sent when the in-app browser has closed and control
 /// has been returned to your application.
-- (void)adDidClose:(id _Nonnull)response;
+- (void)nativeAdDidClose:(id _Nonnull)response;
 /// Sent when the ad is about to leave the app.
 /// This will happen in a number of cases, including when
 /// clickThroughAction is set to AMClickThroughActionOpenDeviceBrowser.
-- (void)adWillLeaveApplication:(id _Nonnull)response;
+- (void)nativeAdWillLeaveApplication:(id _Nonnull)response;
 @end
 
 

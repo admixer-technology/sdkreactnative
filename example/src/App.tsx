@@ -57,7 +57,7 @@ const App = () => {
 
   const showInterstitial = () => {
     // Interstitial
-    AdmixerInterstitial.initInterstitial("c744a785-272b-4b85-8a93-5eb581d74565").then(
+    AdmixerInterstitial.initInterstitial("e6822eec-8954-4ddc-a6b5-4f791b6603fd").then(
       (a:any) => { 
         AdmixerInterstitial.loadAd();
         AdmixerInterstitial.setClickThroughAction("return_url");
@@ -125,113 +125,116 @@ const App = () => {
   // }
 
   // Single banner
-  // render1() {
+  // render() {
 
-  //   AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
-  //     console.log("Interstitial onAdLoaded");
-  //     AdmixerInterstitial.showAd();
-  //   });
-  //   AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
-  //     console.log("Interstitial onAdClicked "+a.clickUrl);
-  //   });
+    AdmixerInterstitial.addEventListener("onAdLoaded", (a:any) => {
+      console.log("Interstitial onAdLoaded");
+      AdmixerInterstitial.showAd();
+    });
+    AdmixerInterstitial.addEventListener("onAdClicked", (a:any) => {
+      console.log("Interstitial onAdClicked "+a.clickUrl);
+    });
+    AdmixerInterstitial.addEventListener("onAdLoadFailed", (a:any) => {
+      console.log("Interstitial onAdLoadFailed");
+    });
 
-  //   return (
-  //     <SafeAreaView >
-  //     <StatusBar  />
-  //     <ScrollView>
-  //       <View>
-  //         <Button
-  //           onPress={this.showInterstitial}
-  //           title="Show interstitial"
-  //         />
-  //         <AdmixerBanner
-  //           config={{
-  //             zoneId: "f9a26255-08a2-40ec-9667-3ab35e69625a",
-  //             bannerWidth: 300,
-  //             bannerHeight: 250,
-  //             sizes:[[300, 250],[320, 50]]
-  //           }}
-  //           onAdLoaded={onAdLoaded}
-  //           onAdLoadFailed={onAdLoadFailed}/>
+    return (
+      <SafeAreaView >
+      <StatusBar  />
+      <ScrollView>
+        <View>
+          <Button
+            onPress={showInterstitial}
+            title="Show interstitial"
+          />
+          <AdmixerBanner
+            config={{
+              zoneId: "e6822eec-8954-4ddc-a6b5-4f791b6603fd",
+              bannerWidth: 300,
+              bannerHeight: 250,
+              sizes:[[300, 250],[320, 50]]
+            }}
+            onAdLoaded={onAdLoaded}
+            onAdLoadFailed={onAdLoadFailed}/>
           
-  //       </View>
-  //     </ScrollView>
-  //   </SafeAreaView>
-  //   );
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+    );
   // }
   
   //Native
 
-  const nativeAdRef = React.useRef();
+  // const nativeAdRef = React.useRef();
 
-  React.useEffect(() => {
-    nativeAdRef.current?.loadAd();
-  }, []);
+  // React.useEffect(() => {
+  //   nativeAdRef.current?.loadAd();
+  // }, []);
 
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView>
-        <View>
-          <Text>Test native</Text>
-          <NativeAdView
-            ref={nativeAdRef}
-            zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
-            assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
-            optAssets={["price"]}
-            onNativeAdLoaded={onNativeAdLoaded}
-            onNativeAdFailed={onNativeAdFailed}
-            onNativeAdClicked={onNativeAdClicked}>
-            <View>
-              <View style={{flexDirection:"row",
-                            flexWrap:"wrap",
-                            margin:10}}>
-              <NativeIconView
-                style={{
-                  width: 100,
-                  height: 100
-                }}/>
-                  <View style={{margin:10}}>
-                    <NativeHeadlineView 
-                      style={{fontSize:18,
-                        fontWeight:'bold'
-                        }}/>
-                    <NativeBodyView style={{fontSize:14, color:'gray'}}/>
-                  </View>
-              </View>
-              <NativeImageView
-                style={{
-                  width: 300,
-                  height: 250,
-                  marginLeft:10,
-                  marginRight:10,
-                  marginBottom:10
-                }}/>
-              <NativeCallToActionView 
-              style={{marginLeft: 10, 
-                      marginRight:10,
-                      width: 350, 
-                      height: 50,
-                      backgroundColor: '#24a0ed',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      elevation: 10,
-                      borderRadius: 5}}
-                  buttonIOSStyle={{
-                    color:"#ffffff",
-                    fontSize:20
-                  }}
-                  buttonAndroidStyle={{
-                    backgroundColor: '#24a0ed',
-                    color:'#ffffff',
-                    fontSize: 20
-                  }}/>
-            </View>
-          </NativeAdView>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  // return (
+  //   <SafeAreaView>
+  //     <StatusBar />
+  //     <ScrollView>
+  //       <View>
+  //         <Text>Test native</Text>
+  //         <NativeAdView
+  //           ref={nativeAdRef}
+  //           zoneId="291d613c-3f80-44db-9003-8564eb5d7518"
+  //           assets={["image_icon", "title", "description", "image_main", "cta", "sponsored"]}
+  //           optAssets={["price"]}
+  //           onNativeAdLoaded={onNativeAdLoaded}
+  //           onNativeAdFailed={onNativeAdFailed}
+  //           onNativeAdClicked={onNativeAdClicked}>
+  //           <View>
+  //             <View style={{flexDirection:"row",
+  //                           flexWrap:"wrap",
+  //                           margin:10}}>
+  //             <NativeIconView
+  //               style={{
+  //                 width: 100,
+  //                 height: 100
+  //               }}/>
+  //                 <View style={{margin:10}}>
+  //                   <NativeHeadlineView 
+  //                     style={{fontSize:18,
+  //                       fontWeight:'bold'
+  //                       }}/>
+  //                   <NativeBodyView style={{fontSize:14, color:'gray'}}/>
+  //                 </View>
+  //             </View>
+  //             <NativeImageView
+  //               style={{
+  //                 width: 300,
+  //                 height: 250,
+  //                 marginLeft:10,
+  //                 marginRight:10,
+  //                 marginBottom:10
+  //               }}/>
+  //             <NativeCallToActionView 
+  //             style={{marginLeft: 10, 
+  //                     marginRight:10,
+  //                     width: 350, 
+  //                     height: 50,
+  //                     backgroundColor: '#24a0ed',
+  //                     justifyContent: 'center',
+  //                     alignItems: 'center',
+  //                     elevation: 10,
+  //                     borderRadius: 5}}
+  //                 buttonIOSStyle={{
+  //                   color:"#ffffff",
+  //                   fontSize:20
+  //                 }}
+  //                 buttonAndroidStyle={{
+  //                   backgroundColor: '#24a0ed',
+  //                   color:'#ffffff',
+  //                   fontSize: 20
+  //                 }}/>
+  //           </View>
+  //         </NativeAdView>
+  //       </View>
+  //     </ScrollView>
+  //   </SafeAreaView>
+  // );
 
 }
 

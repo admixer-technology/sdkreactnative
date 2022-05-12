@@ -116,8 +116,11 @@ export default class AdmixerBanner extends Component {
     });
   }
   _onAdLoadFailed(event) {
-    const errorCode = event.nativeEvent.errorCode;
-    if (this.props.onAdLoadtFailed) {
+    var errorCode = "";
+    if(event && event.nativeEvent && event.nativeEvent.errorCode) {
+      errorCode = event.nativeEvent.errorCode;
+    }
+    if (this.props.onAdLoadFailed) {
       this.props.onAdLoadFailed(errorCode);
     }
   }

@@ -9,3 +9,4 @@ export const NativeCallToActionView: any;
 export const NativePriceView: any;
 export const NativeSponsoredView: any;
 export const NativeMediaView: any;
+export const Wrapper: any;

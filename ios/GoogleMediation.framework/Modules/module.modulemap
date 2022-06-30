@@ -1,0 +1,11 @@
+framework module GoogleMediation {
+  umbrella header "GoogleMediation.h"
+
+  export *
+  module * { export * }
+}
+
+module GoogleMediation.Swift {
+    header "GoogleMediation-Swift.h"
+    requires objc
+}

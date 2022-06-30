@@ -175,7 +175,7 @@ NSInteger clickThroughAction = AMClickThroughActionOpenSDKBrowser;
     
     response.clickThroughAction = clickThroughAction;
     response.delegate = self;
-    [response registerViewForTracking:self withRootViewController:[[[[UIApplication sharedApplication] delegate] window] rootViewController] clickableViews:clickables];
+    //[response registerViewForTracking:self withRootViewController:[[[[UIApplication sharedApplication] delegate] window] rootViewController] clickableViews:clickables];
 }
 
 - (void)adRequest:(AMNativeAdRequest *)request didFailToLoadWithError:(NSError *)error with:(AMAdResponseInfo *)adResponseInfo

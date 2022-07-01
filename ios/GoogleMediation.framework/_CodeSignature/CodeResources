@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/GoogleMediation-Swift.h</key>
 		<data>
-		/tmTe5wvYEVbJ/mDptV5c0JlSNk=
+		IoXSdjO57aNzBynkXHZYreOvYtc=
 		</data>
 		<key>Headers/GoogleMediation.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Modules/GoogleMediation.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		IWtafW+zTVXHwWSwyz28tpRqokk=
+		qrsJhVzck3sLj79UCoR6KP6BbG4=
 		</data>
 		<key>Modules/GoogleMediation.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/GoogleMediation.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		XMos+9Jhl+GrIu5gHYI/Mj5rVig=
+		nCj/HBp4/H53aP3fVw1A6Vsz6b4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pC3Q4b2gl2TxxY/4FE4lWv917D9OpCr0fp9DBK/PPA8=
+			G4l+YpeGMnZpvdBUkRqn30dL+4pi4px6cwA/RVWKpAM=
 			</data>
 		</dict>
 		<key>Headers/GoogleMediation.h</key>
@@ -53,7 +53,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mUDUraIht/6yjfK6JsAVVafm0xDxGRkHlw1zArJSIo8=
+			NYSIRlg6xgvoOj0KS7z8sfZlzHys9i+V5s72yx8ZywA=
 			</data>
 		</dict>
 		<key>Modules/GoogleMediation.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PSHmRhReWQvuYels0Van9fMYK6bWczQZjJnh9Gxd68o=
+			B0iROwPYKEmW6csn/J8VF3rTlWt3ONrbu0DFuRubrMQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		404D80FF286DD2370005AD1D /* GoogleMediation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404D80EF286DCF9D0005AD1D /* GoogleMediation.framework */; };
 		404F3392262DDDF9000B5C6D /* AdmixerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */; };
 		4062AA332742B7800074198A /* AMRNNativeAdViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4062AA322742B7800074198A /* AMRNNativeAdViewManager.m */; };
 		4062AA352742BD070074198A /* AMRNNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4062AA342742BD070074198A /* AMRNNativeAdView.m */; };
@@ -31,6 +32,21 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libAdmixer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdmixer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		404D80EF286DCF9D0005AD1D /* GoogleMediation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMediation.framework; sourceTree = "<group>"; };
+		404D80F1286DCFB00005AD1D /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		404D80F2286DCFB00005AD1D /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		404D80F3286DCFB00005AD1D /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		404D80F4286DCFB00005AD1D /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		404D80F5286DCFB00005AD1D /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		404D80F6286DCFB00005AD1D /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
+		404D80F7286DCFB00005AD1D /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
+		404D8124286DE3C40005AD1D /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		404D8125286DE3C40005AD1D /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromisesObjC.framework; sourceTree = "<group>"; };
+		404D8126286DE3C40005AD1D /* UserMessagingPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UserMessagingPlatform.framework; sourceTree = "<group>"; };
+		404D8127286DE3C40005AD1D /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		404D8128286DE3C40005AD1D /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		404D8129286DE3C40005AD1D /* GoogleAppMeasurementIdentitySupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurementIdentitySupport.framework; sourceTree = "<group>"; };
+		404D812A286DE3C40005AD1D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
 		404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdmixerSDK.framework; sourceTree = "<group>"; };
 		4062AA322742B7800074198A /* AMRNNativeAdViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNNativeAdViewManager.m; sourceTree = "<group>"; };
 		4062AA342742BD070074198A /* AMRNNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMRNNativeAdView.m; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404D80FF286DD2370005AD1D /* GoogleMediation.framework in Frameworks */,
 				404F3392262DDDF9000B5C6D /* AdmixerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +86,21 @@
 		404F3390262DDDF9000B5C6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				404D8127286DE3C40005AD1D /* GoogleAppMeasurement.framework */,
+				404D8129286DE3C40005AD1D /* GoogleAppMeasurementIdentitySupport.framework */,
+				404D8128286DE3C40005AD1D /* GoogleMobileAds.framework */,
+				404D8124286DE3C40005AD1D /* GoogleUtilities.framework */,
+				404D812A286DE3C40005AD1D /* nanopb.framework */,
+				404D8125286DE3C40005AD1D /* PromisesObjC.framework */,
+				404D8126286DE3C40005AD1D /* UserMessagingPlatform.framework */,
+				404D80F3286DCFB00005AD1D /* GoogleAppMeasurement.xcframework */,
+				404D80F4286DCFB00005AD1D /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				404D80F5286DCFB00005AD1D /* GoogleMobileAds.xcframework */,
+				404D80F2286DCFB00005AD1D /* GoogleUtilities.xcframework */,
+				404D80F7286DCFB00005AD1D /* nanopb.xcframework */,
+				404D80F6286DCFB00005AD1D /* PromisesObjC.xcframework */,
+				404D80F1286DCFB00005AD1D /* UserMessagingPlatform.xcframework */,
+				404D80EF286DCF9D0005AD1D /* GoogleMediation.framework */,
 				404F3391262DDDF9000B5C6D /* AdmixerSDK.framework */,
 			);
 			name = Frameworks;
@@ -270,6 +302,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Admixer;
@@ -290,6 +323,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Admixer;

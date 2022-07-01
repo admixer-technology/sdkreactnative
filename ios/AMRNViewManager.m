@@ -2,7 +2,6 @@
 #import <React/RCTViewManager.h>
 #import "AMRNBannerAdViewDelegate.h"
 #import "RCTBridge.h"
-#import <GoogleMediation/GoogleMediation-Swift.h>
 
 @interface AMRNViewManager : RCTViewManager
 

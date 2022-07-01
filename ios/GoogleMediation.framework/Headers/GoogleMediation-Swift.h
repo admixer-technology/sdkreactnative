@@ -261,7 +261,6 @@ SWIFT_CLASS("_TtC15GoogleMediation28AMAdAdapterInterstitialAdMob")
 - (void)requestAdWithParameter:(NSString * _Nullable)parameterString adUnitId:(NSString * _Nullable)idString targetingParameters:(AMTargetingParameters * _Nullable)targetingParameters;
 - (void)presentFrom:(UIViewController * _Nullable)viewController;
 - (BOOL)isReady SWIFT_WARN_UNUSED_RESULT;
-- (void)adDidPresentFullScreenContent:(id <GADFullScreenPresentingAd> _Nonnull)ad;
 - (void)adDidDismissFullScreenContent:(id <GADFullScreenPresentingAd> _Nonnull)ad;
 - (void)ad:(id <GADFullScreenPresentingAd> _Nonnull)ad didFailToPresentFullScreenContentWithError:(NSError * _Nonnull)error;
 @end
@@ -271,7 +270,6 @@ SWIFT_CLASS("_TtC15GoogleMediation24AMAdAdapterRewardedAdMob")
 @interface AMAdAdapterRewardedAdMob : NSObject <GADFullScreenContentDelegate>
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, strong) id <AMCustomAdapterDelegate> _Nullable delegate;
-- (void)adDidPresentFullScreenContent:(id <GADFullScreenPresentingAd> _Nonnull)ad;
 - (void)adDidDismissFullScreenContent:(id <GADFullScreenPresentingAd> _Nonnull)ad;
 - (void)ad:(id <GADFullScreenPresentingAd> _Nonnull)ad didFailToPresentFullScreenContentWithError:(NSError * _Nonnull)error;
 @end

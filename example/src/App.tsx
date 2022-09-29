@@ -149,7 +149,7 @@ const App = () => {
           />
           <AdmixerBanner
             config={{
-              zoneId: "b9e860e5-02cd-4dc3-a37b-5e9d99beb9d6",
+              zoneId: "c10d261d-de4a-4f78-895f-f2dee92828a9",
               bannerWidth: 300,
               bannerHeight: 250,
               sizes:[[300, 250],[320, 50]]

@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.source_files = "ios/*.{h,m,mm}"
 
   s.dependency "React-Core"
-  s.vendored_frameworks = 'ios/AdmixerSDK.framework', 'ios/GoogleMediation.framework'
+  s.vendored_frameworks = 'ios/AdmixerSDK.framework'
   
 end

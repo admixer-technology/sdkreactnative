@@ -10,15 +10,15 @@
 		</data>
 		<key>AMInterstitialAdViewController.nib</key>
 		<data>
-		MQwpTX7MzQ5Ro5o84uqwvOBsexY=
+		RB6R7JMf18YSTXFEvoR192UDMMo=
 		</data>
 		<key>AMRewardedAdViewController.nib</key>
 		<data>
-		qzCCj49189TGO+pwPymUQKJcH2g=
+		Nhco7l1c7Yhfy66zY6RQzM7zd3M=
 		</data>
 		<key>Headers/AdmixerSDK-Swift.h</key>
 		<data>
-		qKXukUtD7AmOOLfilz0+wlno2po=
+		mpeQR3fv3JQJL4S6AZTtIzCbtno=
 		</data>
 		<key>Headers/AdmixerSDK.h</key>
 		<data>
@@ -26,23 +26,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		5Og2U8pp2ZrfnwcM12qbiASTRog=
+		T6/NY0qAEUkMS/d8q+46Sn53HRk=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		6LlvNmrm9maCvNHw8mHRl3wNc8U=
+		S3idGW4fYwPgSN3VoyICj9MP7kg=
+		</data>
+		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		FSPnLbho3G+LL9smI3XgVOqBIQ4=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		rQlCqtyQGJtheCRwg+Pph60jdzI=
+		XCc0XLnnJf8O4TRGWethMjMnnRA=
 		</data>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		aOZGvUUZzX55/xeIszYBaYc+qp8=
+		0qxX5tMIXPLv41vSAubZJz6IC9g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		vj8wcTAabW+8SC4AgdDBpv0zBwY=
+		VQd8uuTCdixwDjRj6IZk06eTOxE=
 		</data>
 		<key>UIButtonBarArrowLeft.png</key>
 		<data>
@@ -150,21 +154,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r4lIcFuulSv+pQZaKPMBwLewM5bj23oXZqaVlbmPAmg=
+			WUBBXNGiPxZDruIrLriJiZNQ5wMJnJWorIgy+EIDjUc=
 			</data>
 		</dict>
 		<key>AMRewardedAdViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rkAWkxVo/6u67G8YK27iIw8uJ66AIiGLUclVbrnom30=
+			ZKImB5ylO6EhgWigMtJTszBM9PN0GrOWx6Ryp/a41u0=
 			</data>
 		</dict>
 		<key>Headers/AdmixerSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LvQRvCGQPM1y9I0Z9jnKWH9wZWVcxQ4nTPRIb2uRu50=
+			YmiuIZjwplYdJ9M11+x45qCyMJxyv38p3yoVEb3Lfo8=
 			</data>
 		</dict>
 		<key>Headers/AdmixerSDK.h</key>
@@ -178,28 +182,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y61hqQa9Q0ARl2tgjpgSX/wOt8rrG03/Tw+KLROcIYA=
+			jcO1R4kwmonwgvIcSUUSwE6faCPh9PQdyDaj6nrPgfQ=
+			</data>
+		</dict>
+		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KnRdWE4y6t4QM5zi5JDptPdHFgJy1Tku+7GLkZS2aNM=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FpHSDmo74wrR5V/Flqz8y+idTTOvV1tN2pNwIreVJmE=
+			InCVeA3ch/U1Q3Iw6YWSyIUaF5VGCyzmHcLOlcqvEo8=
 			</data>
 		</dict>
 		<key>Modules/AdmixerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qd0DjvgJnN7CmtNxM45UUHenGVmxs6+/gjqVZMDZ22Y=
+			8l2PUo5sYaXxsbmMqDsStKIRMsYHZUwm8D7vByn9m5w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IBjRIxJyk0a6J5YTnLaaQkXtutvSMiLQKMZNv7P1vFI=
+			tC4mvYj24onqCcz/vBaNrz0xr7luE5XMv2pGtg1ut5A=
 			</data>
 		</dict>
 		<key>UIButtonBarArrowLeft.png</key>

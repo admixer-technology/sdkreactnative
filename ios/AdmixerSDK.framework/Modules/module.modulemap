@@ -6,6 +6,6 @@ framework module AdmixerSDK {
 }
 
 module AdmixerSDK.Swift {
-    header "AdmixerSDK-Swift.h"
-    requires objc
+  header "AdmixerSDK-Swift.h"
+  requires objc
 }

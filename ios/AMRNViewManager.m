@@ -94,6 +94,13 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
 {
     CGRect frame = CGRectMake(0, 0, 0, 0);
     AMBannerAdView* banner = [[AMBannerAdView alloc] initWithFrame:frame placementId:@""];
+    //NSLog(@"%@%@", @"MyCustomLog trying to instantiate adapter ", [AMAdAdapterBannerAdMob.class moduleName]);
+    id adapter = [[NSClassFromString(@"AdmixerExample.GoogleMediation.AMAdAdapterBannerAdMob") alloc] init];
+    if(adapter == nil) {
+        NSLog(@"MyCustomLog got nil");
+    } else {
+        NSLog(@"MyCustomLog got adapter object");
+    }
     return banner;
 }
 

@@ -427,7 +427,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AdmixerExample/Pods-AdmixerExample-frameworks.sh",
 				"${PODS_ROOT}/../../../ios/AdmixerSDK.framework",
-				"${PODS_ROOT}/../../../../react-native-admixer-admob-mediation/ios/GoogleMediation.framework",
+				"${PODS_ROOT}/../../../mediation/mediation/react-native-admixer-admob-mediation/ios/GoogleMediation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

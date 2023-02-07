@@ -232,9 +232,9 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-admixer (0.2.6):
+  - react-native-admixer (0.2.7):
     - React-Core
-  - react-native-admixer-admob-mediation (0.2.3):
+  - react-native-admixer-admob-mediation (0.2.4):
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -318,7 +318,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-admixer (from `../..`)
-  - react-native-admixer-admob-mediation (from `../../../react-native-admixer-admob-mediation`)
+  - react-native-admixer-admob-mediation (from `../../mediation/mediation/react-native-admixer-admob-mediation`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -375,7 +375,7 @@ EXTERNAL SOURCES:
   react-native-admixer:
     :path: "../.."
   react-native-admixer-admob-mediation:
-    :path: "../../../react-native-admixer-admob-mediation"
+    :path: "../../mediation/mediation/react-native-admixer-admob-mediation"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -422,8 +422,8 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-admixer: 4efb0b20825cbdac528505be498de02fa838098f
-  react-native-admixer-admob-mediation: ae822a8a7c8ba9dd2a3b228b6586e12ab759562d
+  react-native-admixer: f14ac91c505da65f2e8cdb77ad9db12e7af32344
+  react-native-admixer-admob-mediation: 7a88d94753b6dcd674d5103ce48232eacb959fe5
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -436,6 +436,6 @@ SPEC CHECKSUMS:
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
 
-PODFILE CHECKSUM: 06bfbb5a82891fd02164083c2234df9e4074f719
+PODFILE CHECKSUM: 71ade591a9f9b9f0f5f5f4f2a9659afa5f960c56
 
 COCOAPODS: 1.11.3

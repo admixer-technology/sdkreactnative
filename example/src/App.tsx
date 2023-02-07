@@ -137,102 +137,102 @@ const App = () => {
     //   console.log("Interstitial onAdLoadFailed");
     // });
 
-    // return (
-    //   <SafeAreaView >
-    //   <StatusBar  />
-    //   <ScrollView>
-    //     <View>
-    //       <Button
-    //         onPress={showInterstitial}
-    //         title="Show interstitial"
-    //       />
-    //       <AdmixerBanner
-    //         config={{
-    //           zoneId: "c10d261d-de4a-4f78-895f-f2dee92828a9",
-    //           bannerWidth: 300,
-    //           bannerHeight: 250,
-    //           sizes:[[300, 250],[320, 50]]
-    //         }}
-    //         onAdLoaded={onAdLoaded}
-    //         onAdLoadFailed={onAdLoadFailed}/>
-          
-    //     </View>
-    //   </ScrollView>
-    // </SafeAreaView>
-    // );
-  
-  //Native
-
-  const nativeAdRef = React.useRef();
-
-  React.useEffect(() => {
-    nativeAdRef.current?.loadAd();
-  }, []);
-
-  return (
-    <SafeAreaView>
-      <StatusBar />
+    return (
+      <SafeAreaView >
+      <StatusBar  />
       <ScrollView>
         <View>
-          <Text>Test native</Text>
-          <NativeAdView
-            ref={nativeAdRef}
-            zoneId="6b360dcf-4220-405b-8571-38434724945d"
-            assets={["title", "description", "image_main", "sponsored"]}
-            optAssets={["cta", "image_icon", "desc2"]}
-            onNativeAdLoaded={onNativeAdLoaded}
-            onNativeAdFailed={onNativeAdFailed}
-            onNativeAdClicked={onNativeAdClicked}>
-            <View>
-              <View style={{flexDirection:"row",
-                            flexWrap:"wrap",
-                            margin:10}}>
-              <NativeIconView
-                style={{
-                  width: 100,
-                  height: 100
-                }}/>
-                  <View style={{margin:10}}>
-                    <NativeHeadlineView 
-                      style={{fontSize:18,
-                        fontWeight:'bold'
-                        }}/>
-                    <NativeBodyView style={{fontSize:14, color:'gray'}}/>
-                  </View>
-              </View>
-              <NativeImageView
-                style={{
-                  width: 300,
-                  height: 250,
-                  marginLeft:10,
-                  marginRight:10,
-                  marginBottom:10
-                }}/>
-              <NativeCallToActionView 
-              style={{marginLeft: 10, 
-                      marginRight:10,
-                      width: 350, 
-                      height: 50,
-                      backgroundColor: '#24a0ed',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      elevation: 10,
-                      borderRadius: 5}}
-                  buttonIOSStyle={{
-                    color:"#ffffff",
-                    fontSize:20
-                  }}
-                  buttonAndroidStyle={{
-                    backgroundColor: '#24a0ed',
-                    color:'#ffffff',
-                    fontSize: 20
-                  }}/>
-            </View>
-          </NativeAdView>
+          <Button
+            onPress={showInterstitial}
+            title="Show interstitial"
+          />
+          <AdmixerBanner
+            config={{
+              zoneId: "b9e860e5-02cd-4dc3-a37b-5e9d99beb9d6",
+              bannerWidth: 300,
+              bannerHeight: 250,
+              sizes:[[300, 250],[320, 50]]
+            }}
+            onAdLoaded={onAdLoaded}
+            onAdLoadFailed={onAdLoadFailed}/>
+          
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+    );
+  
+  //Native
+
+  // const nativeAdRef = React.useRef();
+
+  // React.useEffect(() => {
+  //   nativeAdRef.current?.loadAd();
+  // }, []);
+
+  // return (
+  //   <SafeAreaView>
+  //     <StatusBar />
+  //     <ScrollView>
+  //       <View>
+  //         <Text>Test native</Text>
+  //         <NativeAdView
+  //           ref={nativeAdRef}
+  //           zoneId="6b360dcf-4220-405b-8571-38434724945d"
+  //           assets={["title", "description", "image_main", "sponsored"]}
+  //           optAssets={["cta", "image_icon", "desc2"]}
+  //           onNativeAdLoaded={onNativeAdLoaded}
+  //           onNativeAdFailed={onNativeAdFailed}
+  //           onNativeAdClicked={onNativeAdClicked}>
+  //           <View>
+  //             <View style={{flexDirection:"row",
+  //                           flexWrap:"wrap",
+  //                           margin:10}}>
+  //             <NativeIconView
+  //               style={{
+  //                 width: 100,
+  //                 height: 100
+  //               }}/>
+  //                 <View style={{margin:10}}>
+  //                   <NativeHeadlineView 
+  //                     style={{fontSize:18,
+  //                       fontWeight:'bold'
+  //                       }}/>
+  //                   <NativeBodyView style={{fontSize:14, color:'gray'}}/>
+  //                 </View>
+  //             </View>
+  //             <NativeImageView
+  //               style={{
+  //                 width: 300,
+  //                 height: 250,
+  //                 marginLeft:10,
+  //                 marginRight:10,
+  //                 marginBottom:10
+  //               }}/>
+  //             <NativeCallToActionView 
+  //             style={{marginLeft: 10, 
+  //                     marginRight:10,
+  //                     width: 350, 
+  //                     height: 50,
+  //                     backgroundColor: '#24a0ed',
+  //                     justifyContent: 'center',
+  //                     alignItems: 'center',
+  //                     elevation: 10,
+  //                     borderRadius: 5}}
+  //                 buttonIOSStyle={{
+  //                   color:"#ffffff",
+  //                   fontSize:20
+  //                 }}
+  //                 buttonAndroidStyle={{
+  //                   backgroundColor: '#24a0ed',
+  //                   color:'#ffffff',
+  //                   fontSize: 20
+  //                 }}/>
+  //           </View>
+  //         </NativeAdView>
+  //       </View>
+  //     </ScrollView>
+  //   </SafeAreaView>
+  // );
 
 }
 

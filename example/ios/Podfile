@@ -9,7 +9,7 @@ target 'AdmixerExample' do
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'react-native-admixer', :path => '../..'
-  pod 'react-native-admixer-admob-mediation', :path => '../../../react-native-admixer-admob-mediation'
+  pod 'react-native-admixer-admob-mediation', :path => '../../mediation/mediation/react-native-admixer-admob-mediation'
   pod 'Google-Mobile-Ads-SDK', '9.6.0'
 
   # Enables Flipper.

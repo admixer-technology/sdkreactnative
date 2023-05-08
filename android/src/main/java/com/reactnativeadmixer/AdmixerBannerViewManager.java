@@ -26,6 +26,7 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
     public static final String AUTO_REFRESH_INTERVAL_KEY = "autoRefreshInterval";
     public static final String AUTO_REFRESH_ENABLED_KEY = "autoRefreshEnabled";
     public static final String RESIZE_AD_TO_FIT_CONTAINER_KEY = "resizeAdToFitContainer";
+    public static final String LOAD_MODE_KEY = "loadMode";
     private ReactApplicationContext reactContext;
 
     public AdmixerBannerViewManager(ReactApplicationContext rc) {
@@ -45,6 +46,18 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
       bannerAdView.setReactContext(reactContext);
       bannerAdView.setAdListener(bannerAdView);
       return bannerAdView;
+    }
+
+    @ReactProp(name = "loadAd")
+    public void setLoadAd(final BannerAdView adView, boolean loadAd) {
+        if(loadAd == true) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adView.loadAd();
+                }
+            }, 0);
+        }
     }
 
     @ReactProp(name = "config")
@@ -87,6 +100,8 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
             } else {
               adView.setAutoRefresh(false);
             }
+        } else {
+            adView.setAutoRefresh(false);
         }
 
         if(config.hasKey(RESIZE_AD_TO_FIT_CONTAINER_KEY)) {
@@ -98,12 +113,15 @@ public class AdmixerBannerViewManager extends SimpleViewManager<BannerAdView> {
           }
         }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                adView.loadAd();
-            }
-        }, 0);
+        String loadMode = config.getString(LOAD_MODE_KEY);
+        if(loadMode == null || "automatically".equals(loadMode)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adView.loadAd();
+                }
+            }, 0);
+        }
     }
 
     @Override

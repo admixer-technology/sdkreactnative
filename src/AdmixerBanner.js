@@ -195,6 +195,7 @@ export default class AdmixerBanner extends Component {
 
     return (
       <View
+        collapsable={false}
         ref={component => {
           this.viewRef = component
         }}

@@ -20,8 +20,13 @@ NSMutableArray* bannerDelegates;
 
 RCT_EXPORT_MODULE(AdmixerBannerManager)
 
+RCT_CUSTOM_VIEW_PROPERTY(loadAd, BOOL, AMBannerAdView) {
+    if([json boolValue] == YES) {
+        [view loadAd];
+    }
+}
+
 RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
-    
     NSString* zoneId = [json objectForKey:@"zoneId"];
     NSInteger bannerWidth = [[json valueForKey:@"bannerWidth"] integerValue];
     NSInteger bannerHeight = [[json valueForKey:@"bannerHeight"] integerValue];
@@ -30,6 +35,7 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
     NSInteger autoRefresh = [[json valueForKey:@"autoRefreshInterval"] integerValue];
     bool autoRefreshEnabled = [[json valueForKey:@"autoRefreshEnabled"] boolValue];
     bool resizeAdToFitContainer = [[json valueForKey:@"resizeAdToFitContainer"] boolValue];
+    NSString* loadMode = [json objectForKey:@"loadMode"];
     NSInteger bannerId = [[json objectForKey:@"bannerId"] integerValue];
     
     containerWidth = bannerWidth;
@@ -38,12 +44,14 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
     CGRect bannerFrame = CGRectMake(0, 0, bannerWidth, bannerHeight);
     view.placementId = zoneId;
     view.adSize = adSize;
-    AMRNBannerAdViewDelegate * adViewDelegate = [[AMRNBannerAdViewDelegate alloc] initWithBridge:self.bridge width:containerWidth height:containerHeight id:bannerId];
-    if(!bannerDelegates) {
-        bannerDelegates = [[NSMutableArray alloc] init];
+    if(view.delegate == nil) {
+        AMRNBannerAdViewDelegate * adViewDelegate = [[AMRNBannerAdViewDelegate alloc] initWithBridge:self.bridge width:containerWidth height:containerHeight id:bannerId];
+        if(!bannerDelegates) {
+            bannerDelegates = [[NSMutableArray alloc] init];
+        }
+        [bannerDelegates addObject:adViewDelegate];
+        view.delegate = adViewDelegate;
     }
-    [bannerDelegates addObject:adViewDelegate];
-    view.delegate = adViewDelegate;
     
     if(sizes.count > 0) {
         NSMutableArray* adSizes = [NSMutableArray arrayWithCapacity:sizes.count];
@@ -87,14 +95,15 @@ RCT_CUSTOM_VIEW_PROPERTY(config, NSDictionary, AMBannerAdView) {
         view.shouldResizeAdToFitContainer = false;
     }
     
-    [view loadAd];
+    if(loadMode == nil || [loadMode isEqualToString:@"automatically"]) {
+        [view loadAd];
+    }
 }
 
 - (UIView *) view
 {
     CGRect frame = CGRectMake(0, 0, 0, 0);
     AMBannerAdView* banner = [[AMBannerAdView alloc] initWithFrame:frame placementId:@""];
-    
     return banner;
 }
 

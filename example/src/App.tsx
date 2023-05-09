@@ -40,18 +40,6 @@ const App = () => {
     console.log("onAdFailed");
   }
 
-  // onAdExpanded(event: any){
-  //   console.log("onAdExpanded");
-  // }
-
-  // onAdCollapsed(event: any) {
-  //   console.log("onAdCollapsed");
-  // }
-
-  // onAdClicked(event: any) {
-  //   console.log("onAdClicked "+event.clickUrl);
-  // }
-
   const onAdLoaded = (event: any) => {
     console.log("onAdLoaded");
   }
@@ -59,10 +47,6 @@ const App = () => {
   const onAdClicked = () => {
     console.log("onAdClicked");
   }
-
-  // onNativeAdFailed(event: any) {
-  //   console.log("onNativeAdFailed");
-  // }
 
   const showInterstitial = () => {
     // Interstitial

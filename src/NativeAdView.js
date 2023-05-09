@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { findNodeHandle, requireNativeComponent, UIManager } from "react-native";
 import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
-import { NativeAssets } from "./NativeAssets";
 import { defaultAd, NativeAdContext } from "./NativeContext";
 import Wrapper from "./Wrapper";
 

@@ -142,6 +142,7 @@ export default class AdmixerBanner extends Component {
       },
     });
   }
+
   _onAdLoadFailed(event) {
     var errorCode = '';
     if (event && event.nativeEvent && event.nativeEvent.errorCode) {
@@ -151,26 +152,31 @@ export default class AdmixerBanner extends Component {
       this.props.onAdLoadFailed(errorCode);
     }
   }
+
   _onAdLoaded() {
     if (this.props.onAdLoaded) {
       this.props.onAdLoaded();
     }
   }
+
   _onAdExpanded() {
     if (this.props.onAdExpanded) {
       this.props.onAdExpanded();
     }
   }
+
   _onAdCollapsed() {
     if (this.props.onAdCollapsed) {
       this.props.onAdCollapsed();
     }
   }
+
   _onAdClicked(event) {
     if (this.props.onAdClicked) {
       this.props.onAdClicked(event);
     }
   }
+
   // For Android end
 
   componentDidMount() {
@@ -253,5 +259,6 @@ export default class AdmixerBanner extends Component {
     onAdCollapsedSubscription.remove();
     onAdClickedSubscription.remove();
   }
+
   // For iOS workaround end
 }

@@ -232,7 +232,7 @@ PODS:
     - React-cxxreact (= 0.63.5)
     - React-jsi (= 0.63.5)
   - React-jsinspector (0.63.5)
-  - react-native-admixer (0.2.7):
+  - react-native-admixer (0.3.1-rc.0):
     - React-Core
   - react-native-admixer-admob-mediation (0.2.4):
     - React-Core
@@ -422,7 +422,7 @@ SPEC CHECKSUMS:
   React-jsi: 7d908b17758178b076a05a254523f1a4227b53d2
   React-jsiexecutor: e06a32e42affb2bd89e4c8369349b5fcf787710c
   React-jsinspector: fdbc08866b34ae8e1b788ea1cbd9f9d1ca2aa3d6
-  react-native-admixer: f14ac91c505da65f2e8cdb77ad9db12e7af32344
+  react-native-admixer: 9857075c7cb47c7bf2f938bb5fdd146c149c6d72
   react-native-admixer-admob-mediation: 7a88d94753b6dcd674d5103ce48232eacb959fe5
   React-RCTActionSheet: e911b99f0d6fa7711ffc2f62d236b12a32771835
   React-RCTAnimation: ad8b853170a059faf31d6add34f67d22391bbe01

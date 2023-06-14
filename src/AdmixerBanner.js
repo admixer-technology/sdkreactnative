@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { requireNativeComponent, View, StyleSheet, NativeAppEventEmitter, Dimensions } from 'react-native';
+import {
+  requireNativeComponent,
+  View,
+  StyleSheet,
+  NativeAppEventEmitter,
+  Dimensions,
+} from 'react-native';
 
 const BannerPropTypes = {
   config: PropTypes.shape({
@@ -8,11 +14,15 @@ const BannerPropTypes = {
     bannerWidth: PropTypes.number.isRequired,
     bannerHeight: PropTypes.number.isRequired,
     sizes: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-    clickThrough: PropTypes.oneOf(["open_sdk_browser", "open_device_browser", "return_url"]),
+    clickThrough: PropTypes.oneOf([
+      'open_sdk_browser',
+      'open_device_browser',
+      'return_url',
+    ]),
     autoRefreshInterval: PropTypes.number,
     autoRefreshEnabled: PropTypes.bool,
     resizeAdToFitContainer: PropTypes.bool,
-    loadMode: PropTypes.oneOf(["automatically", "when_visible"]),
+    loadMode: PropTypes.oneOf(['automatically', 'when_visible']),
   }).isRequired,
   loadAd: PropTypes.bool,
   onAdLoadFailed: PropTypes.func,
@@ -43,7 +53,10 @@ export default class AdmixerBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      style: { width: this.props.config.bannerWidth, height: props.config.bannerHeight },
+      style: {
+        width: this.props.config.bannerWidth,
+        height: props.config.bannerHeight,
+      },
       loadAd: false,
     };
     // For Android Start
@@ -59,54 +72,64 @@ export default class AdmixerBanner extends Component {
     this.bannerId = Math.floor(Math.random() * 100000);
     this.props.config.bannerId = this.bannerId;
 
-    onAdLoadedSubscription = NativeAppEventEmitter.addListener('onAdLoadedAMBannerView' + this.bannerId,
+    onAdLoadedSubscription = NativeAppEventEmitter.addListener(
+      'onAdLoadedAMBannerView' + this.bannerId,
       (body) => {
         if (this.props.onAdLoaded) {
           this.props.onAdLoaded();
         }
-      });
+      }
+    );
 
-    onResizeSubscription = NativeAppEventEmitter.addListener('onResizeAMBannerView' + this.bannerId,
+    onResizeSubscription = NativeAppEventEmitter.addListener(
+      'onResizeAMBannerView' + this.bannerId,
       (body) => {
         this.setState({
           ...this.state,
           style: {
             width: body.width,
             height: body.height,
-          }
+          },
         });
       }
     );
 
-    onAdLoadFailedSubscription = NativeAppEventEmitter.addListener('onAdLoadFailedAMBannerView' + this.bannerId,
+    onAdLoadFailedSubscription = NativeAppEventEmitter.addListener(
+      'onAdLoadFailedAMBannerView' + this.bannerId,
       (body) => {
         if (this.props.onAdLoadFailed) {
           this.props.onAdLoadFailed(body.errorCode);
         }
-      });
+      }
+    );
 
-    onAdExpandedSubscription = NativeAppEventEmitter.addListener('onAdExpandedAMBannerView' + this.bannerId,
+    onAdExpandedSubscription = NativeAppEventEmitter.addListener(
+      'onAdExpandedAMBannerView' + this.bannerId,
       (body) => {
         if (this.props.onAdExpanded) {
           this.props.onAdExpanded();
         }
-      });
+      }
+    );
 
-    onAdCollapsedSubscription = NativeAppEventEmitter.addListener('onAdCollapsedAMBannerView' + this.bannerId,
+    onAdCollapsedSubscription = NativeAppEventEmitter.addListener(
+      'onAdCollapsedAMBannerView' + this.bannerId,
       (body) => {
         if (this.props.onAdCollapsed) {
           this.props.onAdCollapsed();
         }
-      });
+      }
+    );
 
-    onAdClickedSubscription = NativeAppEventEmitter.addListener('onAdClickedAMBannerView' + this.bannerId,
+    onAdClickedSubscription = NativeAppEventEmitter.addListener(
+      'onAdClickedAMBannerView' + this.bannerId,
       (body) => {
         if (this.props.onAdClicked) {
           this.props.onAdClicked(body);
         }
-      });
+      }
+    );
     // For iOS workaround end
-
   }
 
   // For Android start
@@ -120,7 +143,7 @@ export default class AdmixerBanner extends Component {
     });
   }
   _onAdLoadFailed(event) {
-    var errorCode = "";
+    var errorCode = '';
     if (event && event.nativeEvent && event.nativeEvent.errorCode) {
       errorCode = event.nativeEvent.errorCode;
     }
@@ -151,7 +174,7 @@ export default class AdmixerBanner extends Component {
   // For Android end
 
   componentDidMount() {
-    if(this.props?.config?.loadMode === 'when_visible') {
+    if (this.props?.config?.loadMode === 'when_visible') {
       this.startWatchingVisibility();
     }
   }
@@ -161,21 +184,25 @@ export default class AdmixerBanner extends Component {
   }
 
   startWatchingVisibility() {
-    if(this.interval) {
+    if (this.interval) {
       return;
     }
     this.interval = setInterval(() => {
-      if(!this.viewRef) {
+      if (!this.viewRef) {
         return;
       }
       this.viewRef.measure((x, y, width, height, pageX, pageY) => {
-        const isVisible = this.isInViewPort(pageY, pageY + height, pageX + width);
-        if(isVisible === true && this.state.loadAd === false) {
+        const isVisible = this.isInViewPort(
+          pageY,
+          pageY + height,
+          pageX + width
+        );
+        if (isVisible === true && this.state.loadAd === false) {
           this.setState({
             ...this.state,
             loadAd: true,
           });
-        } 
+        }
       });
     }, 300);
   }
@@ -186,18 +213,20 @@ export default class AdmixerBanner extends Component {
 
   isInViewPort(rectTop, rectBottom, rectWidth) {
     const window = Dimensions.get('window');
-    return rectBottom != 0 && rectTop >= 0 &&
-      rectTop <= window.height && rectWidth > 0 &&
-      rectWidth <= window.width;
+    return (
+      ((rectTop > 0 && rectTop < window.height) ||
+        (rectBottom > 0 && rectBottom < window.height)) &&
+      rectWidth > 0 &&
+      rectWidth <= window.width
+    );
   }
 
   render() {
-
     return (
       <View
         collapsable={false}
-        ref={component => {
-          this.viewRef = component
+        ref={(component) => {
+          this.viewRef = component;
         }}
       >
         <Banner
